@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C1AC5AF0-ACAC-40E3-BD3E-BD96AF25E12E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Load</RootNamespace>
+    <AssemblyName>Load</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApproximatString.cs" />
+    <Compile Include="dm_vinabiz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dm_vinabiz.Designer.cs">
+      <DependentUpon>dm_vinabiz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCauHinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCauHinh.Designer.cs">
+      <DependentUpon>frmCauHinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangPassword.Designer.cs">
+      <DependentUpon>frmChangPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDialogColumn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialogColumn.Designer.cs">
+      <DependentUpon>frmDialogColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDM_batdongsan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDM_batdongsan.Designer.cs">
+      <DependentUpon>frmDM_batdongsan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDM_hosocongty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDM_hosocongty.Designer.cs">
+      <DependentUpon>frmDM_hosocongty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDM_Muaban_timviec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDM_Muaban_timviec.Designer.cs">
+      <DependentUpon>frmDM_Muaban_timviec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDM_Thitruongsi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDM_Thitruongsi.Designer.cs">
+      <DependentUpon>frmDM_Thitruongsi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDM_TongHopCol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDM_TongHopCol.Designer.cs">
+      <DependentUpon>frmDM_TongHopCol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDM_scanner2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDM_scanner2.Designer.cs">
+      <DependentUpon>frmDM_scanner2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDM_scanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDM_scanner.Designer.cs">
+      <DependentUpon>frmDM_scanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDM_trangvang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDM_trangvang.Designer.cs">
+      <DependentUpon>frmDM_trangvang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExportbatdongsan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExportbatdongsan.Designer.cs">
+      <DependentUpon>frmExportbatdongsan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExportScanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExportScanner.Designer.cs">
+      <DependentUpon>frmExportScanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExporttimviec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExporttimviec.Designer.cs">
+      <DependentUpon>frmExporttimviec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExporttrangvang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExporttrangvang.Designer.cs">
+      <DependentUpon>frmExporttrangvang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExportvatgia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExportvatgia.Designer.cs">
+      <DependentUpon>frmExportvatgia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDM_Vatgia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDM_Vatgia.Designer.cs">
+      <DependentUpon>frmDM_Vatgia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExporthosocongty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExporthosocongty.Designer.cs">
+      <DependentUpon>frmExporthosocongty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExportVinabiz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExportVinabiz.Designer.cs">
+      <DependentUpon>frmExportVinabiz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSaveAs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSaveAs.Designer.cs">
+      <DependentUpon>frmSaveAs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmthemLinkVinabix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmthemLinkVinabix.Designer.cs">
+      <DependentUpon>frmthemLinkVinabix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTonghop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTonghop.Designer.cs">
+      <DependentUpon>frmTonghop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_chuanhoanPhone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_chuanhoanPhone.Designer.cs">
+      <DependentUpon>frm_chuanhoanPhone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyDownloader.cs" />
+    <Compile Include="PleaseWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PleaseWait.Designer.cs">
+      <DependentUpon>PleaseWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SQLDatabase.cs" />
+    <Compile Include="Utilities.cs" />
+    <Compile Include="WebRequestExtensions.cs" />
+    <EmbeddedResource Include="dm_vinabiz.resx">
+      <DependentUpon>dm_vinabiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCauHinh.resx">
+      <DependentUpon>frmCauHinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangPassword.resx">
+      <DependentUpon>frmChangPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialogColumn.resx">
+      <DependentUpon>frmDialogColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDM_batdongsan.resx">
+      <DependentUpon>frmDM_batdongsan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDM_hosocongty.resx">
+      <DependentUpon>frmDM_hosocongty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDM_Muaban_timviec.resx">
+      <DependentUpon>frmDM_Muaban_timviec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDM_scanner2.resx">
+      <DependentUpon>frmDM_scanner2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDM_scanner.resx">
+      <DependentUpon>frmDM_scanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDM_Thitruongsi.resx">
+      <DependentUpon>frmDM_Thitruongsi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDM_TongHopCol.resx">
+      <DependentUpon>frmDM_TongHopCol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDM_trangvang.resx">
+      <DependentUpon>frmDM_trangvang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExportbatdongsan.resx">
+      <DependentUpon>frmExportbatdongsan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExportScanner.resx">
+      <DependentUpon>frmExportScanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExporttimviec.resx">
+      <DependentUpon>frmExporttimviec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExporttrangvang.resx">
+      <DependentUpon>frmExporttrangvang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExportvatgia.resx">
+      <DependentUpon>frmExportvatgia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDM_Vatgia.resx">
+      <DependentUpon>frmDM_Vatgia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExporthosocongty.resx">
+      <DependentUpon>frmExporthosocongty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExportVinabiz.resx">
+      <DependentUpon>frmExportVinabiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSaveAs.resx">
+      <DependentUpon>frmSaveAs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmthemLinkVinabix.resx">
+      <DependentUpon>frmthemLinkVinabix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTonghop.resx">
+      <DependentUpon>frmTonghop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_chuanhoanPhone.resx">
+      <DependentUpon>frm_chuanhoanPhone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PleaseWait.resx">
+      <DependentUpon>PleaseWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajax-loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1474877403_Import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1474877428_Export.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
