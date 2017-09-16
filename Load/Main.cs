@@ -1188,11 +1188,9 @@ namespace Load
 
                     /*load danh sách đầu số*/
 
-                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct left(dauso,2) dauso,lenght " +
-                                                                                 "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) <> '08' " +
-                                                                                 "  union " +
-                                                                                 "  select distinct left(dauso, 4) dauso, lenght " +
-                                                                                 "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) = '08'");
+                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
+                                                  "  from dau_so where dauso is not null and dauso <> ''");
+
                     Dictionary<string, int> dauso = new Dictionary<string, int>();
                     foreach (DataRow item in tb_dausp.Rows)
                     {
@@ -1687,11 +1685,9 @@ namespace Load
                 Utilities_trangvang._regexs = SQLDatabase.LoadRegexs("select * from Regexs");
                 /*load danh sách đầu số*/
 
-                DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct left(dauso,2) dauso,lenght " +
-                                                                             "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) <> '08' " +
-                                                                             "  union " +
-                                                                             "  select distinct left(dauso, 4) dauso, lenght " +
-                                                                             "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) = '08'");
+                DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
+                                                   "  from dau_so where dauso is not null and dauso <> ''");
+
                 Dictionary<string, int> dauso = new Dictionary<string, int>();
                 foreach (DataRow item in tb_dausp.Rows)
                 {
@@ -2599,11 +2595,9 @@ namespace Load
                     Utilities_scanner._HienThiChiTietQuet = chkChiTietquet.Checked;
                     /*load danh sách đầu số*/
 
-                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct left(dauso,2) dauso,lenght " +
-                                                                                 "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) <> '08' " +
-                                                                                 "  union " +
-                                                                                 "  select distinct left(dauso, 4) dauso, lenght " +
-                                                                                 "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) = '08'");
+                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
+                                                  "  from dau_so where dauso is not null and dauso <> ''");
+
                     Dictionary<string, int> dauso = new Dictionary<string, int>();
                     foreach (DataRow item in tb_dausp.Rows)
                     {
@@ -2931,11 +2925,9 @@ namespace Load
 
                     /*load danh sách đầu số*/
 
-                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct left(dauso,2) dauso,lenght " +
-                                                                                 "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) <> '08' " +
-                                                                                 "  union " +
-                                                                                 "  select distinct left(dauso, 4) dauso, lenght " +
-                                                                                 "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) = '08'");
+                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
+                                                  "  from dau_so where dauso is not null and dauso <> ''");
+
                     Dictionary<string, int> dauso = new Dictionary<string, int>();
                     foreach (DataRow item in tb_dausp.Rows)
                     {
@@ -3489,11 +3481,9 @@ namespace Load
 
                     /*load danh sách đầu số*/
 
-                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct left(dauso,2) dauso,lenght " +
-                                                                                 "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) <> '08' " +
-                                                                                 "  union " +
-                                                                                 "  select distinct left(dauso, 4) dauso, lenght " +
-                                                                                 "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) = '08'");
+                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
+                                                  "  from dau_so where dauso is not null and dauso <> ''");
+
                     Dictionary<string, int> dauso = new Dictionary<string, int>();
                     foreach (DataRow item in tb_dausp.Rows)
                     {
@@ -4086,11 +4076,9 @@ namespace Load
                 Utilities_vinabiz._listquetcan = SQLDatabase.Loaddm_vinabiz_map("select * from dm_vinabiz_map");
                 Utilities_vinabiz._regexs = SQLDatabase.LoadRegexs("select * from Regexs");
                 /*load danh sách đầu số*/
-                DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct left(dauso,2) dauso,lenght "+
-                                                              "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) <> '08' "+
-                                                              "  union "+
-                                                              "  select distinct left(dauso, 4) dauso, lenght "+
-                                                              "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) = '08'");
+                DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
+                                                   "  from dau_so where dauso is not null and dauso <> ''");
+
                 Dictionary<string, int> dauso = new Dictionary<string, int>();
                 foreach (DataRow item in tb_dausp.Rows)
                 {
@@ -4695,11 +4683,9 @@ namespace Load
 
                     /*load danh sách đầu số*/
 
-                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct left(dauso,2) dauso,lenght " +
-                                                                                 "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) <> '08' " +
-                                                                                 "  union " +
-                                                                                 "  select distinct left(dauso, 4) dauso, lenght " +
-                                                                                 "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) = '08'");
+                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
+                                                  "  from dau_so where dauso is not null and dauso <> ''");
+
                     Dictionary<string, int> dauso = new Dictionary<string, int>();
                     foreach (DataRow item in tb_dausp.Rows)
                     {
