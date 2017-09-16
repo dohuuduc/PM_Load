@@ -187,11 +187,8 @@ namespace Load {
                     Utilities_scanner._gioihan_lienket = ConvertType.ToInt(txtGioiHan.Text);
                     /*load danh sách đầu số*/
 
-                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct left(dauso,2) dauso,lenght " +
-                                                                                 "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) <> '08' " +
-                                                                                 "  union " +
-                                                                                 "  select distinct left(dauso, 4) dauso, lenght " +
-                                                                                 "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) = '08'");
+                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
+                                                   "  from dau_so where dauso is not null and dauso <> ''");
                     Dictionary<string, int> dauso = new Dictionary<string, int>();
                     foreach (DataRow item in tb_dausp.Rows) {
                         dauso.Add(item["dauso"].ToString(), ConvertType.ToInt(item["lenght"].ToString()));
