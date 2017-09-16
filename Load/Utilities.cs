@@ -1817,15 +1817,19 @@ namespace Load
                 List<string> result = datahtml.Where(x => dauso.Keys.Any(y => x.Contains(y))).ToList();
                 foreach (var item in result)
                 {
-                    foreach (regexs re in _regexs)
+                    bool kiemtra = dauso.Where(x => (item.StartsWith(x.Key) && item.Length == x.Value)).Count() > 0;
+                    if (kiemtra)
                     {
-                        Regex rg = new Regex(string.Format(@"{0}", re.Regex));
-                        MatchCollection m = rg.Matches(item);
-                        foreach (Match g in m)
+                        foreach (regexs re in _regexs)
                         {
-                            if (g.Groups[0].Value.Length > 0)
-                                if (phoneList.Count(x => x.Contains(g.Groups[0].Value)) == 0)
-                                    phoneList.Add(g.Groups[0].Value);
+                            Regex rg = new Regex(string.Format(@"{0}", re.Regex));
+                            MatchCollection m = rg.Matches(item);
+                            foreach (Match g in m)
+                            {
+                                if (g.Groups[0].Value.Length > 0)
+                                    if (phoneList.Count(x => x.Contains(g.Groups[0].Value)) == 0)
+                                        phoneList.Add(g.Groups[0].Value);
+                            }
                         }
                     }
                 }
@@ -1835,11 +1839,9 @@ namespace Load
                     string dienthoai = item.Replace(" ", "").Replace(".", "").Replace("-", "");
                     if (dienthoai.Length >= 10 && dienthoai.Length <= 11)
                     {
-                        List<string> listdt = new List<string>();
-                        listdt.Add(dienthoai);
-                        List<string> result1 = listdt.Where(x => dauso.Keys.Any(y => x.StartsWith(y)) && dauso.Values.Any(y => x.Length == y)).ToList();
-                        if (result1.Count() > 0)
-                            phoneChuan.Add(result1.FirstOrDefault());
+                        bool kiemtra = dauso.Where(x=>(dienthoai.StartsWith(x.Key) && dienthoai.Length ==x.Value)).Count() >0 ;
+                        if (kiemtra)
+                            phoneChuan.Add(dienthoai);
                     }
                 }
                 return phoneChuan.Distinct().ToList();

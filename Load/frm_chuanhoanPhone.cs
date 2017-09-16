@@ -24,11 +24,8 @@ namespace Load
         {
             Utilities_vinabiz._listquetcan = SQLDatabase.Loaddm_vinabiz_map("select * from dm_vinabiz_map");
             _regexs = SQLDatabase.LoadRegexs("select * from Regexs");
-            DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct left(dauso,2) dauso,lenght " +
-                                                              "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) <> '08' " +
-                                                              "  union " +
-                                                              "  select distinct left(dauso, 4) dauso, lenght " +
-                                                              "  from dau_so where dauso is not null and dauso <> '' and LEFT(dauso, 2) = '08'");
+            DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
+                                                              "  from dau_so where dauso is not null and dauso <> ''");
             _dauso = new Dictionary<string, int>();
             foreach (DataRow item in tb_dausp.Rows)
             {
@@ -50,6 +47,7 @@ namespace Load
                 foreach (vinabiz item in dm)
                 {
                     string strPhone1 = item.ttlh_dienthoai1;
+                    //string strPhone1 = "0983024494";
                     List<string> arrPhone = Utilities_scanner.getPhoneHTML(new List<string>() { strPhone1 }, _dauso, _regexs);
                     if (arrPhone.Count() != 0)
                     {
