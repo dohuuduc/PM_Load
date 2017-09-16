@@ -258,7 +258,7 @@ namespace Load
                     }
                     if (objPleaseWait != null)
                         objPleaseWait.Close();
-                    MessageBox.Show("Xuất file thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Xuất file thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
