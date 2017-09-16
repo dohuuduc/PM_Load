@@ -166,7 +166,7 @@ namespace Load {
                 _queue.InitBindLinsAll(ConvertType.ToInt(_comboxnhom),ref _tonglink);
                 _block = false;
 
-                Utilities_scanner._regexs = SQLDatabase.LoadRegexs("select * from Regexs order by OrderID desc");
+               
 
                 if (btn_start.Text == "Start") {
                     btn_start.Text = "Stop";
@@ -187,6 +187,7 @@ namespace Load {
                     Utilities_scanner._gioihan_lienket = ConvertType.ToInt(txtGioiHan.Text);
                     /*load danh sách đầu số*/
 
+                    Utilities_scanner._regexs = SQLDatabase.LoadRegexs("select * from Regexs order by OrderID desc");
                     DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
                                                    "  from dau_so where dauso is not null and dauso <> ''");
                     Dictionary<string, int> dauso = new Dictionary<string, int>();

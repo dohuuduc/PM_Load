@@ -65,6 +65,9 @@ namespace Load
         /**********07/2017 (thitruongsi.com) ****************/
         WebBrowser wThiTruongSi = new WebBrowser();
 
+        private Dictionary<string, int> _dauso;
+        private List<regexs> _regexs;
+
         #region Hệ Thống
         public Main()
         {
@@ -168,6 +171,18 @@ namespace Load
                 gw_si_chon.DataSource = _table_thitruongsi;
                 gw_si_chon.Sort(gw_si_chon.Columns["id_si_chon"], ListSortDirection.Ascending);
 
+                /**************************************************************/
+                _regexs = SQLDatabase.LoadRegexs("select * from Regexs");
+                /*load danh sách đầu số*/
+                DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
+                                                   "  from dau_so where dauso is not null and dauso <> ''");
+
+                Dictionary<string, int> dauso = new Dictionary<string, int>();
+                foreach (DataRow item in tb_dausp.Rows)
+                {
+                    dauso.Add(item["dauso"].ToString(), ConvertType.ToInt(item["lenght"]));
+                }
+                _dauso = dauso;
 
 
             }
@@ -1187,17 +1202,8 @@ namespace Load
                         Utilities_vatgia._PathLimit = -1;
 
                     /*load danh sách đầu số*/
-
-                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
-                                                  "  from dau_so where dauso is not null and dauso <> ''");
-
-                    Dictionary<string, int> dauso = new Dictionary<string, int>();
-                    foreach (DataRow item in tb_dausp.Rows)
-                    {
-                        dauso.Add(item["dauso"].ToString(), ConvertType.ToInt(item["lenght"].ToString()));
-                    }
-                    Utilities_vatgia._dau_so = dauso;
-                    Utilities_scanner._regexs = SQLDatabase.LoadRegexs("select * from Regexs order by OrderID desc");
+                    Utilities_vatgia._dau_so = _dauso;
+                    Utilities_vatgia._regexs = _regexs;
 
                 }
                 else
@@ -1682,18 +1688,8 @@ namespace Load
 
                 Utilities_trangvang._Timeout = ConvertType.ToInt(txt_trangvang_timeout.Text);
                 Utilities_trangvang._Sleep = ConvertType.ToInt(txt_trangvang_sleep.Text);
-                Utilities_trangvang._regexs = SQLDatabase.LoadRegexs("select * from Regexs");
-                /*load danh sách đầu số*/
-
-                DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
-                                                   "  from dau_so where dauso is not null and dauso <> ''");
-
-                Dictionary<string, int> dauso = new Dictionary<string, int>();
-                foreach (DataRow item in tb_dausp.Rows)
-                {
-                    dauso.Add(item["dauso"].ToString(), ConvertType.ToInt(item["lenght"]));
-                }
-                Utilities_trangvang._dau_so = dauso;
+                Utilities_trangvang._regexs = _regexs;
+                Utilities_trangvang._dau_so = _dauso;
 
                 if (btn_start.Text == "Start")
                 {
@@ -2562,7 +2558,7 @@ namespace Load
                 Utilities_scanner._tonglink = _tonglink;
                 lbl_scance_sl_Link.Text = _tonglink.ToString("#,#", CultureInfo.InvariantCulture);
                 lbl_handoi.Text = _queue.CountQueue1().ToString("#,#", CultureInfo.InvariantCulture);
-                Utilities_scanner._regexs = SQLDatabase.LoadRegexs("select * from Regexs order by OrderID desc");
+                
                 Utilities_scanner._UserAgent = cmb_scannce_UserAgent.SelectedItem.ToString();
 
                 nSoLuong = ConvertType.ToInt(txtSoLuong.Text);
@@ -2595,15 +2591,8 @@ namespace Load
                     Utilities_scanner._HienThiChiTietQuet = chkChiTietquet.Checked;
                     /*load danh sách đầu số*/
 
-                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
-                                                  "  from dau_so where dauso is not null and dauso <> ''");
-
-                    Dictionary<string, int> dauso = new Dictionary<string, int>();
-                    foreach (DataRow item in tb_dausp.Rows)
-                    {
-                        dauso.Add(item["dauso"].ToString(), ConvertType.ToInt(item["lenght"].ToString()));
-                    }
-                    Utilities_scanner._dau_so = dauso;
+                    Utilities_scanner._regexs = _regexs;
+                    Utilities_scanner._dau_so = _dauso;
                     comboBox1.Enabled = false;
                     txtDoSau.Enabled = false;
                     txtSoLuong.Enabled = false;
@@ -2924,17 +2913,8 @@ namespace Load
                         Utilities_muaban._PathLimit = -1;
 
                     /*load danh sách đầu số*/
-
-                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
-                                                  "  from dau_so where dauso is not null and dauso <> ''");
-
-                    Dictionary<string, int> dauso = new Dictionary<string, int>();
-                    foreach (DataRow item in tb_dausp.Rows)
-                    {
-                        dauso.Add(item["dauso"].ToString(), ConvertType.ToInt(item["lenght"].ToString()));
-                    }
-                    Utilities_muaban._dau_so = dauso;
-                    Utilities_muaban._regexs = SQLDatabase.LoadRegexs("select * from Regexs order by OrderID desc");
+                    Utilities_muaban._dau_so = _dauso;
+                    Utilities_muaban._regexs = _regexs;
                     Utilities_muaban._thanhcong = 0;
                     Utilities_muaban._thatbai = 0;
                     Utilities_muaban._modelTrang = _modelTrang;
@@ -3480,17 +3460,8 @@ namespace Load
 
 
                     /*load danh sách đầu số*/
-
-                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
-                                                  "  from dau_so where dauso is not null and dauso <> ''");
-
-                    Dictionary<string, int> dauso = new Dictionary<string, int>();
-                    foreach (DataRow item in tb_dausp.Rows)
-                    {
-                        dauso.Add(item["dauso"].ToString(), ConvertType.ToInt(item["lenght"].ToString()));
-                    }
-                    Utilities_batdongsan._dau_so = dauso;
-                    Utilities_batdongsan._regexs = SQLDatabase.LoadRegexs("select * from Regexs order by OrderID desc");
+                    Utilities_batdongsan._dau_so = _dauso;
+                    Utilities_batdongsan._regexs = _regexs;
 
                    
                 }
@@ -4074,17 +4045,8 @@ namespace Load
                 Utilities_vinabiz._Timeout = ConvertType.ToInt(txt_trangvang_timeout.Text);
                 Utilities_vinabiz._Sleep = ConvertType.ToInt(txt_trangvang_sleep.Text);
                 Utilities_vinabiz._listquetcan = SQLDatabase.Loaddm_vinabiz_map("select * from dm_vinabiz_map");
-                Utilities_vinabiz._regexs = SQLDatabase.LoadRegexs("select * from Regexs");
-                /*load danh sách đầu số*/
-                DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
-                                                   "  from dau_so where dauso is not null and dauso <> ''");
-
-                Dictionary<string, int> dauso = new Dictionary<string, int>();
-                foreach (DataRow item in tb_dausp.Rows)
-                {
-                    dauso.Add(item["dauso"].ToString(), ConvertType.ToInt(item["lenght"]));
-                }
-                Utilities_vinabiz._dau_so = dauso;
+                Utilities_vinabiz._regexs = _regexs;
+                Utilities_vinabiz._dau_so = _dauso;
 
                 if (btn_vinabiz_Start.Text == "Start")
                 {
@@ -4682,17 +4644,8 @@ namespace Load
 
 
                     /*load danh sách đầu số*/
-
-                    DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
-                                                  "  from dau_so where dauso is not null and dauso <> ''");
-
-                    Dictionary<string, int> dauso = new Dictionary<string, int>();
-                    foreach (DataRow item in tb_dausp.Rows)
-                    {
-                        dauso.Add(item["dauso"].ToString(), ConvertType.ToInt(item["lenght"].ToString()));
-                    }
-                    Utilities_thitruongsi._dau_so = dauso;
-                    Utilities_thitruongsi._regexs = SQLDatabase.LoadRegexs("select * from Regexs order by OrderID desc");
+                    Utilities_thitruongsi._dau_so = _dauso;
+                    Utilities_thitruongsi._regexs = _regexs;
 
 
                 }

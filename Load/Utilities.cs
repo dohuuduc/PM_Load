@@ -1257,6 +1257,7 @@ namespace Load
         public static int _thanhcong = 0;
         public static int _thatbai = 0;
         public static Dictionary<string, int> _dau_so;
+        public static List<regexs> _regexs;
 
         private static LogWriter writer;
 
@@ -1535,7 +1536,7 @@ namespace Load
 
                 /*******************************************************/
 
-                List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(strLienHeArr, _dau_so);
+                List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(strLienHeArr, _dau_so,_regexs);
 
                 vg.didong1 = dsdienthoai.Count() >= 1 ? dsdienthoai[0].ToString() : "";
                 vg.didong2 = dsdienthoai.Count() >= 2 ? dsdienthoai[1].ToString() : "";
@@ -1717,65 +1718,21 @@ namespace Load
                 List<string> result = datahtml.Where(x => dauso.Keys.Any(y => x.Contains(y))).ToList();
                 foreach (var item in result)
                 {
-                    foreach (regexs re in _regexs)
+                    bool kiemtra = dauso.Where(x => (item.StartsWith(x.Key) && item.Length == x.Value)).Count() > 0;
+                    if (kiemtra)
                     {
-                        Regex rg = new Regex(string.Format(@"{0}", re.Regex));
-                        MatchCollection m = rg.Matches(item);
-                        foreach (Match g in m)
+                        foreach (regexs re in _regexs)
                         {
-                            if (g.Groups[0].Value.Length > 0)
-                                if (phoneList.Count(x => x.Contains(g.Groups[0].Value)) == 0)
-                                    phoneList.Add(g.Groups[0].Value);
+                            Regex rg = new Regex(string.Format(@"{0}", re.Regex));
+                            MatchCollection m = rg.Matches(item);
+                            foreach (Match g in m)
+                            {
+                                if (g.Groups[0].Value.Length > 0)
+                                    if (phoneList.Count(x => x.Contains(g.Groups[0].Value)) == 0)
+                                        phoneList.Add(g.Groups[0].Value);
+                            }
                         }
                     }
-                    #region đóng
-                    /*-----------------------------*/
-                    /*
-                     * 0123456789, 012-345-6789, (012)-345-6789, (012)3456789 012 3456789, 012 345 6789, 
-                     * 012 345-6789, (012) 345-6789, 012.345.6789
-                     */
-                    //Regex rg = new Regex(@"\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})");
-                    //MatchCollection m = rg.Matches(item);
-                    //foreach (Match g in m) {
-                    //    if (g.Groups[0].Value.Length > 0)
-                    //        if (phoneList.Count(x => x.Contains(g.Groups[0].Value))==0)
-                    //            phoneList.Add(g.Groups[0].Value);
-                    //}
-                    /*-----------------------------*/
-                    /*
-                     * 09.81.82.86.87 
-                     */
-                    //rg = new Regex(@"\(?([0-9]{2})\)?[-. ]?([0-9]{2})[-. ]?([0-9]{2})?[-. ]?([0-9]{2})?[-. ]?([0-9]{2})");
-                    //m = rg.Matches(item);
-                    //foreach (Match g in m) {
-                    //    if (g.Groups[0].Value.Length > 0)
-                    //        if (phoneList.Count(x => x.Contains(g.Groups[0].Value)) == 0)
-                    //            phoneList.Add(g.Groups[0].Value);
-                    //}
-                    /*
-                     *0961.619.555 
-                     */
-                    //rg = new Regex(@"\(?([0-9]{4})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{3})");
-                    //m = rg.Matches(item);
-                    //foreach (Match g in m) {
-                    //    if (g.Groups[0].Value.Length > 0)
-                    //        if (phoneList.Count(x => x.Contains(g.Groups[0].Value)) == 0)
-                    //            phoneList.Add(g.Groups[0].Value);
-                    //}
-                    /*
-                     * 09.7333.7771
-                     */
-                    //rg = new Regex(@"\(?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})");
-                    //m = rg.Matches(item);
-                    //foreach (Match g in m) {
-                    //    if (g.Groups[0].Value.Length > 0)
-                    //        if (phoneList.Count(x => x.Contains(g.Groups[0].Value)) == 0)
-                    //            phoneList.Add(g.Groups[0].Value);
-                    //}
-                    /*
-                     * 
-                     */
-                    #endregion
                 }
                 /*xu ly so lieu*/
                 foreach (var item in phoneList)
@@ -1783,15 +1740,12 @@ namespace Load
                     string dienthoai = item.Replace(" ", "").Replace(".", "").Replace("-", "");
                     if (dienthoai.Length >= 10 && dienthoai.Length <= 11)
                     {
-                        List<string> listdt = new List<string>();
-                        listdt.Add(dienthoai);
-                        List<string> result1 = listdt.Where(x => dauso.Keys.Any(y => x.StartsWith(y)) && dauso.Values.Any(y => x.Length == y)).ToList();
-                        if (result1.Count() > 0)
-                            phoneChuan.Add(result1.FirstOrDefault());
+                        bool kiemtra = dauso.Where(x => (dienthoai.StartsWith(x.Key) && dienthoai.Length == x.Value)).Count() > 0;
+                        if (kiemtra)
+                            phoneChuan.Add(dienthoai);
                     }
                 }
                 return phoneChuan.Distinct().ToList();
-
             }
             catch (Exception ex)
             {

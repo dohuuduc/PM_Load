@@ -24,8 +24,8 @@ namespace Load
         {
             Utilities_vinabiz._listquetcan = SQLDatabase.Loaddm_vinabiz_map("select * from dm_vinabiz_map");
             _regexs = SQLDatabase.LoadRegexs("select * from Regexs");
-            DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
-                                                              "  from dau_so where dauso is not null and dauso <> ''");
+            DataTable tb_dausp = SQLDatabase.ExcDataTable(" select distinct dauso dauso,lenght " +
+                                                          "  from dau_so where dauso is not null and dauso <> ''");
             _dauso = new Dictionary<string, int>();
             foreach (DataRow item in tb_dausp.Rows)
             {
@@ -129,7 +129,5 @@ namespace Load
                 MessageBox.Show("Đã chuẩn hoá xong 'Điện Thoại_Kế Toán'");
             }
         }
-
-        
     }
 }
