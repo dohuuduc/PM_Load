@@ -70,13 +70,10 @@ D:\hosocongty\temp2\temp2\Load\Load\obj\Debug\Load.csproj.GenerateResource.Cache
 D:\hosocongty\temp2\temp2\Load\Load\obj\Debug\Load.exe
 D:\hosocongty\temp2\temp2\Load\Load\obj\Debug\Load.pdb
 D:\App\PM_Load\trunk\Load\bin\Debug\Load.exe.config
-D:\App\PM_Load\trunk\Load\obj\Debug\Load.exe
-D:\App\PM_Load\trunk\Load\obj\Debug\Load.pdb
 D:\App\PM_Load\trunk\Load\bin\Debug\Load.exe
 D:\App\PM_Load\trunk\Load\bin\Debug\Load.pdb
 D:\App\PM_Load\trunk\Load\bin\Debug\Newtonsoft.Json.dll
 D:\App\PM_Load\trunk\Load\bin\Debug\Newtonsoft.Json.xml
-D:\App\PM_Load\trunk\Load\obj\Debug\Load.csprojResolveAssemblyReference.cache
 D:\App\PM_Load\trunk\Load\obj\Debug\Load.frm_dmVinabiz.resources
 D:\App\PM_Load\trunk\Load\obj\Debug\Load.frmCauHinh.resources
 D:\App\PM_Load\trunk\Load\obj\Debug\Load.frmChangPassword.resources
@@ -106,3 +103,5 @@ D:\App\PM_Load\trunk\Load\obj\Debug\Load.Main.resources
 D:\App\PM_Load\trunk\Load\obj\Debug\Load.PleaseWait.resources
 D:\App\PM_Load\trunk\Load\obj\Debug\Load.Properties.Resources.resources
 D:\App\PM_Load\trunk\Load\obj\Debug\Load.csproj.GenerateResource.Cache
+D:\App\PM_Load\trunk\Load\obj\Debug\Load.exe
+D:\App\PM_Load\trunk\Load\obj\Debug\Load.pdb
