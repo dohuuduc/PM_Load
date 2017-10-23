@@ -33,6 +33,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.btnVinabizDangNhap = new System.Windows.Forms.Button();
+            this.txtvinabiz_email = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -411,6 +418,9 @@
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.voToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.danhMụcToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.xuấtFileToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.hoSoCongTyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhMucToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -420,9 +430,6 @@
             this.wwwvatgiacomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mụcLụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.voToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.danhMụcToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.xuấtFileToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.sốĐiệnThoạiEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -440,6 +447,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_vnbiz_out)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_vnbiz_import)).BeginInit();
@@ -514,6 +522,8 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.checkBox2);
+            this.tabPage7.Controls.Add(this.groupBox12);
             this.tabPage7.Controls.Add(this.groupBox11);
             this.tabPage7.Controls.Add(this.lbl_vinabiz_phantram);
             this.tabPage7.Controls.Add(this.pr_vinabiz);
@@ -541,12 +551,84 @@
             this.tabPage7.Text = "vinabiz.org";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(492, 18);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(81, 17);
+            this.checkBox2.TabIndex = 161;
+            this.checkBox2.Text = "Đăng Nhập";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.btnVinabizDangNhap);
+            this.groupBox12.Controls.Add(this.txtvinabiz_email);
+            this.groupBox12.Controls.Add(this.textBox1);
+            this.groupBox12.Controls.Add(this.label42);
+            this.groupBox12.Controls.Add(this.label45);
+            this.groupBox12.Location = new System.Drawing.Point(8, 3);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(478, 38);
+            this.groupBox12.TabIndex = 160;
+            this.groupBox12.TabStop = false;
+            // 
+            // btnVinabizDangNhap
+            // 
+            this.btnVinabizDangNhap.Location = new System.Drawing.Point(390, 12);
+            this.btnVinabizDangNhap.Name = "btnVinabizDangNhap";
+            this.btnVinabizDangNhap.Size = new System.Drawing.Size(82, 20);
+            this.btnVinabizDangNhap.TabIndex = 160;
+            this.btnVinabizDangNhap.Text = "Đăng Nhập";
+            this.btnVinabizDangNhap.UseVisualStyleBackColor = true;
+            this.btnVinabizDangNhap.Click += new System.EventHandler(this.btnVinabizDangNhap_Click);
+            // 
+            // txtvinabiz_email
+            // 
+            this.txtvinabiz_email.ForeColor = System.Drawing.Color.Blue;
+            this.txtvinabiz_email.Location = new System.Drawing.Point(44, 12);
+            this.txtvinabiz_email.Name = "txtvinabiz_email";
+            this.txtvinabiz_email.Size = new System.Drawing.Size(174, 20);
+            this.txtvinabiz_email.TabIndex = 156;
+            this.txtvinabiz_email.Text = "doremonquan9@gmail.com";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(285, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '*';
+            this.textBox1.Size = new System.Drawing.Size(99, 20);
+            this.textBox1.TabIndex = 158;
+            this.textBox1.Text = "!@#$%^&*(";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(3, 15);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(35, 13);
+            this.label42.TabIndex = 157;
+            this.label42.Text = "E-mail";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(230, 15);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(53, 13);
+            this.label45.TabIndex = 159;
+            this.label45.Text = "Mật Khẩu";
+            // 
             // groupBox11
             // 
             this.groupBox11.Controls.Add(this.radioButton3);
             this.groupBox11.Controls.Add(this.radioButton2);
             this.groupBox11.Controls.Add(this.radioButton1);
-            this.groupBox11.Location = new System.Drawing.Point(6, 427);
+            this.groupBox11.Location = new System.Drawing.Point(3, 446);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(567, 44);
             this.groupBox11.TabIndex = 155;
@@ -605,7 +687,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(1169, 12);
+            this.button7.Location = new System.Drawing.Point(1169, 42);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(32, 23);
             this.button7.TabIndex = 51;
@@ -615,7 +697,7 @@
             // 
             // btn_vnbizdanhmuc
             // 
-            this.btn_vnbizdanhmuc.Location = new System.Drawing.Point(546, 14);
+            this.btn_vnbizdanhmuc.Location = new System.Drawing.Point(546, 44);
             this.btn_vnbizdanhmuc.Name = "btn_vnbizdanhmuc";
             this.btn_vnbizdanhmuc.Size = new System.Drawing.Size(27, 23);
             this.btn_vnbizdanhmuc.TabIndex = 50;
@@ -657,7 +739,7 @@
             // 
             this.pic_vnbiz_out.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_vnbiz_out.Image = global::Load.Properties.Resources._1474877403_Import;
-            this.pic_vnbiz_out.Location = new System.Drawing.Point(1058, 14);
+            this.pic_vnbiz_out.Location = new System.Drawing.Point(1058, 44);
             this.pic_vnbiz_out.Name = "pic_vnbiz_out";
             this.pic_vnbiz_out.Size = new System.Drawing.Size(24, 18);
             this.pic_vnbiz_out.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -669,7 +751,7 @@
             // 
             this.pic_vnbiz_import.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pic_vnbiz_import.Image = global::Load.Properties.Resources._1474877428_Export;
-            this.pic_vnbiz_import.Location = new System.Drawing.Point(1028, 14);
+            this.pic_vnbiz_import.Location = new System.Drawing.Point(1028, 44);
             this.pic_vnbiz_import.Name = "pic_vnbiz_import";
             this.pic_vnbiz_import.Size = new System.Drawing.Size(24, 18);
             this.pic_vnbiz_import.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -683,7 +765,7 @@
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.ForeColor = System.Drawing.Color.Purple;
-            this.label49.Location = new System.Drawing.Point(630, 19);
+            this.label49.Location = new System.Drawing.Point(630, 49);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(176, 13);
             this.label49.TabIndex = 44;
@@ -691,7 +773,7 @@
             // 
             // btn_vinabiz_Start
             // 
-            this.btn_vinabiz_Start.Location = new System.Drawing.Point(1088, 12);
+            this.btn_vinabiz_Start.Location = new System.Drawing.Point(1088, 42);
             this.btn_vinabiz_Start.Name = "btn_vinabiz_Start";
             this.btn_vinabiz_Start.Size = new System.Drawing.Size(75, 23);
             this.btn_vinabiz_Start.TabIndex = 42;
@@ -703,7 +785,7 @@
             // 
             this.cmb_vnBizNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_vnBizNhom.FormattingEnabled = true;
-            this.cmb_vnBizNhom.Location = new System.Drawing.Point(3, 14);
+            this.cmb_vnBizNhom.Location = new System.Drawing.Point(3, 44);
             this.cmb_vnBizNhom.Name = "cmb_vnBizNhom";
             this.cmb_vnBizNhom.Size = new System.Drawing.Size(536, 21);
             this.cmb_vnBizNhom.TabIndex = 43;
@@ -714,7 +796,7 @@
             this.lbl_vinabiz_khoa.AutoSize = true;
             this.lbl_vinabiz_khoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_vinabiz_khoa.ForeColor = System.Drawing.Color.Red;
-            this.lbl_vinabiz_khoa.Location = new System.Drawing.Point(628, 427);
+            this.lbl_vinabiz_khoa.Location = new System.Drawing.Point(630, 446);
             this.lbl_vinabiz_khoa.Name = "lbl_vinabiz_khoa";
             this.lbl_vinabiz_khoa.Size = new System.Drawing.Size(71, 13);
             this.lbl_vinabiz_khoa.TabIndex = 41;
@@ -736,9 +818,9 @@
             this.groupBox8.Controls.Add(this.label43);
             this.groupBox8.Controls.Add(this.txt_vinabiz_sleep);
             this.groupBox8.Controls.Add(this.label44);
-            this.groupBox8.Location = new System.Drawing.Point(3, 495);
+            this.groupBox8.Location = new System.Drawing.Point(3, 496);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(570, 76);
+            this.groupBox8.Size = new System.Drawing.Size(570, 75);
             this.groupBox8.TabIndex = 40;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Xử Lý";
@@ -812,7 +894,7 @@
             // 
             // btn_vinabiz_sleep_giam
             // 
-            this.btn_vinabiz_sleep_giam.Location = new System.Drawing.Point(505, 10);
+            this.btn_vinabiz_sleep_giam.Location = new System.Drawing.Point(505, 15);
             this.btn_vinabiz_sleep_giam.Name = "btn_vinabiz_sleep_giam";
             this.btn_vinabiz_sleep_giam.Size = new System.Drawing.Size(31, 23);
             this.btn_vinabiz_sleep_giam.TabIndex = 110;
@@ -821,7 +903,7 @@
             // 
             // btn_vinabiz_sleep_tang
             // 
-            this.btn_vinabiz_sleep_tang.Location = new System.Drawing.Point(537, 10);
+            this.btn_vinabiz_sleep_tang.Location = new System.Drawing.Point(537, 15);
             this.btn_vinabiz_sleep_tang.Name = "btn_vinabiz_sleep_tang";
             this.btn_vinabiz_sleep_tang.Size = new System.Drawing.Size(31, 23);
             this.btn_vinabiz_sleep_tang.TabIndex = 109;
@@ -855,7 +937,7 @@
             this.txt_vinabiz_sleep.BackColor = System.Drawing.Color.White;
             this.txt_vinabiz_sleep.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_vinabiz_sleep.ForeColor = System.Drawing.Color.Red;
-            this.txt_vinabiz_sleep.Location = new System.Drawing.Point(443, 12);
+            this.txt_vinabiz_sleep.Location = new System.Drawing.Point(443, 17);
             this.txt_vinabiz_sleep.Name = "txt_vinabiz_sleep";
             this.txt_vinabiz_sleep.ReadOnly = true;
             this.txt_vinabiz_sleep.Size = new System.Drawing.Size(55, 20);
@@ -865,7 +947,7 @@
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(386, 15);
+            this.label44.Location = new System.Drawing.Point(386, 20);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(51, 13);
             this.label44.TabIndex = 105;
@@ -875,7 +957,7 @@
             // 
             this.lbl_vinabiz_message1.AutoSize = true;
             this.lbl_vinabiz_message1.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_vinabiz_message1.Location = new System.Drawing.Point(630, 446);
+            this.lbl_vinabiz_message1.Location = new System.Drawing.Point(632, 465);
             this.lbl_vinabiz_message1.MaximumSize = new System.Drawing.Size(600, 0);
             this.lbl_vinabiz_message1.Name = "lbl_vinabiz_message1";
             this.lbl_vinabiz_message1.Size = new System.Drawing.Size(81, 13);
@@ -912,11 +994,11 @@
             this.trang_chon1,
             this.orderid_vnbiz_goc,
             this.dataGridViewTextBoxColumn11});
-            this.gw_vinabiz_goc.Location = new System.Drawing.Point(3, 41);
+            this.gw_vinabiz_goc.Location = new System.Drawing.Point(3, 71);
             this.gw_vinabiz_goc.Name = "gw_vinabiz_goc";
             this.gw_vinabiz_goc.RowHeadersVisible = false;
             this.gw_vinabiz_goc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gw_vinabiz_goc.Size = new System.Drawing.Size(570, 379);
+            this.gw_vinabiz_goc.Size = new System.Drawing.Size(570, 369);
             this.gw_vinabiz_goc.TabIndex = 37;
             this.gw_vinabiz_goc.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gw_vinabiz_goc_DataBindingComplete);
             // 
@@ -987,11 +1069,11 @@
             this.dataGridViewTextBoxColumn18,
             this.parentid_vnbiz_chon,
             this.orderid_vnbiz_chon});
-            this.gw_vinabiz_chon.Location = new System.Drawing.Point(631, 41);
+            this.gw_vinabiz_chon.Location = new System.Drawing.Point(631, 71);
             this.gw_vinabiz_chon.Name = "gw_vinabiz_chon";
             this.gw_vinabiz_chon.RowHeadersVisible = false;
             this.gw_vinabiz_chon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gw_vinabiz_chon.Size = new System.Drawing.Size(570, 379);
+            this.gw_vinabiz_chon.Size = new System.Drawing.Size(570, 369);
             this.gw_vinabiz_chon.TabIndex = 34;
             // 
             // id_vnbiz_chon
@@ -4666,6 +4748,29 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // voToolStripMenuItem
+            // 
+            this.voToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.danhMụcToolStripMenuItem1,
+            this.xuấtFileToolStripMenuItem2});
+            this.voToolStripMenuItem.Name = "voToolStripMenuItem";
+            this.voToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.voToolStripMenuItem.Text = "vinabiz";
+            // 
+            // danhMụcToolStripMenuItem1
+            // 
+            this.danhMụcToolStripMenuItem1.Name = "danhMụcToolStripMenuItem1";
+            this.danhMụcToolStripMenuItem1.Size = new System.Drawing.Size(129, 22);
+            this.danhMụcToolStripMenuItem1.Text = "Danh Mục";
+            this.danhMụcToolStripMenuItem1.Click += new System.EventHandler(this.danhMụcToolStripMenuItem1_Click);
+            // 
+            // xuấtFileToolStripMenuItem2
+            // 
+            this.xuấtFileToolStripMenuItem2.Name = "xuấtFileToolStripMenuItem2";
+            this.xuấtFileToolStripMenuItem2.Size = new System.Drawing.Size(129, 22);
+            this.xuấtFileToolStripMenuItem2.Text = "Xuất File";
+            this.xuấtFileToolStripMenuItem2.Click += new System.EventHandler(this.xuấtFileToolStripMenuItem2_Click);
+            // 
             // hoSoCongTyToolStripMenuItem
             // 
             this.hoSoCongTyToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -4734,29 +4839,6 @@
             this.exportToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.exportToolStripMenuItem1.Text = "Xuất File";
             this.exportToolStripMenuItem1.Click += new System.EventHandler(this.exportToolStripMenuItem1_Click);
-            // 
-            // voToolStripMenuItem
-            // 
-            this.voToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.danhMụcToolStripMenuItem1,
-            this.xuấtFileToolStripMenuItem2});
-            this.voToolStripMenuItem.Name = "voToolStripMenuItem";
-            this.voToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.voToolStripMenuItem.Text = "vinabiz";
-            // 
-            // danhMụcToolStripMenuItem1
-            // 
-            this.danhMụcToolStripMenuItem1.Name = "danhMụcToolStripMenuItem1";
-            this.danhMụcToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.danhMụcToolStripMenuItem1.Text = "Danh Mục";
-            this.danhMụcToolStripMenuItem1.Click += new System.EventHandler(this.danhMụcToolStripMenuItem1_Click);
-            // 
-            // xuấtFileToolStripMenuItem2
-            // 
-            this.xuấtFileToolStripMenuItem2.Name = "xuấtFileToolStripMenuItem2";
-            this.xuấtFileToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.xuấtFileToolStripMenuItem2.Text = "Xuất File";
-            this.xuấtFileToolStripMenuItem2.Click += new System.EventHandler(this.xuấtFileToolStripMenuItem2_Click);
             // 
             // sốĐiệnThoạiEmailToolStripMenuItem
             // 
@@ -4881,6 +4963,8 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_vnbiz_out)).EndInit();
@@ -5358,6 +5442,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn name_bds_chon;
         private System.Windows.Forms.DataGridViewTextBoxColumn path_bds_chon;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderid_bds_chon;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.Button btnVinabizDangNhap;
+        private System.Windows.Forms.TextBox txtvinabiz_email;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label45;
     }
 }
 

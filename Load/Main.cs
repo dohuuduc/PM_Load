@@ -65,6 +65,8 @@ namespace Load
         /**********07/2017 (thitruongsi.com) ****************/
         WebBrowser wThiTruongSi = new WebBrowser();
 
+        WebBrowser wVinabiz;
+
         private Dictionary<string, int> _dauso;
         private List<regexs> _regexs;
 
@@ -4387,6 +4389,138 @@ namespace Load
                 }
             }
         }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            groupBox12.Enabled = checkBox2.Checked;
+        }
+
+        public bool Loginvinabiz()
+        {
+
+            try
+            {
+                bool islogin = false;
+
+                wVinabiz.Dock = DockStyle.Fill;
+                wVinabiz.ScriptErrorsSuppressed = true;
+                wVinabiz.Visible = false;
+                wVinabiz.Dock = DockStyle.Fill;
+                this.Controls.Add(wVinabiz);
+                wVinabiz.Navigate(@"https://vinabiz.org/");
+
+                // wait a little
+                for (int i = 0; i < 100; i++)
+                {
+                    System.Threading.Thread.Sleep(10);
+                    System.Windows.Forms.Application.DoEvents();
+                }
+                if (wVinabiz.Document == null) Loginvinabiz();
+
+                if (GetUsernameVinabiz().Length != 0) return true;
+
+                //tìm đến button đăng nhập -> event click
+                foreach (HtmlElement item in wVinabiz.Document.GetElementsByTagName("a"))
+                {
+                    if (item.OuterHtml.Contains("online"))
+                    {
+                        item.InvokeMember("click");
+                        islogin = true;
+                        break;
+                    }
+                }
+                if (!islogin) return false;
+                #region set email
+                HtmlElement temp = null;
+                while (temp == null)
+                {
+                    temp = wVinabiz.Document.GetElement("email_login");
+                    System.Threading.Thread.Sleep(10);
+                    System.Windows.Forms.Application.DoEvents();
+                }
+
+                // once we find it place the value
+                temp.SetAttribute("value", txtSiusername.Text);
+                #endregion
+
+                #region set password
+                temp = null;
+                while (temp == null)
+                {
+                    temp = wThiTruongSi.Document.GetElementById("password_login");
+                    System.Threading.Thread.Sleep(10);
+                    System.Windows.Forms.Application.DoEvents();
+                }
+                temp.SetAttribute("value", txtSiPassword.Text);
+                #endregion
+
+                #region set click button đăng nhập
+                var inputs = wThiTruongSi.Document.GetElementsByTagName("button");
+                // iterate through all the inputs in the document
+                foreach (HtmlElement btn in inputs)
+                {
+                    try
+                    {
+                        if (btn.InnerText.Contains("Đăng nhập"))
+                        {
+                            btn.InvokeMember("click");
+                            break;
+                        }
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
+
+                #endregion
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Login");
+                return false;
+            }
+        }
+
+        public string GetUsernameVinabiz()
+        {
+            try
+            {
+                string xxx = "";
+                bool temp = true;
+                while (temp)
+                {
+                    foreach (HtmlElement item in wVinabiz.Document.GetElementsByTagName("span"))
+                    {
+
+                        if (item.OuterHtml.Contains("project-selector"))
+                        {
+                            xxx = item.InnerHtml;
+                            temp = false;
+                        }
+
+                        //if (item.GetAttribute("className").Length!=0)
+                        //{
+                        //    //do something
+                        //    xxx = item.InnerHtml;
+                        //    temp = false;
+                        //    MessageBox.Show(xxx);
+                        //}
+                    }
+                    System.Threading.Thread.Sleep(10);
+                    System.Windows.Forms.Application.DoEvents();
+                    temp = false;
+                }
+                return xxx;
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
+
         #endregion
 
 
@@ -4996,9 +5130,41 @@ namespace Load
         }
 
 
+
+
         #endregion
 
+        private void btnVinabizDangNhap_Click(object sender, EventArgs e)
+        {
+            PleaseWait objPleaseWait = null;
+            //TODO: Stuff
+            objPleaseWait = new PleaseWait();
+            objPleaseWait.Show();
+            objPleaseWait.Update();
+            wVinabiz = new WebBrowser();
+            if (Loginvinabiz())
+            {
+                if (GetUsername() != "")
+                {
+                    lblSiUserName.Text = GetUsername();
+                    objPleaseWait.Close();
+                    MessageBox.Show("Đăng nhập thành công", "Thông Báo");
+                    txtSiPassword.Enabled = false;
+                    txtSiusername.Enabled = false;
+                    btnSiDangNhap.Enabled = false;
 
+                }
+            }
+            else
+            {
+                objPleaseWait.Close();
+                MessageBox.Show("Đăng nhập thất bại, vui lòng đăng nhập lại", "Thông báo");
+                txtSiPassword.Enabled = true;
+                txtSiusername.Enabled = true;
+                btnSiDangNhap.Enabled = true;
+
+            }
+        }
     }
 }
 
