@@ -33,7 +33,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.lblLogin = new System.Windows.Forms.Label();
+            this.lblVinaLogin = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.btnVinabizDangNhap = new System.Windows.Forms.Button();
@@ -523,7 +523,7 @@
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.lblLogin);
+            this.tabPage7.Controls.Add(this.lblVinaLogin);
             this.tabPage7.Controls.Add(this.checkBox2);
             this.tabPage7.Controls.Add(this.groupBox12);
             this.tabPage7.Controls.Add(this.groupBox11);
@@ -553,15 +553,15 @@
             this.tabPage7.Text = "vinabiz.org";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // lblLogin
+            // lblVinaLogin
             // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.ForeColor = System.Drawing.Color.Red;
-            this.lblLogin.Location = new System.Drawing.Point(1094, 15);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(53, 13);
-            this.lblLogin.TabIndex = 162;
-            this.lblLogin.Text = "Xin Chào:";
+            this.lblVinaLogin.AutoSize = true;
+            this.lblVinaLogin.ForeColor = System.Drawing.Color.Red;
+            this.lblVinaLogin.Location = new System.Drawing.Point(632, 18);
+            this.lblVinaLogin.Name = "lblVinaLogin";
+            this.lblVinaLogin.Size = new System.Drawing.Size(53, 13);
+            this.lblVinaLogin.TabIndex = 162;
+            this.lblVinaLogin.Text = "Xin Chào:";
             // 
             // checkBox2
             // 
@@ -5461,7 +5461,7 @@
         private System.Windows.Forms.TextBox txtvinabiz_pass;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label lblLogin;
+        private System.Windows.Forms.Label lblVinaLogin;
     }
 }
 

@@ -19,6 +19,8 @@ using System.Windows.Forms;
 using System.Xml;
 using COMExcel = Microsoft.Office.Interop.Excel;
 using System.Web;
+using HtmlAgilityPack;
+using Web;
 
 namespace Load
 {
@@ -1536,7 +1538,7 @@ namespace Load
 
                 /*******************************************************/
 
-                List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(strLienHeArr, _dau_so,_regexs);
+                List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(strLienHeArr, _dau_so, _regexs);
 
                 vg.didong1 = dsdienthoai.Count() >= 1 ? dsdienthoai[0].ToString() : "";
                 vg.didong2 = dsdienthoai.Count() >= 2 ? dsdienthoai[1].ToString() : "";
@@ -1762,10 +1764,10 @@ namespace Load
                 //http://www.taphuan.vn/2015/05/xu-ly-chuoi-voi-regular-expression.html
                 List<string> phoneList = new List<string>();
                 List<string> phoneChuan = new List<string>();
-                
+
                 for (int i = 0; i < datahtml.Count; i++)
                 {
-                    if(datahtml[i].Length > 3)
+                    if (datahtml[i].Length > 3)
                         datahtml[i] = datahtml[i].Replace("+84", "0");
                 }
                 List<string> result = datahtml.Where(x => dauso.Keys.Any(y => x.Contains(y))).ToList();
@@ -1793,7 +1795,7 @@ namespace Load
                     string dienthoai = item.Replace(" ", "").Replace(".", "").Replace("-", "");
                     if (dienthoai.Length >= 10 && dienthoai.Length <= 11)
                     {
-                        bool kiemtra = dauso.Where(x=>(dienthoai.StartsWith(x.Key) && dienthoai.Length ==x.Value)).Count() >0 ;
+                        bool kiemtra = dauso.Where(x => (dienthoai.StartsWith(x.Key) && dienthoai.Length == x.Value)).Count() > 0;
                         if (kiemtra)
                             phoneChuan.Add(dienthoai);
                     }
@@ -3093,10 +3095,10 @@ namespace Load
                     getTrangCon(strUrlChiTiet, ref timviec, ref solanlap, arrControl);
 
                     if (Utilities_muaban.hasProcess)
-                    if (timviec != null && SQLDatabase.AddMuaban_timviec(timviec))   /*lưu thông tin vào csdl*/
-                         _thanhcong++;
-                    else
-                         _thatbai++;
+                        if (timviec != null && SQLDatabase.AddMuaban_timviec(timviec))   /*lưu thông tin vào csdl*/
+                            _thanhcong++;
+                        else
+                            _thatbai++;
                 }
             }
             catch (Exception e)
@@ -3171,7 +3173,7 @@ namespace Load
                 /*khoan tien*/
                 vt = Helpers.vitritim(arrGetHtmlDocumentALL, "icon icon-dollar103");
                 if (vt != -1)
-                    vg.mucluongtuden = arrGetHtmlDocumentALL[vt+2].ToString().Trim();
+                    vg.mucluongtuden = arrGetHtmlDocumentALL[vt + 2].ToString().Trim();
                 /*duyet boi*/
                 vt = Helpers.vitritim(arrGetHtmlDocumentALL, "Duyệt bởi", "<strong>", true);
                 if (vt != -1)
@@ -3486,7 +3488,8 @@ namespace Load
                     resp = (HttpWebResponse)req.GetResponse();
                     stream = resp.GetResponseStream();
 
-                    using (reader = new StreamReader(resp.GetResponseStream())) {
+                    using (reader = new StreamReader(resp.GetResponseStream()))
+                    {
                         output.Clear();
                         output.Append(reader.ReadToEnd());
                     }
@@ -3864,7 +3867,7 @@ namespace Load
                 string str1 = output.ToString().Substring(vt1, output.ToString().Length - vt1);
                 int vt2 = str1.IndexOf("<div class=\"body-right\">");
                 string str2 = str1.Substring(0, vt2 + chuoimoi1.Length);
-                List<string> arrGetDocument = Regex.Split(str2, "<div class=\"borderpad10 mar-bot\">").Where(p=>p.Contains("LeftMainContent__brokers_repBrokes")).ToList();
+                List<string> arrGetDocument = Regex.Split(str2, "<div class=\"borderpad10 mar-bot\">").Where(p => p.Contains("LeftMainContent__brokers_repBrokes")).ToList();
                 batdongsan model;
 
                 foreach (var item in arrGetDocument)
@@ -3893,7 +3896,7 @@ namespace Load
                     vt = Helpers.vitritim(arrGetHtmlDocumentALL, "Số bàn:");
                     if (vt != -1)
                     {
-                        
+
                         model.moigioi_soban = arrGetHtmlDocumentALL[vt + 4].Trim();
                         List<string> arrsoban = Utilities_scanner.getPhoneHTML(new List<string> { arrGetHtmlDocumentALL[vt + 4].Trim() }, _dau_so, _regexs);
                         if (arrsoban.Count() > 0)
@@ -3923,9 +3926,9 @@ namespace Load
 
                     Utilities_batdongsan.getTrangConNhamoigioi(strUrl, ref model, ref solanlap, arrControl);
                     if (Utilities_batdongsan.hasProcess)
-                    if (model !=null && SQLDatabase.AddBatdongsan(model))   /*lưu thông tin vào csdl*/
+                        if (model != null && SQLDatabase.AddBatdongsan(model))   /*lưu thông tin vào csdl*/
                             _thanhcong++;
-                    else
+                        else
                             _thatbai++;
                 }
             }
@@ -4035,7 +4038,7 @@ namespace Load
                 int vt2 = str1.IndexOf("background-pager-controls");
 
                 string str2 = str1.Substring(0, vt2 + chuoimoi1.Length);
-               
+
                 List<string> arrGetDocumentCon = str2.Split(new char[] { '\n', '\r' }).Where(p => p.Contains("a href='")).ToList();
 
                 batdongsan model;
@@ -4045,12 +4048,13 @@ namespace Load
                     string strUrl = _domain + Helpers.getUrlHtml3(item).FirstOrDefault();   /*xu ly linh chi tiet loi sai link \t*/
                     /*--------------------*/
                     int vt11 = str2.IndexOf(item);
-                    int vt22 = str2.IndexOf("p-title", vt11) ==-1 ? str2.Length : str2.IndexOf("p-title", vt11);
-                    string strcon = str1.Substring(vt11,vt22);
+                    int vt22 = str2.IndexOf("p-title", vt11) == -1 ? str2.Length : str2.IndexOf("p-title", vt11);
+                    string strcon = str1.Substring(vt11, vt22);
                     List<string> arrGetDocumentCon2 = strcon.Split(new char[] { '\n', '\r' }).ToList();
                     /*những khu vực cần mùa*/
                     int vtcon = Helpers.vitritim(arrGetDocumentCon2, "Quận/Huyện:");
-                    if (vtcon != -1) {
+                    if (vtcon != -1)
+                    {
                         model.quanhuyen_canmua = arrGetDocumentCon2[vtcon + 4];
                     }
                     /*những thành phố cần mua*/
@@ -4064,9 +4068,9 @@ namespace Load
                     solanlap = 0;
                     Utilities_batdongsan.getTrangCon_Canmua(strUrl, ref model, ref solanlap, arrControl);
                     if (Utilities_batdongsan.hasProcess)
-                    if (model!=null && SQLDatabase.AddBatdongsan(model))   /*lưu thông tin vào csdl*/
+                        if (model != null && SQLDatabase.AddBatdongsan(model))   /*lưu thông tin vào csdl*/
                             _thanhcong++;
-                    else
+                        else
                             _thatbai++;
 
                 }
@@ -4299,6 +4303,52 @@ namespace Load
 
             return System.Net.WebUtility.HtmlDecode(output.ToString());
         }
+
+        public static string WebRequestNavigateNew(string url, ref int solanlap, Label lbl_khoa)
+        {
+            string html = null;
+
+            while (html == null)
+            {
+                try
+                {
+                    html = Web.WebToolkit.GetHtml(@url);
+                }
+                catch (WebException ex)
+                {
+                    if (ex.ToString().Contains("time"))
+                    {
+                        if (solanlap <= _lanquetlai && _lanquetlai != -1)
+                        {
+                            solanlap = solanlap + 1;
+
+                            lbl_khoa.Visible = true;
+                            lbl_khoa.Text = string.Format("Đứt Kết Nối : + {0}", solanlap - 1);
+                            lbl_khoa.Update();
+
+                            Thread.Sleep(_Sleep);
+                            WebRequestNavigateNew(url, ref solanlap, lbl_khoa);
+                        }
+                        else if (_lanquetlai == -1)
+                        {
+                            lbl_khoa.Visible = true;
+                            lbl_khoa.Text = string.Format("Đứt Kết Nối..");
+                            lbl_khoa.Update();
+                            solanlap = 0;
+                            Thread.Sleep(_Sleep);
+                            WebRequestNavigateNew(url, ref solanlap, lbl_khoa);
+                        }
+                        else
+                            _thatbai++;
+                    }
+                }
+                catch (Exception e)
+                {
+                    return "";
+                }
+            }
+            return html;
+        }
         public static infoPathmuaban getPageMax(string url, object arrControl)
         {
             string strHtml = "";
@@ -4309,31 +4359,29 @@ namespace Load
             Label lbl_vinabiz_khoa = (Label)arr1[2];
 
             infoPathmuaban model = new infoPathmuaban();
-
-
+            int max = 0;
 
             try
             {
                 int solanlap = 0;
-                strHtml = Utilities_vinabiz.WebRequestNavigate(url, ref solanlap, lbl_vinabiz_khoa).ToString();
-               
+                strHtml = Utilities_vinabiz.WebRequestNavigateNew(url, ref solanlap, lbl_vinabiz_khoa).ToString();
+                HtmlAgilityPack.HtmlDocument _doc = new HtmlAgilityPack.HtmlDocument();
+                _doc.LoadHtml(strHtml);
 
-                string strd1 = "class=\"pagination-container\"";
-                string strd2 = "class=\"page-footer\"";
-                int vttemp = strHtml.IndexOf(strd1);
-                int vt11 = strHtml.IndexOf(strd1,vttemp+1);
-                int vt12 = strHtml.IndexOf(strd2, vt11);
+                
+                var nodelPage = _doc.DocumentNode.Descendants("ul").Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("pagination")).LastOrDefault();
+                if (nodelPage == null) return model;
+                var nodelPagedList = nodelPage.SelectNodes(".//li").Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("PagedList-skipToLast")).FirstOrDefault();
 
-                string strnoititel = strHtml.Substring(vt11, vt12 - vt11);
-                List<string> arrGetHtmlDocumentALL = Regex.Split(strnoititel, "<a href=").Where(p => p.Contains("</ul>")).ToList();
-                int max = 0;
-                if (arrGetHtmlDocumentALL.Count() == 0) return model;
-                Regex regex = new Regex(@"[/]+[\d]+("">»»)");
-                Match match = regex.Match(arrGetHtmlDocumentALL.FirstOrDefault());
-                int vt = ConvertType.ToInt(Regex.Replace(match.Value, @"[^\d]", ""));
+                if (nodelPagedList.SelectNodes(".//a").FirstOrDefault().Attributes["href"] == null) return model;
+                var href = nodelPagedList.SelectNodes(".//a").FirstOrDefault().Attributes["href"].Value;
+
+                string[] words = href.Split('/');
+
+                int vt = ConvertType.ToInt(words.LastOrDefault());
                 max = vt <= max ? max : vt;
                 model.TotalPagingMax = max;
-
+              
                 return model;
 
             }
@@ -4369,7 +4417,36 @@ namespace Load
                 if (!Utilities_vinabiz.hasProcess)
                     return;/*stop*/
 
-                output = WebRequestNavigate(strPath, ref solanlap, lbl_vinabiz_khoa);
+                output = WebRequestNavigateNew(strPath, ref solanlap, lbl_vinabiz_khoa);
+                /*xử lý code mới ở đây*/
+             
+                HtmlAgilityPack.HtmlDocument _doc = new HtmlAgilityPack.HtmlDocument();
+                _doc.LoadHtml(output);
+                var nodelPage = _doc.DocumentNode.Descendants("div")
+                                        .Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("widget-body"));
+                vinabiz tv1;
+                foreach (HtmlNode item in nodelPage)
+                {
+                    tv1 = new vinabiz();
+
+                }
+                
+                /*--------end --------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 arrGetHtmlDocumentALL = output.ToString().Split('\n');
                 string[] arrcompany_nameUrl = Array.FindAll(arrGetHtmlDocumentALL, c => c.Contains("</h4>") && c.Contains("href="));
 
@@ -4381,7 +4458,7 @@ namespace Load
 
                     /*Lấy mã số thuế*/
                     List<string> arr = item.Split(new char[] { '>' }).ToList().Where(p => p.Contains("Mã doanh nghiệp:")).ToList();
-                    if(arr.FirstOrDefault().Contains("-"))
+                    if (arr.FirstOrDefault().Contains("-"))
                         tv.ttdk_msthue = Regex.Match(arr.FirstOrDefault(), @"[0-9]+-[0-9]{0,3}").Value;
                     else
                         tv.ttdk_msthue = Regex.Match(arr.FirstOrDefault(), @"\d+").Value;
@@ -4674,7 +4751,7 @@ namespace Load
                 }
                 /*Ngành nghề kinh doanh*/
                 /*tab-pane fade active in*/
-                if(strWebsite.IndexOf("<a data-toggle=\"tab\" href=\"#hr2\">")!=-1)
+                if (strWebsite.IndexOf("<a data-toggle=\"tab\" href=\"#hr2\">") != -1)
                 {/*có Ngành nghề kinh doanh*/
                     int vtnganhnghekd1 = strWebsite.IndexOf("<div class=\"tab-pane fade\" id=\"hr2\">");
                     int vtnganhnghekd2 = strWebsite.IndexOf("class=\"widget-footer text-right\"", vtnganhnghekd1);
@@ -4705,15 +4782,15 @@ namespace Load
                     int vtnganhnghekd2 = strWebsite.IndexOf("class=\"widget-footer text-right\"", vtnganhnghekd1);
                     string chuoixulythuephainop = strWebsite.Substring(vtnganhnghekd1, vtnganhnghekd2 - vtnganhnghekd1);
 
-                    
-                      
-                        string[] arrNganhNghe = chuoixulythuephainop.Split(new char[] { '\n', '\r' }).Where(p => p.Contains("<li>")).ToArray();
-                        foreach (var item in arrNganhNghe)
-                        {
-                            model.ds_thuephainop += model.ds_thuephainop == null ? Helpers.getDataHTML(item).Where(p => p.Trim().Length > 0).ToList().FirstOrDefault() : string.Format(" | {0}", Helpers.getDataHTML(item).Where(p => p.Trim().Length > 0).ToList().FirstOrDefault());
-                        }
-                    
-                    
+
+
+                    string[] arrNganhNghe = chuoixulythuephainop.Split(new char[] { '\n', '\r' }).Where(p => p.Contains("<li>")).ToArray();
+                    foreach (var item in arrNganhNghe)
+                    {
+                        model.ds_thuephainop += model.ds_thuephainop == null ? Helpers.getDataHTML(item).Where(p => p.Trim().Length > 0).ToList().FirstOrDefault() : string.Format(" | {0}", Helpers.getDataHTML(item).Where(p => p.Trim().Length > 0).ToList().FirstOrDefault());
+                    }
+
+
                 }
 
 
@@ -4836,13 +4913,13 @@ namespace Load
         {
             try
             {
-                
+
                 var tasks = new Task<string>[]
                 {
                         _down.Download(url),
                 };
                 Task.WaitAll(tasks);
-                string strHTML= tasks[0].Result;
+                string strHTML = tasks[0].Result;
                 return strHTML;
             }
             catch (Exception e)
@@ -4850,10 +4927,11 @@ namespace Load
                 return "";
             }
         }
-       
+
         public static string WebRequestNavigate(string url, ref int solanlap, Label lbl_khoa)
         {
-            try {
+            try
+            {
                 lbl_khoa.Visible = false;
                 //MyDownloader mydown = new MyDownloader();
                 var tasks = new Task<string>[]
@@ -4861,11 +4939,11 @@ namespace Load
                         _down.Download(url),
             };
 
-            Task.WaitAll(tasks);
+                Task.WaitAll(tasks);
                 string strHTML = tasks[0].Result;
                 return strHTML;
             }
-           catch (WebException ex)
+            catch (WebException ex)
             {
                 if (ex.ToString().Contains("time"))
                 {
@@ -4921,10 +4999,10 @@ namespace Load
                 if (vt != -1)
                 {
                     List<string> arr = Helpers.getDataHTML(arrGetHtmlDocumentALL[vt]);
-                    if(arr.Count()==3)
+                    if (arr.Count() == 3)
                     {
                         int soluongtimthay = ConvertType.ToInt(arr[1].Replace(",", ""));
-                        model.TotalPagingMax = ConvertType.ToInt(System.Math.Ceiling((double)soluongtimthay /_limit));
+                        model.TotalPagingMax = ConvertType.ToInt(System.Math.Ceiling((double)soluongtimthay / _limit));
                     }
                 }
                 return model;
@@ -4956,18 +5034,18 @@ namespace Load
 
             try
             {
-                if (!Utilities_thitruongsi.hasProcess)  return;/*stop*/
+                if (!Utilities_thitruongsi.hasProcess) return;/*stop*/
 
                 output = WebRequestNavigate(strPath, ref solanlap, lbl_si_khoa);
                 int vt1 = output.IndexOf("list_product_search");
                 int vt2 = output.IndexOf("pagerlv", vt1);
-                if(vt2==-1)
+                if (vt2 == -1)
                     vt2 = output.IndexOf("block block-tabs", vt1);
                 string strProduct = output.Substring(vt1, vt2 - vt1);
 
                 arrGetHtmlDocumentALL = Regex.Split(strProduct, "<LI class=").Where(p => p.Contains("Category")).ToList();
-                 
-                string strPathLinkCon= "";
+
+                string strPathLinkCon = "";
                 thitruongsi thitruongsi;
                 foreach (var item in arrGetHtmlDocumentALL)
                 {
@@ -4989,7 +5067,7 @@ namespace Load
                     {
                         if (arrGet[vt].Contains("class=\"icon_vip icon_business\""))
                             thitruongsi.loaidoanhnghiep = "doanh nghiệp";
-                        else if(arrGet[vt].Contains("icon_vip"))
+                        else if (arrGet[vt].Contains("icon_vip"))
                             thitruongsi.loaidoanhnghiep = "vip";
                         else
                             thitruongsi.loaidoanhnghiep = "--";
@@ -5011,8 +5089,8 @@ namespace Load
                     }
                     //string strUrlChiTiet = Helpers.getUrlHtml2(item).Where(p=>p.Contains("https://thitruongsi.com/")).FirstOrDefault();   /*xu ly linh chi tiet loi sai link \t*/
                     //string strPathLinkCon = getFindLinkCon(strUrlChiTiet,lbl_si_khoa);
-                   
-                    getTrangCon(strPathLinkCon, ref thitruongsi,ref solanlap, arrControl);
+
+                    getTrangCon(strPathLinkCon, ref thitruongsi, ref solanlap, arrControl);
 
                     if (Utilities_thitruongsi.hasProcess)/*nếu đang chạy mới được phép lưu thông tin, còn đã dừng tiến trình thi không được phép lưu*/
                         if (thitruongsi != null && SQLDatabase.Addthitruongsi(thitruongsi))   /*lưu thông tin vào csdl*/
@@ -5030,7 +5108,8 @@ namespace Load
             }
         }
 
-        public static string getFindLinkCon(string url,Label lbl_khoa) {
+        public static string getFindLinkCon(string url, Label lbl_khoa)
+        {
             try
             {
                 int solanlap = 0;
@@ -5041,7 +5120,7 @@ namespace Load
 
                 List<string> arrGetHtmlDocumentALL = strHtml.ToString().Split('\n').ToList();
                 string path = "";
-                
+
 
                 int vt = 0;
                 vt = Helpers.vitritim(arrGetHtmlDocumentALL, "Xem thông tin nhà bán sỉ");
@@ -5064,7 +5143,7 @@ namespace Load
             Label lbl_vinabiz_message1 = (Label)arr1[0];
             Label lbl_vinabiz_message2 = (Label)arr1[1];
             Label lbl_vinabiz_khoa = (Label)arr1[2];
-          
+
             int vt = -1;
 
             try
@@ -5075,7 +5154,7 @@ namespace Load
                     return;/*stop*/
                 }
 
-               // strPath = "https://thitruongsi.com/shop/linh-kien-hung-phat";
+                // strPath = "https://thitruongsi.com/shop/linh-kien-hung-phat";
                 strWebsite = WebRequestNavigate(strPath, ref solanlap, lbl_vinabiz_khoa);
                 /*-----------------------------------------------------*/
                 int vtkhuvuc1 = strWebsite.IndexOf("info_veryfi_content");
@@ -5085,7 +5164,7 @@ namespace Load
                     string chuoiKhuVuc = strWebsite.Substring(vtkhuvuc1, vtkhuvuc2 - vtkhuvuc1);
                     List<string> arrGetHtmlDocumentALLKhuVuc = chuoiKhuVuc.Split(new char[] { '\n', '\r' }).ToList();
 
-                   // model.sys_diachiweb = strPath;
+                    // model.sys_diachiweb = strPath;
                     /*Mô hình kinh doanh:*/
                     vt = Helpers.vitritim(arrGetHtmlDocumentALLKhuVuc, "Mô hình kinh doanh:");
                     if (vt != -1)
@@ -5138,7 +5217,7 @@ namespace Load
                         model.lienhe_kinhdoanh_hoten1 = Helpers.getDataHTML(arrlienhekinhdoanh[0].ToString()).FirstOrDefault().Replace(":", "");
                         model.lienhe_kinhdoanh_sodienthoai1 = Helpers.getDataHTML(arrlienhekinhdoanh[1].ToString()).FirstOrDefault();
                         List<string> arr = Utilities_scanner.getPhoneHTML(new List<string>() { model.lienhe_kinhdoanh_sodienthoai1 }, _dau_so, _regexs);
-                        if(arr!=null)
+                        if (arr != null)
                             model.lienhe_kinhdoanh_sodienthoaibydidong1 = arr.FirstOrDefault();
                     }
                     else if (arrlienhekinhdoanh.Count() == 4)
@@ -5146,14 +5225,14 @@ namespace Load
                         model.lienhe_kinhdoanh_hoten1 = Helpers.getDataHTML(arrlienhekinhdoanh[0].ToString()).FirstOrDefault().Replace(":", "");
                         model.lienhe_kinhdoanh_sodienthoai1 = Helpers.getDataHTML(arrlienhekinhdoanh[1].ToString()).FirstOrDefault();
                         List<string> arr = Utilities_scanner.getPhoneHTML(new List<string>() { model.lienhe_kinhdoanh_sodienthoai1 }, _dau_so, _regexs);
-                        if(arr.Count()>0)
-                        model.lienhe_kinhdoanh_sodienthoaibydidong1 = arr.FirstOrDefault();
+                        if (arr.Count() > 0)
+                            model.lienhe_kinhdoanh_sodienthoaibydidong1 = arr.FirstOrDefault();
 
                         model.lienhe_kinhdoanh_hoten2 = Helpers.getDataHTML(arrlienhekinhdoanh[2].ToString()).FirstOrDefault().Replace(":", "");
                         model.lienhe_kinhdoanh_sodienthoai2 = Helpers.getDataHTML(arrlienhekinhdoanh[3].ToString()).FirstOrDefault();
                         List<string> arr2 = Utilities_scanner.getPhoneHTML(new List<string>() { model.lienhe_kinhdoanh_sodienthoai2 }, _dau_so, _regexs);
-                        if(arr2!=null)
-                        model.lienhe_kinhdoanh_sodienthoaibydidong2 = arr2.FirstOrDefault();
+                        if (arr2 != null)
+                            model.lienhe_kinhdoanh_sodienthoaibydidong2 = arr2.FirstOrDefault();
                     }
                 }
                 /*********************************************************/
@@ -5235,7 +5314,7 @@ namespace Load
                         model.ttncc_sdt = arr11.LastOrDefault();
 
                         List<string> arr = Utilities_scanner.getPhoneHTML(new List<String>() { arr11.LastOrDefault() }, _dau_so, _regexs);
-                        if (arr.Count()>0)
+                        if (arr.Count() > 0)
                             model.ttncc_sdt_didong = arr.FirstOrDefault();
                     }
                     /*fa-envelope*/
@@ -5243,7 +5322,7 @@ namespace Load
                     if (vt != -1)
                     {
                         List<string> arr = Helpers.getDataHTML(arrCC[vt].ToString());
-                        if(arr.Count()>0)
+                        if (arr.Count() > 0)
                             model.ttncc_email = arr.FirstOrDefault();
                     }
                     /*co giay phep kinh doanh*/
@@ -5276,7 +5355,7 @@ namespace Load
                     }
                     model.listdanhmuc = strDanhSach;
                 }
-                
+
             }
             catch (Exception e)
             {

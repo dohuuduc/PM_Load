@@ -4416,13 +4416,14 @@ namespace Load
 
                 string userProfile = WebToolkit.GetHtml("https://vinabiz.org/users/profile");
                 doc.LoadHtml(userProfile);
-                //HtmlAgilityPack.HtmlNode nodeProfile = doc.DocumentNode;
+                /*tên đăng nhập và email*/
+                HtmlNode NodedTen = doc.DocumentNode.SelectSingleNode("//span[@class='project-selector dropdown-toggle']/text()");
+                
 
-                //string xPath = "//input[@name='__RequestVerificationToken'][@value]";
-                //HtmlNode tokenNode = documentNode.SelectSingleNode(xPath);
+                HtmlNode NodedEmail = doc.DocumentNode.SelectSingleNode("//img[@src='/Content/img/avatars/avatar.jpg'][@alt]");
+                string email = NodedEmail.Attributes["alt"].Value;
 
-                HtmlNode tokenNodeProfile = doc.DocumentNode.SelectSingleNode("//span[@title='input']");
-
+                lblVinaLogin.Text =string.Format("Xin Chào: {0} -({1})", NodedTen.InnerText,NodedEmail.Attributes["alt"].Value);
 
 
                 return true;
@@ -5059,25 +5060,15 @@ namespace Load
             
             if (Loginvinabiz())
             {
-                if (GetUsername() != "")
-                {
-                    lblSiUserName.Text = GetUsername();
                     objPleaseWait.Close();
                     MessageBox.Show("Đăng nhập thành công", "Thông Báo");
-                    txtSiPassword.Enabled = false;
-                    txtSiusername.Enabled = false;
-                    btnSiDangNhap.Enabled = false;
-
-                }
+                    groupBox12.Enabled = false;
             }
             else
             {
                 objPleaseWait.Close();
                 MessageBox.Show("Đăng nhập thất bại, vui lòng đăng nhập lại", "Thông báo");
-                txtSiPassword.Enabled = true;
-                txtSiusername.Enabled = true;
-                btnSiDangNhap.Enabled = true;
-
+                groupBox12.Enabled = true;
             }
         }
     }

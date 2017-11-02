@@ -145,3 +145,42 @@ D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.csprojResolveAssemblyReference.cac
 D:\GitHub Desktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.dll
 D:\GitHub Desktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.pdb
 D:\GitHub Desktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.xml
+D:\GitHubDesktop\PM_Load\Load\bin\Debug\Load.exe.config
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.exe
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.pdb
+D:\GitHubDesktop\PM_Load\Load\bin\Debug\Load.exe
+D:\GitHubDesktop\PM_Load\Load\bin\Debug\Load.pdb
+D:\GitHubDesktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.dll
+D:\GitHubDesktop\PM_Load\Load\bin\Debug\Newtonsoft.Json.dll
+D:\GitHubDesktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.pdb
+D:\GitHubDesktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.xml
+D:\GitHubDesktop\PM_Load\Load\bin\Debug\Newtonsoft.Json.xml
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frm_dmVinabiz.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmCauHinh.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmChangPassword.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmDialogColumn.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmDM_batdongsan.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmDM_hosocongty.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmDM_Muaban_timviec.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmDM_scanner2.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmDM_scanner.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmDM_Thitruongsi.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmDM_TongHopCol.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmDM_trangvang.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmExportbatdongsan.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmExportScanner.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmExporttimviec.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmExporttrangvang.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmExportvatgia.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmDM_Vatgia.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmExporthosocongty.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmExportVinabiz.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmLogin.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmSaveAs.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmthemLinkVinabix.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frmTonghop.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.frm_chuanhoanPhone.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.Main.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.PleaseWait.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.Properties.Resources.resources
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.csproj.GenerateResource.Cache
