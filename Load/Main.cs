@@ -1,21 +1,16 @@
-﻿using Newtonsoft.Json;
-using StorePhone;
+﻿using StorePhone;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.Linq;
-using System.Net;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
+using HtmlAgilityPack;
+using Web;
 
 namespace Load
 {
@@ -64,8 +59,6 @@ namespace Load
 
         /**********07/2017 (thitruongsi.com) ****************/
         WebBrowser wThiTruongSi = new WebBrowser();
-
-        WebBrowser wVinabiz;
 
         private Dictionary<string, int> _dauso;
         private List<regexs> _regexs;
@@ -4397,83 +4390,40 @@ namespace Load
 
         public bool Loginvinabiz()
         {
-
             try
             {
-                bool islogin = false;
 
-                wVinabiz.Dock = DockStyle.Fill;
-                wVinabiz.ScriptErrorsSuppressed = true;
-                wVinabiz.Visible = false;
-                wVinabiz.Dock = DockStyle.Fill;
-                this.Controls.Add(wVinabiz);
-                wVinabiz.Navigate(@"https://vinabiz.org/");
+                string url = "https://vinabiz.org/account/login";
+                string html = WebToolkit.GetHtml(url);
 
-                // wait a little
-                for (int i = 0; i < 100; i++)
-                {
-                    System.Threading.Thread.Sleep(10);
-                    System.Windows.Forms.Application.DoEvents();
-                }
-                if (wVinabiz.Document == null) Loginvinabiz();
+                HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                doc.LoadHtml(html);
+                HtmlNode documentNode = doc.DocumentNode;
 
-                if (GetUsernameVinabiz().Length != 0) return true;
+                string xPath = "//input[@name='__RequestVerificationToken'][@value]";
+                HtmlNode tokenNode = documentNode.SelectSingleNode(xPath);
 
-                //tìm đến button đăng nhập -> event click
-                foreach (HtmlElement item in wVinabiz.Document.GetElementsByTagName("a"))
-                {
-                    if (item.OuterHtml.Contains("online"))
-                    {
-                        item.InvokeMember("click");
-                        islogin = true;
-                        break;
-                    }
-                }
-                if (!islogin) return false;
-                #region set email
-                HtmlElement temp = null;
-                while (temp == null)
-                {
-                    temp = wVinabiz.Document.GetElement("email_login");
-                    System.Threading.Thread.Sleep(10);
-                    System.Windows.Forms.Application.DoEvents();
-                }
+                string token = tokenNode.Attributes["value"].Value;
 
-                // once we find it place the value
-                temp.SetAttribute("value", txtSiusername.Text);
-                #endregion
 
-                #region set password
-                temp = null;
-                while (temp == null)
-                {
-                    temp = wThiTruongSi.Document.GetElementById("password_login");
-                    System.Threading.Thread.Sleep(10);
-                    System.Windows.Forms.Application.DoEvents();
-                }
-                temp.SetAttribute("value", txtSiPassword.Text);
-                #endregion
+                string data = "ReturnUrl=";
+                data += "&__RequestVerificationToken=" + Uri.EscapeDataString(token); ;
+                data += "&email=" + Uri.EscapeDataString(txtvinabiz_email.Text);
+                data += "&password=" + Uri.EscapeDataString(txtvinabiz_pass.Text); ;
+                data += "&rememberMe=true";
+                data += "&rememberMe=true";
+                string html2 = WebToolkit.GetHtml(url, data);
 
-                #region set click button đăng nhập
-                var inputs = wThiTruongSi.Document.GetElementsByTagName("button");
-                // iterate through all the inputs in the document
-                foreach (HtmlElement btn in inputs)
-                {
-                    try
-                    {
-                        if (btn.InnerText.Contains("Đăng nhập"))
-                        {
-                            btn.InvokeMember("click");
-                            break;
-                        }
-                    }
-                    catch
-                    {
-                        return false;
-                    }
-                }
+                string userProfile = WebToolkit.GetHtml("https://vinabiz.org/users/profile");
+                doc.LoadHtml(userProfile);
+                //HtmlAgilityPack.HtmlNode nodeProfile = doc.DocumentNode;
 
-                #endregion
+                //string xPath = "//input[@name='__RequestVerificationToken'][@value]";
+                //HtmlNode tokenNode = documentNode.SelectSingleNode(xPath);
+
+                HtmlNode tokenNodeProfile = doc.DocumentNode.SelectSingleNode("//span[@title='input']");
+
+
 
                 return true;
             }
@@ -4484,42 +4434,7 @@ namespace Load
             }
         }
 
-        public string GetUsernameVinabiz()
-        {
-            try
-            {
-                string xxx = "";
-                bool temp = true;
-                while (temp)
-                {
-                    foreach (HtmlElement item in wVinabiz.Document.GetElementsByTagName("span"))
-                    {
-
-                        if (item.OuterHtml.Contains("project-selector"))
-                        {
-                            xxx = item.InnerHtml;
-                            temp = false;
-                        }
-
-                        //if (item.GetAttribute("className").Length!=0)
-                        //{
-                        //    //do something
-                        //    xxx = item.InnerHtml;
-                        //    temp = false;
-                        //    MessageBox.Show(xxx);
-                        //}
-                    }
-                    System.Threading.Thread.Sleep(10);
-                    System.Windows.Forms.Application.DoEvents();
-                    temp = false;
-                }
-                return xxx;
-            }
-            catch (Exception)
-            {
-                return "";
-            }
-        }
+      
 
         #endregion
 
@@ -5141,7 +5056,7 @@ namespace Load
             objPleaseWait = new PleaseWait();
             objPleaseWait.Show();
             objPleaseWait.Update();
-            wVinabiz = new WebBrowser();
+            
             if (Loginvinabiz())
             {
                 if (GetUsername() != "")

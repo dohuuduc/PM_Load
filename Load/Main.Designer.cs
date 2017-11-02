@@ -33,11 +33,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.lblLogin = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.btnVinabizDangNhap = new System.Windows.Forms.Button();
             this.txtvinabiz_email = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtvinabiz_pass = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -522,6 +523,7 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.lblLogin);
             this.tabPage7.Controls.Add(this.checkBox2);
             this.tabPage7.Controls.Add(this.groupBox12);
             this.tabPage7.Controls.Add(this.groupBox11);
@@ -551,6 +553,16 @@
             this.tabPage7.Text = "vinabiz.org";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // lblLogin
+            // 
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.ForeColor = System.Drawing.Color.Red;
+            this.lblLogin.Location = new System.Drawing.Point(1094, 15);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(53, 13);
+            this.lblLogin.TabIndex = 162;
+            this.lblLogin.Text = "Xin Chào:";
+            // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
@@ -568,7 +580,7 @@
             // 
             this.groupBox12.Controls.Add(this.btnVinabizDangNhap);
             this.groupBox12.Controls.Add(this.txtvinabiz_email);
-            this.groupBox12.Controls.Add(this.textBox1);
+            this.groupBox12.Controls.Add(this.txtvinabiz_pass);
             this.groupBox12.Controls.Add(this.label42);
             this.groupBox12.Controls.Add(this.label45);
             this.groupBox12.Location = new System.Drawing.Point(8, 3);
@@ -596,14 +608,14 @@
             this.txtvinabiz_email.TabIndex = 156;
             this.txtvinabiz_email.Text = "doremonquan9@gmail.com";
             // 
-            // textBox1
+            // txtvinabiz_pass
             // 
-            this.textBox1.Location = new System.Drawing.Point(285, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(99, 20);
-            this.textBox1.TabIndex = 158;
-            this.textBox1.Text = "!@#$%^&*(";
+            this.txtvinabiz_pass.Location = new System.Drawing.Point(285, 12);
+            this.txtvinabiz_pass.Name = "txtvinabiz_pass";
+            this.txtvinabiz_pass.PasswordChar = '*';
+            this.txtvinabiz_pass.Size = new System.Drawing.Size(99, 20);
+            this.txtvinabiz_pass.TabIndex = 158;
+            this.txtvinabiz_pass.Text = "!@#$%^&*(";
             // 
             // label42
             // 
@@ -5446,9 +5458,10 @@
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.Button btnVinabizDangNhap;
         private System.Windows.Forms.TextBox txtvinabiz_email;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtvinabiz_pass;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label lblLogin;
     }
 }
 

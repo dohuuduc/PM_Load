@@ -142,3 +142,6 @@ D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.exe
 D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.pdb
 D:\GitHub Desktop\PM_Load\Load\bin\Debug\Load.pdb
 D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.csprojResolveAssemblyReference.cache
+D:\GitHub Desktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.dll
+D:\GitHub Desktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.pdb
+D:\GitHub Desktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.xml
