@@ -4419,33 +4419,35 @@ namespace Load
 
                 output = WebRequestNavigateNew(strPath, ref solanlap, lbl_vinabiz_khoa);
                 /*xử lý code mới ở đây*/
-             
-                HtmlAgilityPack.HtmlDocument _doc = new HtmlAgilityPack.HtmlDocument();
-                _doc.LoadHtml(output);
-                var nodelPage = _doc.DocumentNode.Descendants("div")
-                                        .Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("widget-body"));
-                vinabiz tv1;
-                foreach (HtmlNode item in nodelPage)
+
+                HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                doc.LoadHtml(output);
+                HtmlNode documentNode = doc.DocumentNode;
+
+                string xPath = "//a[@data-placement='bottom']";
+                HtmlNodeCollection listNode = documentNode.SelectNodes(xPath);
+                vinabiz vna;
+                foreach (HtmlNode item in listNode)
                 {
-                    tv1 = new vinabiz();
+                    vna = new vinabiz();
+                    string linkct = _domain + item.Attributes["href"].Value;
+                    string tieude = item.Attributes["data-original-title"].Value;
+
+                    List<string> arr = tieude.Split(new char[] { '>' }).ToList().Where(p => p.Contains("Mã doanh nghiệp:")).ToList();
+                    if (arr.FirstOrDefault().Contains("-"))
+                        vna.ttdk_msthue = Regex.Match(arr.FirstOrDefault(), @"[0-9]+-[0-9]{0,3}").Value;
+                    else
+                        vna.ttdk_msthue = Regex.Match(arr.FirstOrDefault(), @"\d+").Value;
+
+                    int solanlap1 = 0;
+                    getTrangConNew(linkct, ref vna, ref solanlap1, arrControl);
 
                 }
-                
+
+
+
+
                 /*--------end --------*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 arrGetHtmlDocumentALL = output.ToString().Split('\n');
                 string[] arrcompany_nameUrl = Array.FindAll(arrGetHtmlDocumentALL, c => c.Contains("</h4>") && c.Contains("href="));
@@ -4749,6 +4751,347 @@ namespace Load
                 {
                     model.lvhd_loaikhoan = Helpers.getDataHTML(arrGetHtmlDocumentALL[vt + 1]).FirstOrDefault();
                 }
+                /*Ngành nghề kinh doanh*/
+                /*tab-pane fade active in*/
+                if (strWebsite.IndexOf("<a data-toggle=\"tab\" href=\"#hr2\">") != -1)
+                {/*có Ngành nghề kinh doanh*/
+                    int vtnganhnghekd1 = strWebsite.IndexOf("<div class=\"tab-pane fade\" id=\"hr2\">");
+                    int vtnganhnghekd2 = strWebsite.IndexOf("class=\"widget-footer text-right\"", vtnganhnghekd1);
+                    string chuoixulynghanhnghe = strWebsite.Substring(vtnganhnghekd1, vtnganhnghekd2 - vtnganhnghekd1);
+
+                    List<string> arrHr = chuoixulynghanhnghe.Split(new char[] { '\n', '\r' }).Where(p => p.Contains("tab-pane fade")).ToList();
+
+                    int HR2vtnganhnghekd1 = chuoixulynghanhnghe.IndexOf("id=\"hr2\"");
+                    if (HR2vtnganhnghekd1 != -1)
+                    {
+                        int HR2vtnganhnghekd2 = chuoixulynghanhnghe.IndexOf("id=\"hr3\"", HR2vtnganhnghekd1) == -1 ? chuoixulynghanhnghe.Length :
+                                                                                                                        chuoixulynghanhnghe.IndexOf("id=\"hr3\"", HR2vtnganhnghekd1);
+                        string HR2chuoixulynghanhnghe = chuoixulynghanhnghe.Substring(HR2vtnganhnghekd1, HR2vtnganhnghekd2 - HR2vtnganhnghekd1);
+                        string[] arrNganhNghe = HR2chuoixulynghanhnghe.Split(new char[] { '\n', '\r' }).Where(p => p.Contains("<li>")).ToArray();
+                        foreach (var item in arrNganhNghe)
+                        {
+                            if (item.Contains("<b>"))
+                            {/*ngành nghề chính*/
+                                model.nganhnghechinh2 = Helpers.getDataHTML(item).Where(p1 => p1.Trim().Length > 0).FirstOrDefault().Trim();
+                            }
+                            model.ds_nganhnghekinhdoanh += model.ds_nganhnghekinhdoanh == null ? Helpers.getDataHTML(item).Where(p => p.Trim().Length > 0).ToList().FirstOrDefault() : string.Format(" | {0}", Helpers.getDataHTML(item).Where(p => p.Trim().Length > 0).ToList().FirstOrDefault());
+                        }
+                    }
+                }
+                if (strWebsite.IndexOf("<div class=\"tab-pane fade\" id=\"hr3\">") != -1)
+                {
+                    int vtnganhnghekd1 = strWebsite.IndexOf("<div class=\"tab-pane fade\" id=\"hr3\">");
+                    int vtnganhnghekd2 = strWebsite.IndexOf("class=\"widget-footer text-right\"", vtnganhnghekd1);
+                    string chuoixulythuephainop = strWebsite.Substring(vtnganhnghekd1, vtnganhnghekd2 - vtnganhnghekd1);
+
+
+
+                    string[] arrNganhNghe = chuoixulythuephainop.Split(new char[] { '\n', '\r' }).Where(p => p.Contains("<li>")).ToArray();
+                    foreach (var item in arrNganhNghe)
+                    {
+                        model.ds_thuephainop += model.ds_thuephainop == null ? Helpers.getDataHTML(item).Where(p => p.Trim().Length > 0).ToList().FirstOrDefault() : string.Format(" | {0}", Helpers.getDataHTML(item).Where(p => p.Trim().Length > 0).ToList().FirstOrDefault());
+                    }
+
+
+                }
+
+
+
+            }
+            catch (Exception e)
+            {
+                _thatbai++;
+                model = null;
+                writer = LogWriter.Instance;
+                writer.WriteToLog(string.Format("{0}-{1}-{2}", e.Message, strPath, "getTrangCon-vinabiz"));
+                return;
+            }
+        }
+
+        public static void getTrangConNew(string strPath, ref vinabiz model, ref int solanlap, object arrControl)
+        {
+            string strWebsite = "";
+
+            ArrayList arr1 = (ArrayList)arrControl;
+            Label lbl_vinabiz_message1 = (Label)arr1[0];
+            Label lbl_vinabiz_message2 = (Label)arr1[1];
+            Label lbl_vinabiz_khoa = (Label)arr1[2];
+
+
+            List<string> arrGetHtmlDocumentALL;
+            List<string> arrGetHtmlDocumentALLKhuVuc;
+            int vt = -1;
+
+            try
+            {
+                if (!Utilities_vinabiz.hasProcess)
+                {
+                    model = null;
+                    return;/*stop*/
+                }
+
+
+                //strPath = "https://vinabiz.org//company/detail/cong-ty-tnhh-cong-nghe-dien-tu-vien-thong-cat-tuong-vi/3100360030003200300034003700310030003200";
+
+                strWebsite = WebRequestNavigateNew(strPath, ref solanlap, lbl_vinabiz_khoa);
+                HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                doc.LoadHtml(strWebsite);
+                HtmlNode documentNode = doc.DocumentNode;
+
+                string xPath = "//h1[@class='page-title txt-color-blueDark']";
+                HtmlNode listNode = documentNode.SelectSingleNode(xPath);
+                /*khu vực*/
+                string khuvuc = listNode.InnerText;
+                List<string> arrkhuvuc = khuvuc.Trim().Split(new char[] { '\n', '\r' }).ToList();
+                List<string> listKhuVuc = arrkhuvuc.LastOrDefault().Split('>').ToList();
+
+                model.ttlh_tinh = listKhuVuc[0].Trim();
+                model.ttlh_tinhid = _listTinh.Where(p => p.ten.Trim().Contains(listKhuVuc[0].Trim())).FirstOrDefault().id;
+                if (listKhuVuc.Count() == 2)
+                    model.ttlh_xa = listKhuVuc[1];
+                else if (listKhuVuc.Count() == 3)
+                {
+                    model.ttlh_huyen = listKhuVuc[1];
+                    model.ttlh_xa = listKhuVuc[2];
+                }
+                /*sys_website*/
+                model.web_nguon_url = strPath;
+                model.danhmucid = IdDanhmuc;
+                //table table-bordered
+                string xPathinfo = "//table[@class='table table-bordered']";
+                HtmlNode listNodeinfo = documentNode.SelectSingleNode(xPathinfo);
+
+                List<string> arrThongTinDoanhNghiep;
+                arrThongTinDoanhNghiep = listNodeinfo.InnerHtml.Split(new char[] { '\n', '\r' }).ToList();
+
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Tên chính thức</td>");
+                if (vt != -1)
+                {
+                    model.ttdk_tenchinhthuc = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1].ToString()).FirstOrDefault();
+                }
+                /*tên giao dich*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Tên giao dịch</td>");
+                if (vt != -1)
+                {
+                    model.ttdk_tengiaodich = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1].ToString()).FirstOrDefault();
+                }
+                /*Ngày cấp*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Ngày cấp</td>");
+                if (vt != -1)
+                {
+                    model.ttdk_ngaycap = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1].ToString()).FirstOrDefault();
+                }
+                /*Cơ quan thuế quản lý*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Cơ quan thuế quản lý</td>");
+                if (vt != -1)
+                {
+                    model.ttdk_coquanthuequanly = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1].ToString()).FirstOrDefault();
+                }
+                /*Ngày bắt đầu hoạt động*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Ngày bắt đầu hoạt động</td>");
+                if (vt != -1)
+                {
+                    model.ttdk_ngaybatdauhoatdong = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1].ToString()).FirstOrDefault();
+
+                }
+                /*Trạng thái*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Trạng thái</td>");
+                if (vt != -1)
+                {
+                    model.ttdk_trangthai = arrThongTinDoanhNghiep[vt + 4].ToString().Replace("<strong></strong>", string.Empty);
+
+                }
+                /*Thông tin liên hệ*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Địa chỉ trụ sở</td>");
+                if (vt != -1)
+                {
+                    string strchuoicon = arrThongTinDoanhNghiep[vt + 2].ToString();
+                    if (strchuoicon.Length > 0)
+                    {
+                        int vtcon1 = strchuoicon.IndexOf('<');
+                        string strDiaChiTruSo = strchuoicon.Substring(0, vtcon1);
+                        foreach (var item in Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 2].ToString()))
+                        {
+                            strDiaChiTruSo += " " + item;
+                        }
+                        model.ttlh_diachitruso = strDiaChiTruSo;
+                    }
+                }
+                /*Điện thoại*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Điện thoại</td>");
+                int vttemp1 = vt;
+                if (vt != -1)
+                {
+                    string strPhone1 = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 2]).Where(p => !p.Contains("Đăng nhập") && p.Length != 0).FirstOrDefault();
+                    model.ttlh_dienthoai1 = strPhone1;
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(new List<string>() { strPhone1 }, _dau_so, _regexs);
+                    if (arrPhone != null)
+                    {
+                        if (arrPhone.Count() != 0)
+                            model.ttlh_dienthoaididong1 = arrPhone.FirstOrDefault();
+                        if (arrPhone.Count() >= 2)
+                            model.ttlh_dienthoaididong2 = arrPhone[1];
+                        if (arrPhone.Count() >= 3)
+                            model.ttlh_dienthoaididong3 = arrPhone[2];
+                    }
+                }
+                /*điện thoại người đại diện*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Điện thoại</td>", vttemp1);
+                if (vt != -1)
+                {
+                    string strPhone1 = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 3]).Where(p => !p.Contains("Đăng nhập") && p.Length != 0).FirstOrDefault();
+                    model.ttlh_dienthoai_nguoidaidien = strPhone1;
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(new List<string>() { strPhone1 }, _dau_so, _regexs);
+                    if (arrPhone != null && arrPhone.Count() != 0)
+                        model.ttlh_dienthoai_nguoidaidien_didong = arrPhone.FirstOrDefault();
+                }
+                /*email*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Email</td>");
+                if (vt != -1)
+                {
+                    if (arrThongTinDoanhNghiep[vt + 2].ToString() != "</td>")
+                    {
+                        //model.ttlh_email = getDecodeEmail(arrGetHtmlDocumentALL[vt + 2]);
+                        string strEmail = getDecodeEmail(arrThongTinDoanhNghiep[vt + 2]);
+                        List<string> arrPhone = Utilities_scanner.getEmail(new List<string>() { strEmail });
+                        if (arrPhone != null && arrPhone.Count() != 0)
+                            model.ttlh_email = arrPhone.FirstOrDefault();
+                    }
+                }
+                /*Website*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Website</td>");
+                if (vt != -1)
+                {
+                    model.ttlh_website = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                }
+                /*Fax*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Fax</td>");
+                if (vt != -1)
+                {
+                    model.ttlh_fax = Regex.Replace(arrThongTinDoanhNghiep[vt + 2], @"\D", "");
+                }
+                /*Người đại diện*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Người đại diện</td>");
+                if (vt != -1)
+                {
+                    model.ttlh_nguoidaidien = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                }
+                /*Địa chỉ người đại diện*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Địa chỉ người đại diện</td>");
+                if (vt != -1)
+                {
+                    model.ttlh_diachinguoidaidien = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                }
+                /*Giám đốc*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Giám đốc</td>");
+                if (vt != -1)
+                {
+                    model.ttlh_giamdoc = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                }
+                /*Điện thoại giám đốc*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Điện thoại giám đốc</td>");
+                if (vt != -1)
+                {
+                    string strPhone1 = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 3]).Where(p => !p.Contains("Đăng nhập") && p.Length != 0).FirstOrDefault();
+                    model.ttlh_dienthoaigiamdoc = strPhone1;
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(new List<string>() { strPhone1 }, _dau_so, _regexs);
+                    if (arrPhone != null && arrPhone.Count() != 0)
+                        model.ttlh_dienthoaigiamdoc_didong = arrPhone.FirstOrDefault();
+
+                }
+                /*Địa chỉ giám đốc*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Địa chỉ giám đốc</td>");
+                if (vt != -1)
+                {
+                    model.ttlh_diachigiamdoc = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                }
+                /*Kế toán*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Kế toán</td>");
+                if (vt != -1)
+                {
+                    model.ttlh_ketoan = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                }
+                /*Điện thoại kế toán*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Điện thoại kế toán</td>");
+                if (vt != -1)
+                {
+                    string strPhone1 = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 3]).Where(p => !p.Contains("Đăng nhập") && p.Length != 0).FirstOrDefault();
+                    model.ttlh_dienthoaiketoan = strPhone1;
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(new List<string>() { strPhone1 }, _dau_so, _regexs);
+                    if (arrPhone != null && arrPhone.Count() != 0)
+                        model.ttlh_dienthoaiketoan_didong = arrPhone.FirstOrDefault();
+                }
+                /*Địa chỉ kế toán*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Địa chỉ kế toán</td>");
+                if (vt != -1)
+                {
+                    model.ttlh_diachiketoan = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+
+                }
+                /*Thông tin ngành nghề, lĩnh vực hoạt động*/
+                /*Ngành nghề chính*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Ngành nghề chính</td>");
+                if (vt != -1)
+                {
+                    if (Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault() != null)
+                    {
+                        string strGoc = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                        dm_hsct dm = getIDKiemTraGanDung(strGoc);
+                        if (dm == null)
+                            model.danhmucid = 0;
+                        else
+                            model.danhmucid = dm.id;
+                        model.danhmucbyVnbiz = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                    }
+                }
+                /*Lĩnh vực kinh tế*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Lĩnh vực kinh tế</td>");
+                if (vt != -1)
+                {
+                    model.lvhd_linhvuckinhte = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                }
+                /*Loại hình kinh tế*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Loại hình kinh tế</td>");
+                if (vt != -1)
+                {
+                    model.lvhd_loaihinhkinhte = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                }
+                /*Loại hình tổ chức*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Loại hình tổ chức</td>");
+                if (vt != -1)
+                {
+                    model.lvhd_loaihinhtochuc = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                }
+                /*Cấp chương*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Cấp chương</td>");
+                if (vt != -1)
+                {
+                    model.lvhd_capchuong = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                }
+                /*Loại khoản*/
+                vt = Helpers.vitritim(arrThongTinDoanhNghiep, "<td class=\"bg_table_td\">Loại khoản</td>");
+                if (vt != -1)
+                {
+                    model.lvhd_loaikhoan = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 1]).FirstOrDefault();
+                }
+                /***************ngành nghề kinh doanh************************/
+                xPathinfo = "//a[@data-toggle='tab']";
+                HtmlNodeCollection listNodeNganhNgheKinhDoanh = documentNode.SelectNodes(xPathinfo);
+                foreach (HtmlNode item in listNodeNganhNgheKinhDoanh)
+                {
+                    string xx = item.InnerHtml;
+                }
+
+
+                /*------------------------------------------------------*/
+
+                int vt1 = strWebsite.IndexOf("id=\"wid-detail-info\"");
+                int vt2 = strWebsite.IndexOf("class=\"page-footer\"", vt1);
+                string chuoixuly = strWebsite.Substring(vt1, vt2 - vt1);
+
+                arrGetHtmlDocumentALL = chuoixuly.Split(new char[] { '\n', '\r' }).ToList();
+
+             
                 /*Ngành nghề kinh doanh*/
                 /*tab-pane fade active in*/
                 if (strWebsite.IndexOf("<a data-toggle=\"tab\" href=\"#hr2\">") != -1)

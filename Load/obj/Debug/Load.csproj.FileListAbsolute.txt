@@ -184,3 +184,4 @@ D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.Main.resources
 D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.PleaseWait.resources
 D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.Properties.Resources.resources
 D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.csproj.GenerateResource.Cache
+D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.csprojResolveAssemblyReference.cache
