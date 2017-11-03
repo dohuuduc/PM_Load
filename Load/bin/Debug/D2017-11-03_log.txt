@@ -13,3 +13,22 @@
 03:43:52.017 PM	Đăng nhập hệ thống: UserName: admin   -Login 
 04:03:40.758 PM	Đăng nhập hệ thống: UserName: admin   -Login 
 04:18:34.051 PM	Đăng nhập hệ thống: UserName: admin   -Login 
+11:23:06.003 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+11:23:53.864 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+11:27:50.395 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+11:38:42.160 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+11:40:27.752 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+11:40:35.101 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+11:46:34.008 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+11:48:04.823 AM	Object reference not set to an instance of an object.-https://vinabiz.org/company/detail/cong-ty-co-phan-gk-viet-nam/3000310030003400330036003800380037003000-getTrangCon-vinabiz
+11:49:34.834 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+11:50:08.873 AM	Object reference not set to an instance of an object.-https://vinabiz.org/company/detail/cong-ty-co-phan-gk-viet-nam/3000310030003400330036003800380037003000-getTrangCon-vinabiz
+11:50:16.297 AM	Object reference not set to an instance of an object.-https://vinabiz.org/company/detail/cong-ty-co-phan-gk-viet-nam/3000310030003400330036003800380037003000-getTrangCon-vinabiz
+11:50:58.658 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+11:54:16.779 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+11:54:31.918 AM	Object reference not set to an instance of an object.-https://vinabiz.org/company/detail/van-phong-dai-dien-cong-ty-co-phan-ket-noi-dotmark/30003100300037003600330039003100370033002D00300030003100-getTrangCon-vinabiz
+11:54:40.143 AM	Object reference not set to an instance of an object.-https://vinabiz.org/company/detail/van-phong-dai-dien-cong-ty-co-phan-ket-noi-dotmark/30003100300037003600330039003100370033002D00300030003100-getTrangCon-vinabiz
+11:54:41.617 AM	Object reference not set to an instance of an object.-https://vinabiz.org/company/detail/van-phong-dai-dien-cong-ty-co-phan-ket-noi-dotmark/30003100300037003600330039003100370033002D00300030003100-getTrangCon-vinabiz
+11:58:51.818 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+12:03:06.745 PM	Đăng nhập hệ thống: UserName: admin   -Login 
+12:05:52.138 PM	Đăng nhập hệ thống: UserName: admin   -Login 
