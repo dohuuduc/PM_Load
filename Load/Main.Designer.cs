@@ -682,7 +682,7 @@
             // lbl_vinabiz_phantram
             // 
             this.lbl_vinabiz_phantram.AutoSize = true;
-            this.lbl_vinabiz_phantram.Location = new System.Drawing.Point(1142, 550);
+            this.lbl_vinabiz_phantram.Location = new System.Drawing.Point(1142, 552);
             this.lbl_vinabiz_phantram.Name = "lbl_vinabiz_phantram";
             this.lbl_vinabiz_phantram.Size = new System.Drawing.Size(21, 13);
             this.lbl_vinabiz_phantram.TabIndex = 154;
@@ -691,7 +691,7 @@
             // pr_vinabiz
             // 
             this.pr_vinabiz.ForeColor = System.Drawing.Color.Blue;
-            this.pr_vinabiz.Location = new System.Drawing.Point(631, 547);
+            this.pr_vinabiz.Location = new System.Drawing.Point(631, 549);
             this.pr_vinabiz.Name = "pr_vinabiz";
             this.pr_vinabiz.Size = new System.Drawing.Size(504, 18);
             this.pr_vinabiz.Step = 1;
@@ -969,7 +969,7 @@
             // 
             this.lbl_vinabiz_message1.AutoSize = true;
             this.lbl_vinabiz_message1.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_vinabiz_message1.Location = new System.Drawing.Point(632, 465);
+            this.lbl_vinabiz_message1.Location = new System.Drawing.Point(632, 462);
             this.lbl_vinabiz_message1.MaximumSize = new System.Drawing.Size(600, 0);
             this.lbl_vinabiz_message1.Name = "lbl_vinabiz_message1";
             this.lbl_vinabiz_message1.Size = new System.Drawing.Size(81, 13);
@@ -980,7 +980,7 @@
             // lbl_vinabiz_message2
             // 
             this.lbl_vinabiz_message2.AutoSize = true;
-            this.lbl_vinabiz_message2.Location = new System.Drawing.Point(630, 486);
+            this.lbl_vinabiz_message2.Location = new System.Drawing.Point(632, 486);
             this.lbl_vinabiz_message2.MaximumSize = new System.Drawing.Size(500, 0);
             this.lbl_vinabiz_message2.Name = "lbl_vinabiz_message2";
             this.lbl_vinabiz_message2.Size = new System.Drawing.Size(373, 13);

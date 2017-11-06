@@ -168,9 +168,11 @@ namespace Load
 
                 /**************************************************************/
                 _regexs = SQLDatabase.LoadRegexs("select * from Regexs");
-                /*load danh sách đầu số*/
-                DataTable tb_dausp = SQLDatabase.ExcDataTable("select distinct dauso dauso,lenght " +
-                                                   "  from dau_so where dauso is not null and dauso <> ''");
+                DataTable tb_dausp = SQLDatabase.ExcDataTable(" select distinct dauso dauso,lenght  " +
+                                                              " from dau_so where dauso is not null and dauso <> '' " +
+                                                              " union all " +
+                                                              " select distinct right(dauso, len(dauso) - 1)dauso, lenght -1" +
+                                                              " from dau_so where dauso is not null and dauso <> ''");
 
                 Dictionary<string, int> dauso = new Dictionary<string, int>();
                 foreach (DataRow item in tb_dausp.Rows)
@@ -4135,7 +4137,6 @@ namespace Load
                     txt_vinabiz_timeout.Enabled = true;
                     btn_vinabiz_timeout_giam.Enabled = true;
                     btn_vinabiz_timeout_tang.Enabled = true;
-
                  
 
                     if (chk_vinabiz_lanlap.Checked)
@@ -4222,7 +4223,7 @@ namespace Load
                         if (!Utilities_vinabiz.hasProcess)   break;
                         {
                             /*kiễm tra trang*/
-                            if (Utilities_vinabiz._PathLimit != -1 && Utilities_trangvang._PathLimit == i)   break;
+                            if (Utilities_vinabiz._PathLimit != -1 && Utilities_vinabiz._PathLimit == i)   break;
                             lbl_vinabiz_message1.Text = string.Format("Đang Xử Lý: {0} \n Trang: {1}\\ Tổng Trang: {2}", strName, i, pagemax.TotalPagingMax);
                             lbl_vinabiz_message1.Update();
 

@@ -1,0 +1,29 @@
+12:56:19.187 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+12:57:20.933 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:03:33.529 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:04:09.804 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:06:08.032 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:08:55.500 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:16:46.797 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:18:24.133 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:20:27.135 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:21:44.427 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:25:51.275 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:26:25.747 AM	Object reference not set to an instance of an object.-https://vinabiz.org//company/detail/doanh-nghiep-tu-nhan-dien-tu-cam-tu/3300360030003300350030003300300035003500-getTrangCon-vinabiz
+01:27:04.971 AM	Object reference not set to an instance of an object.-https://vinabiz.org//company/detail/van-phong-dai-dien-cong-ty-co-phan-ket-noi-dotmark/30003100300037003600330039003100370033002D00300030003100-getTrangCon-vinabiz
+01:29:20.344 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:40:10.469 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:41:23.954 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:42:16.911 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+01:43:56.223 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+03:25:18.138 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+03:27:24.863 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+04:23:35.807 AM	Object reference not set to an instance of an object.-https://vinabiz.org//company/detail/cong-ty-tnhh-dau-tu-va-phat-trien-van-cat/3000330031003400360038003500340033003500-getTrangCon-vinabiz
+04:24:06.983 AM	Object reference not set to an instance of an object.-https://vinabiz.org//company/detail/cong-ty-tnhh-mot-thanh-vien-thuong-mai-dich-vu-co-khi-xay-dung-phuc-hung/3000330031003400360038003500380031003200-getTrangCon-vinabiz
+04:24:38.213 AM	Object reference not set to an instance of an object.-https://vinabiz.org//company/detail/cong-ty-tnhh-san-xuat-thuong-mai-atchi-viet-nam/3000330031003400360038003500390039003600-getTrangCon-vinabiz
+04:25:09.433 AM	Object reference not set to an instance of an object.-https://vinabiz.org//company/detail/cong-ty-tnhh-dau-tu-thuong-mai-cong-nghe-thao-my/3000330031003400360038003600310030003000-getTrangCon-vinabiz
+10:18:11.251 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+10:20:44.178 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+10:22:08.871 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+10:54:34.876 AM	Đăng nhập hệ thống: UserName: admin   -Login 
+10:58:44.451 AM	Đăng nhập hệ thống: UserName: admin   -Login 

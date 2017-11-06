@@ -106,45 +106,6 @@ D:\App\PM_Load\trunk\Load\obj\Debug\Load.csproj.GenerateResource.Cache
 D:\App\PM_Load\trunk\Load\obj\Debug\Load.exe
 D:\App\PM_Load\trunk\Load\obj\Debug\Load.pdb
 D:\GitHub Desktop\PM_Load\Load\bin\Debug\Load.exe
-D:\GitHub Desktop\PM_Load\Load\bin\Debug\Load.exe.config
-D:\GitHub Desktop\PM_Load\Load\bin\Debug\Newtonsoft.Json.dll
-D:\GitHub Desktop\PM_Load\Load\bin\Debug\Newtonsoft.Json.xml
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frm_dmVinabiz.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmCauHinh.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmChangPassword.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDialogColumn.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_batdongsan.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_hosocongty.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_Muaban_timviec.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_scanner2.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_scanner.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_Thitruongsi.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_TongHopCol.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_trangvang.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExportbatdongsan.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExportScanner.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExporttimviec.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExporttrangvang.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExportvatgia.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_Vatgia.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExporthosocongty.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExportVinabiz.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmLogin.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmSaveAs.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmthemLinkVinabix.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmTonghop.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frm_chuanhoanPhone.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.Main.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.PleaseWait.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.Properties.Resources.resources
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.csproj.GenerateResource.Cache
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.exe
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.pdb
-D:\GitHub Desktop\PM_Load\Load\bin\Debug\Load.pdb
-D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.csprojResolveAssemblyReference.cache
-D:\GitHub Desktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.dll
-D:\GitHub Desktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.pdb
-D:\GitHub Desktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.xml
 D:\GitHubDesktop\PM_Load\Load\bin\Debug\Load.exe.config
 D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.exe
 D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.pdb
@@ -185,3 +146,42 @@ D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.PleaseWait.resources
 D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.Properties.Resources.resources
 D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.csproj.GenerateResource.Cache
 D:\GitHubDesktop\PM_Load\Load\obj\Debug\Load.csprojResolveAssemblyReference.cache
+D:\GitHub Desktop\PM_Load\Load\bin\Debug\Load.exe.config
+D:\GitHub Desktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.dll
+D:\GitHub Desktop\PM_Load\Load\bin\Debug\Newtonsoft.Json.dll
+D:\GitHub Desktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.pdb
+D:\GitHub Desktop\PM_Load\Load\bin\Debug\HtmlAgilityPack.xml
+D:\GitHub Desktop\PM_Load\Load\bin\Debug\Newtonsoft.Json.xml
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frm_dmVinabiz.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmCauHinh.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmChangPassword.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDialogColumn.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_batdongsan.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_hosocongty.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_Muaban_timviec.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_scanner2.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_scanner.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_Thitruongsi.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_TongHopCol.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_trangvang.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExportbatdongsan.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExportScanner.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExporttimviec.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExporttrangvang.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExportvatgia.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmDM_Vatgia.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExporthosocongty.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmExportVinabiz.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmLogin.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmSaveAs.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmthemLinkVinabix.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frmTonghop.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.frm_chuanhoanPhone.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.Main.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.PleaseWait.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.Properties.Resources.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.csproj.GenerateResource.Cache
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.exe
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.pdb
+D:\GitHub Desktop\PM_Load\Load\bin\Debug\Load.pdb
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.csprojResolveAssemblyReference.cache

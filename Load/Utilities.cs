@@ -1713,33 +1713,34 @@ namespace Load
 
                 for (int i = 0; i < datahtml.Count; i++)
                 {
-                    if (datahtml[i].Length > 3)
-                        datahtml[i] = datahtml[i].Replace("+84", "0");
+                    datahtml[i] = datahtml[i].Replace("+84", "0").Replace("(84)", "0").Replace(" ", "").Replace("(", "").Replace(")", "").Replace(".", "").Replace("-", "");
                 }
-
                 List<string> result = datahtml.Where(x => dauso.Keys.Any(y => x.Contains(y))).ToList();
                 foreach (var item in result)
                 {
-                    bool kiemtra = dauso.Where(x => (item.StartsWith(x.Key) && item.Length == x.Value)).Count() > 0;
-                    if (kiemtra)
+                    foreach (regexs re in _regexs)
                     {
-                        foreach (regexs re in _regexs)
+                        Regex rg = new Regex(string.Format(@"{0}", re.Regex));
+                        MatchCollection m = rg.Matches(item);
+                        foreach (Match g in m)
                         {
-                            Regex rg = new Regex(string.Format(@"{0}", re.Regex));
-                            MatchCollection m = rg.Matches(item);
-                            foreach (Match g in m)
-                            {
-                                if (g.Groups[0].Value.Length > 0)
-                                    if (phoneList.Count(x => x.Contains(g.Groups[0].Value)) == 0)
-                                        phoneList.Add(g.Groups[0].Value);
-                            }
+                            if (g.Groups[0].Value.Length > 0)
+                                if (phoneList.Count(x => x.Contains(g.Groups[0].Value)) == 0)
+                                    phoneList.Add(g.Groups[0].Value);
                         }
                     }
+
                 }
                 /*xu ly so lieu*/
                 foreach (var item in phoneList)
                 {
-                    string dienthoai = item.Replace(" ", "").Replace(".", "").Replace("-", "");
+                    string dienthoai = item.Replace(" ", "").Replace(".", "").Replace("-", "").Replace("(", "").Replace(")", "");
+
+                    Dictionary<string, int> dausothieu0 = dauso.Where(p => !p.Key.StartsWith("0")).ToDictionary(p => p.Key, p => p.Value);
+                    bool kiemtra0 = dausothieu0.Where(x => (dienthoai.StartsWith(x.Key) && dienthoai.Length == x.Value)).Count() > 0;
+                    if (kiemtra0)
+                        dienthoai = string.Format("0{0}", dienthoai);
+
                     if (dienthoai.Length >= 10 && dienthoai.Length <= 11)
                     {
                         bool kiemtra = dauso.Where(x => (dienthoai.StartsWith(x.Key) && dienthoai.Length == x.Value)).Count() > 0;
@@ -1748,6 +1749,7 @@ namespace Load
                     }
                 }
                 return phoneChuan.Distinct().ToList();
+
             }
             catch (Exception ex)
             {
@@ -1767,32 +1769,34 @@ namespace Load
 
                 for (int i = 0; i < datahtml.Count; i++)
                 {
-                    if (datahtml[i].Length > 3)
-                        datahtml[i] = datahtml[i].Replace("+84", "0");
+                    datahtml[i] = datahtml[i].Replace("+84", "0").Replace("(84)", "0").Replace(" ", "").Replace("(", "").Replace(")", "").Replace(".", "").Replace("-", "");
                 }
                 List<string> result = datahtml.Where(x => dauso.Keys.Any(y => x.Contains(y))).ToList();
                 foreach (var item in result)
                 {
-                    bool kiemtra = dauso.Where(x => (item.StartsWith(x.Key) && item.Length == x.Value)).Count() > 0;
-                    if (kiemtra)
+                    foreach (regexs re in _regexs)
                     {
-                        foreach (regexs re in _regexs)
+                        Regex rg = new Regex(string.Format(@"{0}", re.Regex));
+                        MatchCollection m = rg.Matches(item);
+                        foreach (Match g in m)
                         {
-                            Regex rg = new Regex(string.Format(@"{0}", re.Regex));
-                            MatchCollection m = rg.Matches(item);
-                            foreach (Match g in m)
-                            {
-                                if (g.Groups[0].Value.Length > 0)
-                                    if (phoneList.Count(x => x.Contains(g.Groups[0].Value)) == 0)
-                                        phoneList.Add(g.Groups[0].Value);
-                            }
+                            if (g.Groups[0].Value.Length > 0)
+                                if (phoneList.Count(x => x.Contains(g.Groups[0].Value)) == 0)
+                                    phoneList.Add(g.Groups[0].Value);
                         }
                     }
+
                 }
                 /*xu ly so lieu*/
                 foreach (var item in phoneList)
                 {
-                    string dienthoai = item.Replace(" ", "").Replace(".", "").Replace("-", "");
+                    string dienthoai = item.Replace(" ", "").Replace(".", "").Replace("-", "").Replace("(", "").Replace(")", "");
+
+                    Dictionary<string, int> dausothieu0 = dauso.Where(p => !p.Key.StartsWith("0")).ToDictionary(p => p.Key, p => p.Value);
+                    bool kiemtra0 = dausothieu0.Where(x => (dienthoai.StartsWith(x.Key) && dienthoai.Length == x.Value)).Count() > 0;
+                    if (kiemtra0)
+                        dienthoai = string.Format("0{0}", dienthoai);
+
                     if (dienthoai.Length >= 10 && dienthoai.Length <= 11)
                     {
                         bool kiemtra = dauso.Where(x => (dienthoai.StartsWith(x.Key) && dienthoai.Length == x.Value)).Count() > 0;
@@ -1809,6 +1813,7 @@ namespace Load
 
             }
         }
+
         public static List<string> getEmail(List<string> datahtml)
         {
             try
@@ -4307,7 +4312,7 @@ namespace Load
         public static string WebRequestNavigateNew(string url, ref int solanlap, Label lbl_khoa)
         {
             string html = null;
-
+            lbl_khoa.Visible = false;
             while (html == null)
             {
                 try
@@ -4408,7 +4413,6 @@ namespace Load
             ProgressBar pr_vinabiz = (ProgressBar)arr1[4];
 
             string output;
-            string[] arrGetHtmlDocumentALL;
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
 
             try
@@ -4799,10 +4803,7 @@ namespace Load
                     model = null;
                     return;/*stop*/
                 }
-
-
-                strPath = "https://vinabiz.org/company/detail/cong-ty-co-phan-tap-doan-cong-nghe-cmc/3000310030003000320034003400310031003200";
-
+                //strPath = "https://vinabiz.org//company/detail/cong-ty-tnhh-mot-thanh-vien-thuong-mai-dich-vu-co-khi-xay-dung-phuc-hung/3000330031003400360038003500380031003200";
                 strWebsite = WebRequestNavigateNew(strPath, ref solanlap, lbl_vinabiz_khoa);
                 HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
                 doc.LoadHtml(strWebsite);
@@ -5047,20 +5048,21 @@ namespace Load
                 /***************ngành nghề kinh doanh************************/
                 xPathinfo = "//div[@id='hr2']";
                 HtmlNode listNodeNganhNgheKinhDoanh = documentNode.SelectSingleNode(xPathinfo);
-                foreach (HtmlAgilityPack.HtmlNode item in listNodeNganhNgheKinhDoanh.SelectNodes(".//li"))
-                {
-                    if (item.OuterHtml.Contains("</b>")) {
-                        model.nganhnghechinh2 = item.InnerText.Trim();
+                if (listNodeNganhNgheKinhDoanh != null)
+                    foreach (HtmlAgilityPack.HtmlNode item in listNodeNganhNgheKinhDoanh.SelectNodes(".//li"))
+                    {
+                        if (item.OuterHtml.Contains("</b>"))
+                        {
+                            model.nganhnghechinh2 = item.InnerText.Trim();
+                        }
+                        model.ds_nganhnghekinhdoanh += model.ds_nganhnghekinhdoanh == null ? item.InnerText.Trim() : string.Format(" | {0}", item.InnerText.Trim());
                     }
-                    model.ds_nganhnghekinhdoanh += model.ds_nganhnghekinhdoanh == null ? item.InnerText.Trim() : string.Format(" | {0}", item.InnerText.Trim());
-                }
                 /***************Thuế phải nộp*******************************/
                 xPathinfo = "//div[@id='hr3']";
                 HtmlNode listNodeThuePhaiNop = documentNode.SelectSingleNode(xPathinfo);
-                foreach (HtmlAgilityPack.HtmlNode item in listNodeThuePhaiNop.SelectNodes(".//li"))
-                {
-                    model.ds_thuephainop += model.ds_thuephainop == null ? item.InnerText.Trim() : string.Format(" | {0}", item.InnerText.Trim());
-                }
+                if (listNodeThuePhaiNop != null)
+                    foreach (HtmlAgilityPack.HtmlNode item in listNodeThuePhaiNop.SelectNodes(".//li"))
+                        model.ds_thuephainop += model.ds_thuephainop == null ? item.InnerText.Trim() : string.Format(" | {0}", item.InnerText.Trim());
             }
             catch (Exception e)
             {
