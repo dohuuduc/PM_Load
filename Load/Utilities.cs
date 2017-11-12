@@ -1762,36 +1762,25 @@ namespace Load
         {
             try
             {
-                //http://stackoverflow.com/questions/8596088/c-sharp-regex-phone-number-check
-                //http://www.taphuan.vn/2015/05/xu-ly-chuoi-voi-regular-expression.html
                 List<string> phoneList = new List<string>();
                 List<string> phoneChuan = new List<string>();
-
+                /*buoc 1: chỉnh lai trường hôp +84; 8*/
                 for (int i = 0; i < datahtml.Count; i++)
-                {
-                    datahtml[i] = datahtml[i].Replace("+84", "0").Replace("(84)", "0").Replace(" ", "").Replace("(", "").Replace(")", "").Replace(".", "").Replace("-", "");
-                }
-                List<string> result = datahtml.Where(x => dauso.Keys.Any(y => x.Contains(y))).ToList();
-                foreach (var item in result)
-                {
-                    foreach (regexs re in _regexs)
-                    {
+                    datahtml[i] = datahtml[i].Replace("+84", "0").Replace("(84)", "0");
+                foreach (var item in datahtml) {
+                    foreach (regexs re in _regexs)  {
                         Regex rg = new Regex(string.Format(@"{0}", re.Regex));
                         MatchCollection m = rg.Matches(item);
-                        foreach (Match g in m)
-                        {
+                        foreach (Match g in m){
                             if (g.Groups[0].Value.Length > 0)
                                 if (phoneList.Count(x => x.Contains(g.Groups[0].Value)) == 0)
                                     phoneList.Add(g.Groups[0].Value);
                         }
                     }
-
                 }
                 /*xu ly so lieu*/
-                foreach (var item in phoneList)
-                {
+                foreach (var item in phoneList)  {
                     string dienthoai = item.Replace(" ", "").Replace(".", "").Replace("-", "").Replace("(", "").Replace(")", "");
-
                     Dictionary<string, int> dausothieu0 = dauso.Where(p => !p.Key.StartsWith("0")).ToDictionary(p => p.Key, p => p.Value);
                     bool kiemtra0 = dausothieu0.Where(x => (dienthoai.StartsWith(x.Key) && dienthoai.Length == x.Value)).Count() > 0;
                     if (kiemtra0)
