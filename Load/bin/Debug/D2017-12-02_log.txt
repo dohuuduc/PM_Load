@@ -1,0 +1,73 @@
+03:08:55.985 CH	Đăng nhập hệ thống: UserName: admin   -Login 
+03:10:34.617 CH	Đăng nhập hệ thống: UserName: admin   -Login 
+03:17:22.050 CH	Đăng nhập hệ thống: UserName: admin   -Login 
+03:20:35.852 CH	Đăng nhập hệ thống: UserName: admin   -Login 
+03:25:35.509 CH	Đăng nhập hệ thống: UserName: admin   -Login 
+03:26:06.504 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0108078322-error1
+03:26:07.102 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0108078731-error1
+03:26:07.752 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0108079037-error1
+03:26:08.363 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0108080385-error1
+03:26:09.034 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0108080561-error1
+03:26:09.777 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0305000068-002-error1
+03:26:10.645 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0314762834-error1
+03:26:11.512 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0314764888-error1
+03:26:12.126 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0314764969-error1
+03:26:12.998 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0314765761-error1
+03:26:14.311 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0314766885-error1
+03:26:14.986 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0314767529-error1
+03:26:15.828 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0901024285-error1
+03:26:16.958 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:1801442805-012-error1
+03:26:17.605 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:1801581862-error1
+03:26:18.483 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:2001280635-error1
+03:26:19.043 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:2301000871-error1
+03:26:19.616 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:2802502417-error1
+03:26:20.414 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:2802502738-error1
+03:26:21.161 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:2901911611-error1
+03:26:22.303 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0108022739-001-error1
+03:26:23.252 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0108074656-error1
+03:26:23.838 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0108078315-error1
+03:26:24.589 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:3603510415-error1
+03:26:25.390 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:3603510422-error1
+03:26:26.159 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:3702622141-error1
+03:26:26.810 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:3702622670-error1
+03:26:27.352 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:3702622977-error1
+03:26:27.977 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:4201769667-error1
+03:26:28.539 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:5100454687-error1
+03:26:30.965 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0108079100-error1
+03:26:31.472 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0108079407-error1
+03:26:32.143 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0108079904-error1
+03:26:33.220 CH	Violation of PRIMARY KEY constraint 'PK_vinabiz'. Cannot insert duplicate key in object 'dbo.vinabiz'.
+The statement has been terminated.-AddVinabiz-diachiwebsite:0108080681-error1

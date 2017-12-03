@@ -53,7 +53,8 @@ namespace Load
                 {
                     string strPhone1 = item.ttlh_dienthoai1;
                     //string strPhone1 = "012 6619 03 11";
-                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(new List<string>() { strPhone1 }, _dauso, _regexs);
+                    //List<string> arrPhone = Utilities_scanner.getPhoneHTML(new List<string>() { strPhone1 }, _dauso, _regexs);
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1, _regexs); /*chuyen v 2017*/
                     if (arrPhone.Count() != 0)
                     {
                         if (arrPhone.Count() != 0)
@@ -81,7 +82,8 @@ namespace Load
                 foreach (vinabiz item in dm)
                 {
                     string strPhone1 = item.ttlh_dienthoai_nguoidaidien;
-                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(new List<string>() { strPhone1 }, _dauso, _regexs);
+                    //List<string> arrPhone = Utilities_scanner.getPhoneHTML(new List<string>() { strPhone1 }, _dauso, _regexs);
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1,  _regexs);
                     if (arrPhone.Count() != 0)
                     {
                         item.ttlh_dienthoai_nguoidaidien_didong = arrPhone.FirstOrDefault();
@@ -102,7 +104,7 @@ namespace Load
                 foreach (vinabiz item in dm)
                 {
                     string strPhone1 = item.ttlh_dienthoaigiamdoc;
-                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(new List<string>() { strPhone1 }, _dauso, _regexs);
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML( strPhone1 , _regexs);
                     if (arrPhone.Count() != 0)
                     {
                         item.ttlh_dienthoaigiamdoc_didong = arrPhone.FirstOrDefault();
@@ -123,7 +125,7 @@ namespace Load
                 foreach (vinabiz item in dm)
                 {
                     string strPhone1 = item.ttlh_dienthoaiketoan;
-                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(new List<string>() { strPhone1 }, _dauso, _regexs);
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML( strPhone1 ,  _regexs);
                     if (arrPhone.Count() != 0)
                     {
                         item.ttlh_dienthoaiketoan_didong = arrPhone.FirstOrDefault();

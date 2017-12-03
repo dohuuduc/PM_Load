@@ -56,6 +56,7 @@ namespace Load
         private List<dm_hsct> _listHsct = new List<dm_hsct>();
         private List<dm_Tinh> _listdm_Tinh = new List<dm_Tinh>();
         DataTable _danhmucVinabiz;
+        bool _logintemp = false;
 
         /**********07/2017 (thitruongsi.com) ****************/
         WebBrowser wThiTruongSi = new WebBrowser();
@@ -4039,6 +4040,11 @@ namespace Load
                     return;
                 }
 
+                if (!_logintemp) {
+                    MessageBox.Show("Vui lòng đăng nhập vinabiz", "Thông báo");
+                    return;
+                }
+
                 Utilities_vinabiz._Timeout = ConvertType.ToInt(txt_trangvang_timeout.Text);
                 Utilities_vinabiz._Sleep = ConvertType.ToInt(txt_trangvang_sleep.Text);
                 Utilities_vinabiz._listquetcan = SQLDatabase.Loaddm_vinabiz_map("select * from dm_vinabiz_map");
@@ -4424,7 +4430,12 @@ namespace Load
                 HtmlNode NodedEmail = doc.DocumentNode.SelectSingleNode("//img[@src='/Content/img/avatars/avatar.jpg'][@alt]");
                 string email = NodedEmail.Attributes["alt"].Value;
 
-                lblVinaLogin.Text =string.Format("Xin Chào: {0} -({1})", NodedTen.InnerText,NodedEmail.Attributes["alt"].Value);
+                //lblVinaLogin.Text =string.Format("Xin Chào: {0} -({1})", NodedTen.InnerText,NodedEmail.Attributes["alt"].Value);
+
+                lblVinaLogin.Invoke((Action)delegate
+                {
+                    lblVinaLogin.Text = string.Format("Xin Chào: {0} -({1})", NodedTen.InnerText, NodedEmail.Attributes["alt"].Value);
+                });
 
 
                 return true;
@@ -5053,21 +5064,14 @@ namespace Load
 
         private void btnVinabizDangNhap_Click(object sender, EventArgs e)
         {
-            PleaseWait objPleaseWait = null;
-            //TODO: Stuff
-            objPleaseWait = new PleaseWait();
-            objPleaseWait.Show();
-            objPleaseWait.Update();
-            
-            if (Loginvinabiz())
+            new Waiting(() => _logintemp = Loginvinabiz()).ShowDialog();
+            if (_logintemp)
             {
-                    objPleaseWait.Close();
                     MessageBox.Show("Đăng nhập thành công", "Thông Báo");
                     groupBox12.Enabled = false;
             }
             else
             {
-                objPleaseWait.Close();
                 MessageBox.Show("Đăng nhập thất bại, vui lòng đăng nhập lại", "Thông báo");
                 groupBox12.Enabled = true;
             }

@@ -232,6 +232,12 @@
     </Compile>
     <Compile Include="SQLDatabase.cs" />
     <Compile Include="Utilities.cs" />
+    <Compile Include="Waiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Waiting.Designer.cs">
+      <DependentUpon>Waiting.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebRequestExtensions.cs" />
     <Compile Include="WebToolkit.cs" />
     <EmbeddedResource Include="dm_vinabiz.resx">
@@ -319,6 +325,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Waiting.resx">
+      <DependentUpon>Waiting.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
