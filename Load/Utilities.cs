@@ -1806,9 +1806,8 @@ namespace Load
         public static List<string> getPhoneHTML(string content, List<regexs> _regexs, bool? istestTrung = null)
         {
             List<string> hashSet = new List<string>();
-
-            content = content.Replace("+84", "0").Replace("(84)", "0");
-
+            if (content == null || content == "") return null;
+            content = content.Replace("(84)", "0").Replace("(+84)", "0").Replace("+84", "0");
             foreach (regexs re in _regexs)
             {
                 Regex rg = new Regex(string.Format(@"{0}", re.Regex), RegexOptions.Multiline | RegexOptions.IgnorePatternWhitespace);
@@ -1816,9 +1815,12 @@ namespace Load
                 foreach (Match g in m)
                 {
                     string item = RemoveSymbolInPhone(g.Value);
-                    if (!hashSet.Contains(item) && (istestTrung == true || istestTrung == null))
+                    if (istestTrung == null || istestTrung == true)
                     {
-                        hashSet.Add(item);
+                        if (!hashSet.Contains(item))
+                        {
+                            hashSet.Add(item);
+                        }
                     }
                     else
                     {
@@ -1833,7 +1835,8 @@ namespace Load
             List<string> hashSet = new List<string>();
             foreach (var chuoi in datahtml)
             {
-                string content = chuoi.Replace("+84", "0").Replace("(84)", "0");
+                string content = chuoi.Replace("(84)", "0").Replace("(+84)", "0").Replace("+84", "0");
+
                 foreach (regexs re in _regexs)
                 {
                     Regex rg = new Regex(string.Format(@"{0}", re.Regex), RegexOptions.Multiline | RegexOptions.IgnorePatternWhitespace);
@@ -1841,9 +1844,12 @@ namespace Load
                     foreach (Match g in m)
                     {
                         string item = RemoveSymbolInPhone(g.Value);
-                        if (!hashSet.Contains(item) && (istestTrung == true || istestTrung == null))
+                        if (istestTrung == null || istestTrung == true)
                         {
-                            hashSet.Add(item);
+                            if (!hashSet.Contains(item))
+                            {
+                                hashSet.Add(item);
+                            }
                         }
                         else
                         {

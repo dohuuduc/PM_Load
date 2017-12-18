@@ -780,16 +780,114 @@ namespace StorePhone
         public string hinhanhxuong_diachi { get; set; }
         public string sys_diachiweb { get; set; }
     }
+    public class data
+    {
+        public string fieldName;
+
+        public string value;
+
+        public data(string name, string val)
+        {
+            this.fieldName = name;
+            this.value = val;
+        }
+
+        public data(string line)
+        {
+            char[] op = new char[]
+            {
+                '='
+            };
+            string[] s = line.Split(op);
+            if (s.Length == 1 || s.Length == 0)
+            {
+                this.fieldName = null;
+                this.value = null;
+            }
+            else if (s.Length == 2)
+            {
+                this.fieldName = s[0];
+                this.value = s[1];
+            }
+            else
+            {
+                this.fieldName = s[0];
+                this.value = line.Substring(s[0].Length + 1);
+            }
+        }
+    }
+    public class FileDataDictionary
+    {
+        private System.Collections.Generic.Dictionary<string, string> ds;
+
+        public FileDataDictionary(string fileName)
+        {
+            try
+            {
+                this.ds = new System.Collections.Generic.Dictionary<string, string>();
+                System.IO.StreamReader sr = new System.IO.StreamReader(fileName);
+                while (sr.Peek() != -1)
+                {
+                    string line = sr.ReadLine();
+                    if (line.Substring(0, 2) != "//")
+                    {
+                        data d = new data(line);
+                        if (d.value != null)
+                        {
+                            this.ds.Add(d.fieldName, d.value);
+                        }
+                    }
+                }
+                sr.Close();
+            }
+            catch (System.Exception e_8D)
+            {
+            }
+        }
+
+        public string getValue(string name)
+        {
+            string result;
+            if (this.ds.ContainsKey(name))
+            {
+                result = this.ds[name];
+            }
+            else
+            {
+                result = null;
+            }
+            return result;
+        }
+
+        public bool writeFile(string filePath)
+        {
+            if (System.IO.File.Exists(filePath))
+            {
+                System.IO.File.Delete(filePath);
+            }
+            System.IO.TextWriter writer = new System.IO.StreamWriter(filePath);
+            foreach (System.Collections.Generic.KeyValuePair<string, string> pair in this.ds)
+            {
+                string line = pair.Key + "=" + pair.Value;
+                writer.WriteLine(line);
+            }
+            writer.Close();
+            return false;
+        }
+    }
+
     class SQLDatabase
     {
 
         #region Fields
-
-        //public static string ConnectionString;
-        //public static string ConnectionString = "Data Source=(local);Initial Catalog=AppSearch;Integrated Security=True";
-        //public static string ConnectionString = "Data Source=123.30.127.133;Initial Catalog=AppSearch;User ID=sa;Password=cntt@123456";
-        //public static string ConnectionString = "Data Source=123.30.127.133;Initial Catalog=autocms;User ID=sa;Password=cntt@123456"; //System.Configuration.ConfigurationSettings.AppSettings.Get("ConnectionString");
-        public static string ConnectionString = System.Configuration.ConfigurationSettings.AppSettings.Get("ConnectionString");
+        public static string ConnectionString
+        {
+            get
+            {
+                FileDataDictionary FDD = new FileDataDictionary("setup.con");
+                return FDD.getValue("connectionstring");
+            }
+        }
         private static LogWriter writer;
 
         #endregion // Fields

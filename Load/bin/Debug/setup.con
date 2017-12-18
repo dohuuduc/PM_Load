@@ -1,0 +1,2 @@
+connectionstring=data source=(local);initial catalog=vinabiz_lan3;persist security info=True;Integrated Security=SSPI;
+IP=192.168.1.66

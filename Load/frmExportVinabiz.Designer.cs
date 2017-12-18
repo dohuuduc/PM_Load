@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.radCon = new System.Windows.Forms.RadioButton();
@@ -66,6 +66,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.radioButton10 = new System.Windows.Forms.RadioButton();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.tongsl_chon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name_chon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maid_chon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_chon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maid_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,10 +83,6 @@
             this.CapName_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.parentName_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.alevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_chon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maid_chon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name_chon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tongsl_chon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gw_vinabiz_chon)).BeginInit();
@@ -106,7 +106,7 @@
             this.groupBox2.Controls.Add(this.checkedListBox1);
             this.groupBox2.Location = new System.Drawing.Point(1, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1073, 457);
+            this.groupBox2.Size = new System.Drawing.Size(895, 457);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             // 
@@ -117,7 +117,7 @@
             this.groupBox4.Controls.Add(this.radCha);
             this.groupBox4.Controls.Add(this.btn_vinabiz_Xoa);
             this.groupBox4.Controls.Add(this.btn_vinabiz_Them);
-            this.groupBox4.Location = new System.Drawing.Point(686, 34);
+            this.groupBox4.Location = new System.Drawing.Point(515, 34);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(71, 409);
             this.groupBox4.TabIndex = 53;
@@ -190,11 +190,11 @@
             this.maid_chon,
             this.name_chon,
             this.tongsl_chon});
-            this.gw_vinabiz_chon.Location = new System.Drawing.Point(760, 41);
+            this.gw_vinabiz_chon.Location = new System.Drawing.Point(589, 41);
             this.gw_vinabiz_chon.Name = "gw_vinabiz_chon";
             this.gw_vinabiz_chon.RowHeadersVisible = false;
             this.gw_vinabiz_chon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gw_vinabiz_chon.Size = new System.Drawing.Size(307, 402);
+            this.gw_vinabiz_chon.Size = new System.Drawing.Size(299, 402);
             this.gw_vinabiz_chon.TabIndex = 46;
             // 
             // gw_vinabiz_goc
@@ -220,11 +220,11 @@
             this.CapName_goc,
             this.parentName_goc,
             this.alevel});
-            this.gw_vinabiz_goc.Location = new System.Drawing.Point(187, 41);
+            this.gw_vinabiz_goc.Location = new System.Drawing.Point(146, 41);
             this.gw_vinabiz_goc.Name = "gw_vinabiz_goc";
             this.gw_vinabiz_goc.RowHeadersVisible = false;
             this.gw_vinabiz_goc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gw_vinabiz_goc.Size = new System.Drawing.Size(493, 402);
+            this.gw_vinabiz_goc.Size = new System.Drawing.Size(366, 402);
             this.gw_vinabiz_goc.TabIndex = 45;
             this.gw_vinabiz_goc.DataSourceChanged += new System.EventHandler(this.gw_vinabiz_goc_DataSourceChanged);
             this.gw_vinabiz_goc.DoubleClick += new System.EventHandler(this.gw_vinabiz_goc_DoubleClick);
@@ -233,16 +233,16 @@
             // 
             this.cmb_vnBizNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_vnBizNhom.FormattingEnabled = true;
-            this.cmb_vnBizNhom.Location = new System.Drawing.Point(187, 17);
+            this.cmb_vnBizNhom.Location = new System.Drawing.Point(146, 17);
             this.cmb_vnBizNhom.Name = "cmb_vnBizNhom";
-            this.cmb_vnBizNhom.Size = new System.Drawing.Size(493, 21);
+            this.cmb_vnBizNhom.Size = new System.Drawing.Size(366, 21);
             this.cmb_vnBizNhom.TabIndex = 44;
             this.cmb_vnBizNhom.SelectedIndexChanged += new System.EventHandler(this.cmbNhom_SelectedIndexChanged);
             // 
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(189, -2);
+            this.radioButton4.Location = new System.Drawing.Point(146, 0);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(86, 17);
             this.radioButton4.TabIndex = 28;
@@ -278,7 +278,7 @@
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(6, 44);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(175, 394);
+            this.checkedListBox1.Size = new System.Drawing.Size(137, 394);
             this.checkedListBox1.TabIndex = 22;
             this.checkedListBox1.DoubleClick += new System.EventHandler(this.checkedListBox1_DoubleClick);
             // 
@@ -334,7 +334,7 @@
             this.groupBox1.Controls.Add(this.radioButton5);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(1080, 197);
+            this.groupBox1.Location = new System.Drawing.Point(901, 197);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(145, 166);
             this.groupBox1.TabIndex = 26;
@@ -408,7 +408,7 @@
             this.pr.ForeColor = System.Drawing.Color.Blue;
             this.pr.Location = new System.Drawing.Point(12, 475);
             this.pr.Name = "pr";
-            this.pr.Size = new System.Drawing.Size(1062, 18);
+            this.pr.Size = new System.Drawing.Size(884, 18);
             this.pr.Step = 1;
             this.pr.TabIndex = 154;
             // 
@@ -427,7 +427,7 @@
             // lbl_phantram
             // 
             this.lbl_phantram.AutoSize = true;
-            this.lbl_phantram.Location = new System.Drawing.Point(1083, 480);
+            this.lbl_phantram.Location = new System.Drawing.Point(906, 480);
             this.lbl_phantram.Name = "lbl_phantram";
             this.lbl_phantram.Size = new System.Drawing.Size(21, 13);
             this.lbl_phantram.TabIndex = 156;
@@ -438,7 +438,7 @@
             this.groupBox5.Controls.Add(this.groupBox6);
             this.groupBox5.Controls.Add(this.groupBox3);
             this.groupBox5.Controls.Add(this.btn_hosocongty_excel);
-            this.groupBox5.Location = new System.Drawing.Point(1080, 12);
+            this.groupBox5.Location = new System.Drawing.Point(901, 12);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(145, 180);
             this.groupBox5.TabIndex = 54;
@@ -482,7 +482,7 @@
             this.groupBox7.Controls.Add(this.button2);
             this.groupBox7.Controls.Add(this.radioButton10);
             this.groupBox7.Controls.Add(this.radioButton9);
-            this.groupBox7.Location = new System.Drawing.Point(1080, 369);
+            this.groupBox7.Location = new System.Drawing.Point(901, 369);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(145, 100);
             this.groupBox7.TabIndex = 157;
@@ -521,6 +521,39 @@
             this.radioButton9.Text = "Tỉnh Thành";
             this.radioButton9.UseVisualStyleBackColor = true;
             // 
+            // tongsl_chon
+            // 
+            this.tongsl_chon.DataPropertyName = "tongsl_chon";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.tongsl_chon.DefaultCellStyle = dataGridViewCellStyle3;
+            this.tongsl_chon.HeaderText = "SLượng";
+            this.tongsl_chon.Name = "tongsl_chon";
+            this.tongsl_chon.Width = 50;
+            // 
+            // name_chon
+            // 
+            this.name_chon.DataPropertyName = "name_chon";
+            this.name_chon.HeaderText = "Tên Ngành Nghề";
+            this.name_chon.Name = "name_chon";
+            this.name_chon.ReadOnly = true;
+            this.name_chon.Width = 170;
+            // 
+            // maid_chon
+            // 
+            this.maid_chon.DataPropertyName = "maid_chon";
+            this.maid_chon.HeaderText = "Mã";
+            this.maid_chon.Name = "maid_chon";
+            this.maid_chon.Width = 43;
+            // 
+            // id_chon
+            // 
+            this.id_chon.DataPropertyName = "id_chon";
+            this.id_chon.HeaderText = "id";
+            this.id_chon.Name = "id_chon";
+            this.id_chon.Width = 30;
+            // 
             // id_goc
             // 
             this.id_goc.DataPropertyName = "id";
@@ -541,15 +574,15 @@
             this.name_goc.HeaderText = "Tên Ngành Nghề";
             this.name_goc.Name = "name_goc";
             this.name_goc.ReadOnly = true;
-            this.name_goc.Width = 360;
+            this.name_goc.Width = 250;
             // 
             // tongsl_goc
             // 
             this.tongsl_goc.DataPropertyName = "tongsl";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.tongsl_goc.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.tongsl_goc.DefaultCellStyle = dataGridViewCellStyle4;
             this.tongsl_goc.HeaderText = "SLượng";
             this.tongsl_goc.Name = "tongsl_goc";
             this.tongsl_goc.Width = 50;
@@ -617,44 +650,11 @@
             this.alevel.Name = "alevel";
             this.alevel.Visible = false;
             // 
-            // id_chon
-            // 
-            this.id_chon.DataPropertyName = "id_chon";
-            this.id_chon.HeaderText = "id";
-            this.id_chon.Name = "id_chon";
-            this.id_chon.Width = 30;
-            // 
-            // maid_chon
-            // 
-            this.maid_chon.DataPropertyName = "maid_chon";
-            this.maid_chon.HeaderText = "Mã";
-            this.maid_chon.Name = "maid_chon";
-            this.maid_chon.Width = 43;
-            // 
-            // name_chon
-            // 
-            this.name_chon.DataPropertyName = "name_chon";
-            this.name_chon.HeaderText = "Tên Ngành Nghề";
-            this.name_chon.Name = "name_chon";
-            this.name_chon.ReadOnly = true;
-            this.name_chon.Width = 170;
-            // 
-            // tongsl_chon
-            // 
-            this.tongsl_chon.DataPropertyName = "tongsl_chon";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = "0";
-            this.tongsl_chon.DefaultCellStyle = dataGridViewCellStyle1;
-            this.tongsl_chon.HeaderText = "SLượng";
-            this.tongsl_chon.Name = "tongsl_chon";
-            this.tongsl_chon.Width = 50;
-            // 
             // frmExportVinabiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 540);
+            this.ClientSize = new System.Drawing.Size(1049, 540);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.lbl_phantram);
@@ -662,7 +662,6 @@
             this.Controls.Add(this.pr);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmExportVinabiz";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -726,6 +725,10 @@
         private System.Windows.Forms.RadioButton radioButton10;
         private System.Windows.Forms.RadioButton radioButton9;
         private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_chon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn maid_chon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name_chon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tongsl_chon;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_goc;
         private System.Windows.Forms.DataGridViewTextBoxColumn maid_goc;
         private System.Windows.Forms.DataGridViewTextBoxColumn name_goc;
@@ -739,9 +742,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CapName_goc;
         private System.Windows.Forms.DataGridViewTextBoxColumn parentName_goc;
         private System.Windows.Forms.DataGridViewTextBoxColumn alevel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_chon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maid_chon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name_chon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tongsl_chon;
     }
 }
