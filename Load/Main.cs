@@ -4216,7 +4216,8 @@ namespace Load
                                                 .CopyToDataTable();
                     if (tblFiltered != null && tblFiltered.Rows.Count != 0)
                         pagemax.PageNow = ConvertType.ToInt(tblFiltered.Rows[0]["trang_chon"]);
-                    pagemax.TotalPagingMax = pathlimit == -1 ? pagemax.TotalPagingMax : pathlimit > pagemax.TotalPagingMax ? pagemax.TotalPagingMax : pathlimit;
+                    //pagemax.TotalPagingMax = pathlimit == -1 ? pagemax.TotalPagingMax : pathlimit > pagemax.TotalPagingMax ? pagemax.TotalPagingMax : pathlimit;/*by:luulong load khong gio han:01/2018*/
+                    pagemax.TotalPagingMax = pathlimit == -1 ? pagemax.TotalPagingMax : pathlimit;
 
                     pr_vinabiz.Maximum = pagemax.TotalPagingMax;
                     pr_vinabiz.Value = pagemax.PageNow;

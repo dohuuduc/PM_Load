@@ -185,3 +185,4 @@ D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.exe
 D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.pdb
 D:\GitHub Desktop\PM_Load\Load\bin\Debug\Load.pdb
 D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.Waiting.resources
+D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.csprojResolveAssemblyReference.cache
