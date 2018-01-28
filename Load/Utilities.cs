@@ -1538,7 +1538,7 @@ namespace Load
 
                 /*******************************************************/
 
-                List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(strLienHeArr,  _regexs);
+                List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(strLienHeArr, _dau_so, _regexs);
 
                 vg.didong1 = dsdienthoai.Count() >= 1 ? dsdienthoai[0].ToString() : "";
                 vg.didong2 = dsdienthoai.Count() >= 2 ? dsdienthoai[1].ToString() : "";
@@ -1803,9 +1803,10 @@ namespace Load
             }
         }
 
-        public static List<string> getPhoneHTML(string content, List<regexs> _regexs, bool? istestTrung = null)
+        public static List<string> getPhoneHTML(string content, Dictionary<string, int> dauso, List<regexs> _regexs, bool? istestTrung = null)
         {
             List<string> hashSet = new List<string>();
+            List<string> phoneChuan = new List<string>();
             if (content == null || content == "") return null;
             content = content.Replace("(84)", "0").Replace("(+84)", "0").Replace("+84", "0");
             foreach (regexs re in _regexs)
@@ -1828,11 +1829,30 @@ namespace Load
                     }
                 }
             }
-            return hashSet;
+
+            /*01/2018 bo xung theo kiem tra so luong chuoi dien thoai*/
+            /*xu ly so lieu*/
+            foreach (var item in hashSet)
+            {
+                string dienthoai = item;
+                Dictionary<string, int> dausothieu0 = dauso.Where(p => !p.Key.StartsWith("0")).ToDictionary(p => p.Key, p => p.Value);
+                bool kiemtra0 = dausothieu0.Where(x => (dienthoai.StartsWith(x.Key) && dienthoai.Length == x.Value)).Count() > 0;
+                if (kiemtra0)
+                    dienthoai = string.Format("0{0}", dienthoai);
+
+                if (dienthoai.Length >= 10 && dienthoai.Length <= 11)
+                {
+                    bool kiemtra = dauso.Where(x => (dienthoai.StartsWith(x.Key) && dienthoai.Length == x.Value)).Count() > 0;
+                    if (kiemtra)
+                        phoneChuan.Add(dienthoai);
+                }
+            }
+            return phoneChuan;
         }
-        public static List<string> getPhoneHTML(List<string> datahtml, List<regexs> _regexs, bool? istestTrung = null)
+        public static List<string> getPhoneHTML(List<string> datahtml, Dictionary<string, int> dauso, List<regexs> _regexs, bool? istestTrung = null)
         {
             List<string> hashSet = new List<string>();
+            List<string> phoneChuan = new List<string>();
             foreach (var chuoi in datahtml)
             {
                 string content = chuoi.Replace("(84)", "0").Replace("(+84)", "0").Replace("+84", "0");
@@ -1858,7 +1878,24 @@ namespace Load
                     }
                 }
             }
-            return hashSet;
+            /*01/2018 bo xung theo kiem tra so luong chuoi dien thoai*/
+            /*xu ly so lieu*/
+            foreach (var item in hashSet)
+            {
+                string dienthoai = item;
+                Dictionary<string, int> dausothieu0 = dauso.Where(p => !p.Key.StartsWith("0")).ToDictionary(p => p.Key, p => p.Value);
+                bool kiemtra0 = dausothieu0.Where(x => (dienthoai.StartsWith(x.Key) && dienthoai.Length == x.Value)).Count() > 0;
+                if (kiemtra0)
+                    dienthoai = string.Format("0{0}", dienthoai);
+
+                if (dienthoai.Length >= 10 && dienthoai.Length <= 11)
+                {
+                    bool kiemtra = dauso.Where(x => (dienthoai.StartsWith(x.Key) && dienthoai.Length == x.Value)).Count() > 0;
+                    if (kiemtra)
+                        phoneChuan.Add(dienthoai);
+                }
+            }
+            return phoneChuan;
         }
 
         public static string RemoveSymbolInPhone(string phonenum)
@@ -2708,7 +2745,7 @@ namespace Load
                         List<string> arrDienThoai = tv.dien_thoai.Split(',').ToList();
                         if (arrDienThoai.Count() > 0)
                         {
-                            List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(arrDienThoai,  _regexs);
+                            List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(arrDienThoai, _dau_so, _regexs);
                             tv.di_dong = dsdienthoai.Count() == 0 ? "" : dsdienthoai.FirstOrDefault();
                         }
                     }
@@ -2798,7 +2835,7 @@ namespace Load
                             vt = Helpers.vitritim(arrGetHtmlDocumentALLLienHe, "Di động:", "<div class=\"dong_lienhe_tuade\">", true);
                             if (vt != -1)
                             {
-                                List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(Helpers.getDataHTML(arrGetHtmlDocumentALLLienHe[vt + 2].ToString()), _regexs);
+                                List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(Helpers.getDataHTML(arrGetHtmlDocumentALLLienHe[vt + 2].ToString()), _dau_so, _regexs);
                                 tv.di_dong1 = dsdienthoai.FirstOrDefault();
                             }
                             vt = Helpers.vitritim(arrGetHtmlDocumentALLLienHe, "Email:", "<div class=\"dong_lienhe_tuade\">", true);
@@ -2833,7 +2870,7 @@ namespace Load
                             vt = Helpers.vitritim(arrGetHtmlDocumentALLLienHe, "Di động:", "<div class=\"dong_lienhe_tuade\">", true);
                             if (vt != -1)
                             {
-                                List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(Helpers.getDataHTML(arrGetHtmlDocumentALLLienHe[vt + 2].ToString()), _regexs);
+                                List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(Helpers.getDataHTML(arrGetHtmlDocumentALLLienHe[vt + 2].ToString()), _dau_so, _regexs);
                                 tv.di_dong1 = dsdienthoai.FirstOrDefault();
                             }
                             vt = Helpers.vitritim(arrGetHtmlDocumentALLLienHe, "Email:", "<div class=\"dong_lienhe_tuade\">", true);
@@ -2870,7 +2907,7 @@ namespace Load
                             vt = Helpers.vitritim(arrGetHtmlDocumentALLLienHe, "Di động:", "<div class=\"dong_lienhe_tuade\">", true);
                             if (vt != -1)
                             {
-                                List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(Helpers.getDataHTML(arrGetHtmlDocumentALLLienHe[vt + 2].ToString()), _regexs);
+                                List<string> dsdienthoai = Utilities_scanner.getPhoneHTML(Helpers.getDataHTML(arrGetHtmlDocumentALLLienHe[vt + 2].ToString()), _dau_so, _regexs);
                                 tv.di_dong2 = dsdienthoai.FirstOrDefault();
                             }
                             vt = Helpers.vitritim(arrGetHtmlDocumentALLLienHe, "Email:", "<div class=\"dong_lienhe_tuade\">", true);
@@ -3261,7 +3298,7 @@ namespace Load
 
                     List<string> emails = Utilities_scanner.getEmail(new List<string> { vg.noidung });
                     if (emails.Count() > 0) vg.email_nd = emails.FirstOrDefault().Trim();
-                    List<string> dienthoais = Utilities_scanner.getPhoneHTML(new List<string> { vg.noidung },  _regexs);
+                    List<string> dienthoais = Utilities_scanner.getPhoneHTML(new List<string> { vg.noidung }, _dau_so, _regexs);
                     if (dienthoais.Count() > 0) vg.dienthoai_nd = dienthoais.FirstOrDefault().Trim();
                 }
                 /*dien thoai*/
@@ -3724,7 +3761,7 @@ namespace Load
                     List<string> emails = Utilities_scanner.getEmail(new List<string> { model.noidung });
                     if (emails.Count() != 0) model.email_nd = emails.FirstOrDefault().Trim();
 
-                    List<string> phones = Utilities_scanner.getPhoneHTML(new List<string> { model.noidung }, _regexs);
+                    List<string> phones = Utilities_scanner.getPhoneHTML(new List<string> { model.noidung }, _dau_so, _regexs);
                     if (phones.Count() != 0) model.dienthoai_nd = phones.FirstOrDefault().Trim();
                 }
                 /*Mã tin đăng:*/
@@ -3763,13 +3800,13 @@ namespace Load
                 vt = Helpers.vitritim(arrGetHtmlDocumentALL2, "LeftMainContent__productDetail_contactPhone");
                 if (vt != -1)
                 {
-                    model.lienhe_dienthoai = Utilities_scanner.getPhoneHTML(new List<string> { arrGetHtmlDocumentALL2[vt + 10] },  _regexs).FirstOrDefault();
+                    model.lienhe_dienthoai = Utilities_scanner.getPhoneHTML(new List<string> { arrGetHtmlDocumentALL2[vt + 10] }, _dau_so,  _regexs).FirstOrDefault();
                 }
                 /*3-Mobile*/
                 vt = Helpers.vitritim(arrGetHtmlDocumentALL2, "LeftMainContent__productDetail_contactMobile");
                 if (vt != -1)
                 {
-                    model.lienhe_mobilde = Utilities_scanner.getPhoneHTML(new List<string> { arrGetHtmlDocumentALL2[vt + 10] },  _regexs).FirstOrDefault();
+                    model.lienhe_mobilde = Utilities_scanner.getPhoneHTML(new List<string> { arrGetHtmlDocumentALL2[vt + 10] }, _dau_so,  _regexs).FirstOrDefault();
                 }
                 /*4-Email*/
                 vt = Helpers.vitritim(arrGetHtmlDocumentALL2, "id=\"contactEmail\"");
@@ -3965,7 +4002,7 @@ namespace Load
                     {
 
                         model.moigioi_soban = arrGetHtmlDocumentALL[vt + 4].Trim();
-                        List<string> arrsoban = Utilities_scanner.getPhoneHTML(new List<string> { arrGetHtmlDocumentALL[vt + 4].Trim() }, _regexs);
+                        List<string> arrsoban = Utilities_scanner.getPhoneHTML(new List<string> { arrGetHtmlDocumentALL[vt + 4].Trim() }, _dau_so, _regexs);
                         if (arrsoban.Count() > 0)
                             model.moigioi_soban_bydidong = arrsoban.FirstOrDefault();
                     }
@@ -3974,7 +4011,7 @@ namespace Load
                     if (vt != -1)
                     {
                         model.moigioi_didong = arrGetHtmlDocumentALL[vt + 4].Trim();
-                        List<string> arrdidong = Utilities_scanner.getPhoneHTML(new List<string> { arrGetHtmlDocumentALL[vt + 4].Trim() },  _regexs);
+                        List<string> arrdidong = Utilities_scanner.getPhoneHTML(new List<string> { arrGetHtmlDocumentALL[vt + 4].Trim() }, _dau_so,  _regexs);
                         if (arrdidong.Count() > 0)
                             model.moigioi_didong_bydidong = arrGetHtmlDocumentALL[vt + 4].Trim();
                     }
@@ -4208,7 +4245,7 @@ namespace Load
                     List<string> emails = Utilities_scanner.getEmail(new List<string> { model.noidung });
                     if (emails.Count() != 0) model.email_nd = emails.FirstOrDefault().Trim();
 
-                    List<string> phones = Utilities_scanner.getPhoneHTML(model.noidung,  _regexs);
+                    List<string> phones = Utilities_scanner.getPhoneHTML(model.noidung, _dau_so, _regexs);
                     if (phones.Count() != 0) model.dienthoai_nd = phones.FirstOrDefault().Trim();
 
                 }
@@ -4640,7 +4677,7 @@ namespace Load
                 {
                     string strPhone1 = Helpers.getDataHTML(arrGetHtmlDocumentALL[vt + 2]).Where(p => !p.Contains("Đăng nhập") && p.Length != 0).FirstOrDefault();
                     model.ttlh_dienthoai1 = strPhone1;
-                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1,  _regexs);
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1, _dau_so,  _regexs);
                     if (arrPhone != null)
                     {
                         if (arrPhone.Count() != 0)
@@ -4657,7 +4694,7 @@ namespace Load
                 {
                     string strPhone1 = Helpers.getDataHTML(arrGetHtmlDocumentALL[vt + 3]).Where(p => !p.Contains("Đăng nhập") && p.Length != 0).FirstOrDefault();
                     model.ttlh_dienthoai_nguoidaidien = strPhone1;
-                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1,  _regexs);
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1, _dau_so, _regexs);
                     if (arrPhone != null && arrPhone.Count() != 0)
                         model.ttlh_dienthoai_nguoidaidien_didong = arrPhone.FirstOrDefault();
                 }
@@ -4710,7 +4747,7 @@ namespace Load
                 {
                     string strPhone1 = Helpers.getDataHTML(arrGetHtmlDocumentALL[vt + 3]).Where(p => !p.Contains("Đăng nhập") && p.Length != 0).FirstOrDefault();
                     model.ttlh_dienthoaigiamdoc = strPhone1;
-                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1, _regexs);
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1, _dau_so, _regexs);
                     if (arrPhone != null && arrPhone.Count() != 0)
                         model.ttlh_dienthoaigiamdoc_didong = arrPhone.FirstOrDefault();
 
@@ -4733,7 +4770,7 @@ namespace Load
                 {
                     string strPhone1 = Helpers.getDataHTML(arrGetHtmlDocumentALL[vt + 3]).Where(p => !p.Contains("Đăng nhập") && p.Length != 0).FirstOrDefault();
                     model.ttlh_dienthoaiketoan = strPhone1;
-                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1,  _regexs);
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1, _dau_so,  _regexs);
                     if (arrPhone != null && arrPhone.Count() != 0)
                         model.ttlh_dienthoaiketoan_didong = arrPhone.FirstOrDefault();
                 }
@@ -4957,7 +4994,7 @@ namespace Load
                 {
                     string strPhone1 = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 2]).Where(p => p.Length != 0).FirstOrDefault();
                     model.ttlh_dienthoai1 = strPhone1;
-                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1,  _regexs);
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1, _dau_so, _regexs);
                     if (arrPhone != null&& arrPhone.Count()!=0)
                     {
                         if (arrPhone.Count() != 0)
@@ -4974,7 +5011,7 @@ namespace Load
                 {
                     string strPhone1 = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 2]).Where(p => p.Length != 0).FirstOrDefault();
                     model.ttlh_dienthoai_nguoidaidien = strPhone1;
-                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1, _regexs);
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1, _dau_so, _regexs);
                     if (arrPhone != null && arrPhone.Count() != 0)
                         model.ttlh_dienthoai_nguoidaidien_didong = arrPhone.FirstOrDefault();
                 }
@@ -5027,7 +5064,7 @@ namespace Load
                 {
                     string strPhone1 = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 2]).Where(p => p.Length != 0).FirstOrDefault();
                     model.ttlh_dienthoaigiamdoc = strPhone1;
-                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1, _regexs);
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1, _dau_so, _regexs);
                     if (arrPhone != null && arrPhone.Count() != 0)
                         model.ttlh_dienthoaigiamdoc_didong = arrPhone.FirstOrDefault();
 
@@ -5050,7 +5087,7 @@ namespace Load
                 {
                     string strPhone1 = Helpers.getDataHTML(arrThongTinDoanhNghiep[vt + 2]).Where(p =>  p.Length != 0).FirstOrDefault();
                     model.ttlh_dienthoaiketoan = strPhone1;
-                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1,  _regexs);
+                    List<string> arrPhone = Utilities_scanner.getPhoneHTML(strPhone1, _dau_so, _regexs);
                     if (arrPhone != null && arrPhone.Count() != 0)
                         model.ttlh_dienthoaiketoan_didong = arrPhone.FirstOrDefault();
                 }
@@ -5546,7 +5583,7 @@ namespace Load
                     {
                         model.lienhe_kinhdoanh_hoten1 = Helpers.getDataHTML(arrlienhekinhdoanh[0].ToString()).FirstOrDefault().Replace(":", "");
                         model.lienhe_kinhdoanh_sodienthoai1 = Helpers.getDataHTML(arrlienhekinhdoanh[1].ToString()).FirstOrDefault();
-                        List<string> arr = Utilities_scanner.getPhoneHTML(model.lienhe_kinhdoanh_sodienthoai1,  _regexs);
+                        List<string> arr = Utilities_scanner.getPhoneHTML(model.lienhe_kinhdoanh_sodienthoai1, _dau_so, _regexs);
                         if (arr != null)
                             model.lienhe_kinhdoanh_sodienthoaibydidong1 = arr.FirstOrDefault();
                     }
@@ -5554,13 +5591,13 @@ namespace Load
                     {
                         model.lienhe_kinhdoanh_hoten1 = Helpers.getDataHTML(arrlienhekinhdoanh[0].ToString()).FirstOrDefault().Replace(":", "");
                         model.lienhe_kinhdoanh_sodienthoai1 = Helpers.getDataHTML(arrlienhekinhdoanh[1].ToString()).FirstOrDefault();
-                        List<string> arr = Utilities_scanner.getPhoneHTML(model.lienhe_kinhdoanh_sodienthoai1,  _regexs);
+                        List<string> arr = Utilities_scanner.getPhoneHTML(model.lienhe_kinhdoanh_sodienthoai1, _dau_so, _regexs);
                         if (arr.Count() > 0)
                             model.lienhe_kinhdoanh_sodienthoaibydidong1 = arr.FirstOrDefault();
 
                         model.lienhe_kinhdoanh_hoten2 = Helpers.getDataHTML(arrlienhekinhdoanh[2].ToString()).FirstOrDefault().Replace(":", "");
                         model.lienhe_kinhdoanh_sodienthoai2 = Helpers.getDataHTML(arrlienhekinhdoanh[3].ToString()).FirstOrDefault();
-                        List<string> arr2 = Utilities_scanner.getPhoneHTML(model.lienhe_kinhdoanh_sodienthoai2,  _regexs);
+                        List<string> arr2 = Utilities_scanner.getPhoneHTML(model.lienhe_kinhdoanh_sodienthoai2, _dau_so, _regexs);
                         if (arr2 != null)
                             model.lienhe_kinhdoanh_sodienthoaibydidong2 = arr2.FirstOrDefault();
                     }
@@ -5643,7 +5680,7 @@ namespace Load
                         List<string> arr11 = Regex.Split(arrCC[vt].ToString(), "</I>").ToList();
                         model.ttncc_sdt = arr11.LastOrDefault();
 
-                        List<string> arr = Utilities_scanner.getPhoneHTML(arr11.LastOrDefault(),  _regexs);
+                        List<string> arr = Utilities_scanner.getPhoneHTML(arr11.LastOrDefault(), _dau_so, _regexs);
                         if (arr.Count() > 0)
                             model.ttncc_sdt_didong = arr.FirstOrDefault();
                     }
