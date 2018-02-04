@@ -103,6 +103,7 @@ namespace Load
         private void btn_hosocongty_excel_Click(object sender, EventArgs e)
         {
             frmDialogColumn frm = new frmDialogColumn();
+           
             frm.FromParent = "vinabiz.org";
             if (frm.ShowDialog() == DialogResult.OK)
             {
@@ -163,7 +164,7 @@ namespace Load
                 {
                     strTieuDe = ((DataRowView)checkedListBox1.CheckedItems[0]).Row.ItemArray[1].ToString();
                     strsql = string.Format(" select  " + strcolumn + "	from {0}.dbo.vinabiz a left join {0}.dbo.dm_vinabiz b on a.danhmucid= b.id " +
-                                      "  where a.ttlh_tinhid in({1}) order by a.danhmucid ", strdatabasename, getstringListTinh());
+                                      "  where a.ttlh_tinhid in({1}) and (CONVERT(DATETIME,ttdk_ngaycap) >= '{2}' and CONVERT(DATETIME,ttdk_ngaycap) <='{3}') order by a.danhmucid ", strdatabasename, getstringListTinh(),dateTimePicker1.Text,dateTimePicker2.Text);
                 }
                 else
                 {
@@ -173,7 +174,7 @@ namespace Load
 
                     getstringListNhom(ref strDK,radCha.Checked);
                     strsql = string.Format(" select  " + strcolumn + "	from {0}.dbo.vinabiz a left join {0}.dbo.dm_vinabiz b on a.danhmucid= b.id " +
-                                      "  where  ({1}) order by a.danhmucid ", strdatabasename, strDK);
+                                      "  where  ({1}) and (CONVERT(DATETIME,ttdk_ngaycap) >= '{2}' and CONVERT(DATETIME,ttdk_ngaycap) <='{3}') order by a.danhmucid ", strdatabasename, strDK,dateTimePicker1.Text,dateTimePicker2.Text);
                 }
 
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
