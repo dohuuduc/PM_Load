@@ -53,7 +53,7 @@ namespace Load
             Utilities_vinabiz._listHsct = tbHsct;
             Utilities_vinabiz._listquetcan = SQLDatabase.Loaddm_vinabiz_map("select * from dm_vinabiz_map");
 
-            dateTimePicker1.Value = new DateTime(2000,  1,  1);
+            dateTimePicker1.Value = new DateTime(1990,  1,  1);
 
     }
 
