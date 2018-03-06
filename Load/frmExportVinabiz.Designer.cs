@@ -527,10 +527,12 @@
       // radioButton1
       // 
       this.radioButton1.AutoSize = true;
+      this.radioButton1.Checked = true;
       this.radioButton1.Location = new System.Drawing.Point(12, 19);
       this.radioButton1.Name = "radioButton1";
       this.radioButton1.Size = new System.Drawing.Size(132, 17);
       this.radioButton1.TabIndex = 26;
+      this.radioButton1.TabStop = true;
       this.radioButton1.Text = "ID Ngành Nghề Chính";
       this.radioButton1.UseVisualStyleBackColor = true;
       // 
@@ -547,12 +549,10 @@
       // radioButton5
       // 
       this.radioButton5.AutoSize = true;
-      this.radioButton5.Checked = true;
       this.radioButton5.Location = new System.Drawing.Point(12, 87);
       this.radioButton5.Name = "radioButton5";
       this.radioButton5.Size = new System.Drawing.Size(74, 17);
       this.radioButton5.TabIndex = 2;
-      this.radioButton5.TabStop = true;
       this.radioButton5.Text = "Lọc Trùng";
       this.radioButton5.UseVisualStyleBackColor = true;
       // 

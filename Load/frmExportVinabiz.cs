@@ -53,7 +53,9 @@ namespace Load
             Utilities_vinabiz._listHsct = tbHsct;
             Utilities_vinabiz._listquetcan = SQLDatabase.Loaddm_vinabiz_map("select * from dm_vinabiz_map");
 
-        }
+            dateTimePicker1.Value = new DateTime(2000,  1,  1);
+
+    }
 
         public DataTable CreateTable_vinabiz()
         {
@@ -164,7 +166,7 @@ namespace Load
                 {
                     strTieuDe = ((DataRowView)checkedListBox1.CheckedItems[0]).Row.ItemArray[1].ToString();
                     strsql = string.Format(" select  " + strcolumn + "	from {0}.dbo.vinabiz a left join {0}.dbo.dm_vinabiz b on a.danhmucid= b.id " +
-                                      "  where a.ttlh_tinhid in({1}) and (CONVERT(DATETIME,ttdk_ngaycap) >= '{2}' and CONVERT(DATETIME,ttdk_ngaycap) <='{3}') order by a.danhmucid ", strdatabasename, getstringListTinh(),dateTimePicker1.Text,dateTimePicker2.Text);
+                                      "  where a.ttlh_tinhid in({1}) and (CONVERT(DATETIME,ttdk_ngaycap,103) >= ''{2}'' and CONVERT(DATETIME,ttdk_ngaycap,103) <''{3}'') order by a.danhmucid ", strdatabasename, getstringListTinh(),dateTimePicker1.Text,dateTimePicker2.Text);
                 }
                 else
                 {
@@ -174,7 +176,7 @@ namespace Load
 
                     getstringListNhom(ref strDK,radCha.Checked);
                     strsql = string.Format(" select  " + strcolumn + "	from {0}.dbo.vinabiz a left join {0}.dbo.dm_vinabiz b on a.danhmucid= b.id " +
-                                      "  where  ({1}) and (CONVERT(DATETIME,ttdk_ngaycap) >= '{2}' and CONVERT(DATETIME,ttdk_ngaycap) <='{3}') order by a.danhmucid ", strdatabasename, strDK,dateTimePicker1.Text,dateTimePicker2.Text);
+                                      "  where  ({1}) and (CONVERT(DATETIME,ttdk_ngaycap,103) >= ''{2}'' and CONVERT(DATETIME,ttdk_ngaycap,103) <=''{3}'') order by a.danhmucid ", strdatabasename, strDK,dateTimePicker1.Text,dateTimePicker2.Text);
                 }
 
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
