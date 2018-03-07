@@ -166,7 +166,7 @@ namespace Load
                 {
                     strTieuDe = ((DataRowView)checkedListBox1.CheckedItems[0]).Row.ItemArray[1].ToString();
                     strsql = string.Format(" select  " + strcolumn + "	from {0}.dbo.vinabiz a left join {0}.dbo.dm_vinabiz b on a.danhmucid= b.id " +
-                                      "  where a.ttlh_tinhid in({1}) and (CONVERT(DATETIME,ttdk_ngaycap,103) >= ''{2}'' and CONVERT(DATETIME,ttdk_ngaycap,103) <''{3}'') order by a.danhmucid ", strdatabasename, getstringListTinh(),dateTimePicker1.Text,dateTimePicker2.Text);
+                                      "  where a.ttlh_tinhid in({1}) and (CONVERT(DATETIME,ttdk_ngaycap,103) >= ''{2}'' and CONVERT(DATETIME,ttdk_ngaycap,103) <=''{3}'') order by a.danhmucid ", strdatabasename, getstringListTinh(),dateTimePicker1.Text,dateTimePicker2.Text);
                 }
                 else
                 {
