@@ -166,7 +166,7 @@ namespace Load
                 {
                     strTieuDe = ((DataRowView)checkedListBox1.CheckedItems[0]).Row.ItemArray[1].ToString();
                     strsql = string.Format(" select  " + strcolumn + "	from {0}.dbo.vinabiz a left join {0}.dbo.dm_vinabiz b on a.danhmucid= b.id " +
-                                      "  where a.ttlh_tinhid in({1}) and (CONVERT(DATETIME,ttdk_ngaycap,103) >= ''{2}'' and CONVERT(DATETIME,ttdk_ngaycap,103) <=''{3}'') order by a.danhmucid ", strdatabasename, getstringListTinh(),dateTimePicker1.Text,dateTimePicker2.Text);
+                                      "  where a.ttlh_tinhid in({1}) and (CONVERT(DATETIME,ttdk_ngaycap,103) between ''{2}'' and ''{3}'') order by a.danhmucid ", strdatabasename, getstringListTinh(),dateTimePicker1.Text,dateTimePicker2.Text);
                 }
                 else
                 {
@@ -176,7 +176,7 @@ namespace Load
 
                     getstringListNhom(ref strDK,radCha.Checked);
                     strsql = string.Format(" select  " + strcolumn + "	from {0}.dbo.vinabiz a left join {0}.dbo.dm_vinabiz b on a.danhmucid= b.id " +
-                                      "  where  ({1}) and (CONVERT(DATETIME,ttdk_ngaycap,103) >= ''{2}'' and CONVERT(DATETIME,ttdk_ngaycap,103) <=''{3}'') order by a.danhmucid ", strdatabasename, strDK,dateTimePicker1.Text,dateTimePicker2.Text);
+                                      "  where  ({1}) and (CONVERT(DATETIME,ttdk_ngaycap,103) between ''{2}''and ''{3}'') order by a.danhmucid ", strdatabasename, strDK,dateTimePicker1.Text,dateTimePicker2.Text);
                 }
 
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -195,7 +195,7 @@ namespace Load
                     objPleaseWait = new PleaseWait();
                     objPleaseWait.Show();
                     objPleaseWait.Update();
-                    string command = string.Format("exec [spExportVinabiz] '{0}','{1}'", strsql, saveFileDialog1.FileName);
+                    string command = string.Format("exec [spExportVinabiz] 'SET DATEFORMAT DMY {0}','{1}'", strsql, saveFileDialog1.FileName);
                     if (StorePhone.SQLDatabase.ExcNonQuery(command))
                     {
                         objPleaseWait.Close();
