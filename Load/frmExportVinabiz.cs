@@ -78,7 +78,7 @@ namespace Load
             
             int nKXD = ConvertType.ToInt(SQLDatabase.ExcDataTable("select dbo.fnGetSoLuongVinabizByTinhThanh(0)").Rows[0][0]);
             DataTable table = StorePhone.SQLDatabase.ExcDataTable("select id,ten +'_'+ REPLACE(REPLACE(CONVERT(VARCHAR,CONVERT(MONEY,tongsl),1), '.00',''),',','.') as ten from dm_Tinh order by ten asc");
-            table.Rows.Add(0,string.Format("[Không Xác Định]_{0}",nKXD));
+            table.Rows.Add(0,string.Format("[K.Xác Định]_{0}",nKXD));
 
             checkedListBox1.DataSource = table;
             checkedListBox1.ValueMember = "id";

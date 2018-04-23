@@ -1,6 +1,0 @@
-02:49:23.387 CH	Đăng nhập hệ thống: UserName: admin   -Login 
-03:00:43.185 CH	Đăng nhập hệ thống: UserName: admin   -Login 
-03:32:15.838 CH	Đăng nhập hệ thống: UserName: admin   -Login 
-03:47:33.142 CH	Đăng nhập hệ thống: UserName: admin   -Login 
-03:50:36.436 CH	Đăng nhập hệ thống: UserName: admin   -Login 
-03:54:02.338 CH	Đăng nhập hệ thống: UserName: admin   -Login 

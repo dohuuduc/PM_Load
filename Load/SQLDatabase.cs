@@ -780,6 +780,13 @@ namespace StorePhone
         public string hinhanhxuong_diachi { get; set; }
         public string sys_diachiweb { get; set; }
     }
+    //id, name, username, password
+    public class CauHinh {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+    }
     public class data
     {
         public string fieldName;
@@ -3846,6 +3853,148 @@ namespace StorePhone
         }
 
         #endregion
+
+        #region Cấu Hình
+        public static List<CauHinh> LoadCauHinh(string sql)
+        {
+            SqlConnection cnn = null;
+            SqlCommand cmd = null;
+            SqlDataReader reader = null;
+            CauHinh InfoCOMMANDTABLE;
+            List<CauHinh> InfoCOMMANDTABLEs = null;
+
+            try
+            {
+                InfoCOMMANDTABLEs = new List<CauHinh>();
+
+                cnn = new SqlConnection();
+                cnn.ConnectionString = ConnectionString;
+                cnn.Open();
+                cnn.FireInfoMessageEventOnUserErrors = false;
+
+                cmd = new SqlCommand();
+                cmd.CommandText = sql;
+                cmd.Connection = cnn;
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    InfoCOMMANDTABLE = new CauHinh();
+
+
+                    if (!reader.IsDBNull(0))
+                        InfoCOMMANDTABLE.id = reader.GetInt32(0);
+                    if (!reader.IsDBNull(1))
+                        InfoCOMMANDTABLE.name = reader.GetString(1);
+                    if (!reader.IsDBNull(2))
+                        InfoCOMMANDTABLE.username = reader.GetString(2);
+                    if (!reader.IsDBNull(3))
+                        InfoCOMMANDTABLE.password = reader.GetString(3);
+                    InfoCOMMANDTABLEs.Add(InfoCOMMANDTABLE);
+                }
+                return InfoCOMMANDTABLEs;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+        }
+
+        public static bool AddCauHinh(CauHinh record)
+        {
+            SqlConnection cnn = null;
+            SqlCommand cmd = null;
+
+            object objectID;
+            try
+            {
+                if (record == null)
+                    return false;
+
+                cnn = new SqlConnection();
+                cnn.ConnectionString = ConnectionString;
+                cnn.FireInfoMessageEventOnUserErrors = false;
+                cnn.Open();
+
+                cmd = new SqlCommand();
+                cmd.Connection = cnn;
+                //--- Insert Record
+                cmd.CommandText = "Insert into CauHinh( name, username, password)" +
+                                    "values( @name, @username, @password);" +
+                                    "Select SCOPE_IDENTITY();";
+
+                cmd.Parameters.AddWithValue("@name", record.name);
+                cmd.Parameters.AddWithValue("@username", record.username);
+                cmd.Parameters.AddWithValue("@password", record.password);
+
+                objectID = cmd.ExecuteScalar();
+
+                if (objectID == null || objectID == DBNull.Value) return false;
+
+                record.id = Convert.ToInt32(objectID);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                writer = LogWriter.Instance;
+                return false;
+            }
+            finally
+            {
+                if (cnn.State == ConnectionState.Open)
+                    cnn.Close();
+            }
+        }
+
+        public static bool UpdateCauHinh(CauHinh record)
+        {
+            SqlConnection connection = null;
+            SqlCommand cmd = null;
+
+            try
+            {
+                if (record == null) return false;
+
+                // Make connection to database
+                connection = new SqlConnection();
+                connection.ConnectionString = ConnectionString;
+                connection.FireInfoMessageEventOnUserErrors = false;
+                connection.Open();
+                // Create command to update GeneralGuessGroup record
+                cmd = new SqlCommand();
+                cmd.Connection = connection;
+                //id, name, username, password
+                cmd.CommandText = "Update [CauHinh] Set name=@name, "
+                                    + " username=@username,password=@password "
+                                    + " where ID='" + record.id + "'";
+                cmd.CommandType = CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@name", record.name);
+                cmd.Parameters.AddWithValue("@username", record.username);
+                cmd.Parameters.AddWithValue("@password", record.password);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "UpdatedmVatGia");
+                return false;
+            }
+            finally
+            {
+                if (connection != null)
+                    connection.Close();
+            }
+        }
+
+        #endregion
+
 
         #region Execute SQL
 

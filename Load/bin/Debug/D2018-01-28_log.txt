@@ -1,2 +1,0 @@
-03:23:41.744 CH	Đăng nhập hệ thống: UserName: admin   -Login 
-03:25:49.976 CH	Object reference not set to an instance of an object.-https://vinabiz.org//company/detail/trung-tam-giao-duc-nghe-nghiep-giao-duc-thuong-xuyen-huyen-nha-be/3000330031003400380036003500310037003000-getTrangCon-vinabiz

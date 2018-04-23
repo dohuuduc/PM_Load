@@ -1,2 +1,2 @@
-connectionstring=data source=(local);initial catalog=muaban;persist security info=True;Integrated Security=SSPI;
+connectionstring=data source=(local);initial catalog=load;persist security info=True;Integrated Security=SSPI;
 IP=192.168.1.66

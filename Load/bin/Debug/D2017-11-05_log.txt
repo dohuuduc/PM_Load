@@ -1,4 +1,0 @@
-06:33:49.181 PM	Đăng nhập hệ thống: UserName: admin   -Login 
-06:51:28.733 PM	Đăng nhập hệ thống: UserName: admin   -Login 
-06:52:00.401 PM	Đăng nhập hệ thống: UserName: admin   -Login 
-07:19:59.035 PM	Đăng nhập hệ thống: UserName: admin   -Login 

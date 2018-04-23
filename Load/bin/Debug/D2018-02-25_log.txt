@@ -1,2 +1,0 @@
-01:34:35.265 CH	Đăng nhập hệ thống: UserName: admin   -Login 
-01:35:59.223 CH	Đăng nhập hệ thống: UserName: admin   -Login 

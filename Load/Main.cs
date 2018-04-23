@@ -160,12 +160,24 @@ namespace Load
                 gw_vinabiz_chon.DataSource = _table_vinabiz;
                 gw_vinabiz_chon.Sort(gw_vinabiz_chon.Columns["id_vnbiz_chon"], ListSortDirection.Ascending);
 
+                List<CauHinh> cauHinhs = SQLDatabase.LoadCauHinh("select * from cauhinh where name='vinabiz'");
+                if (cauHinhs.Count != 0)
+                {
+                    txtvinabiz_email.Text = cauHinhs.FirstOrDefault().username;
+                    txtvinabiz_pass.Text = cauHinhs.FirstOrDefault().password;
+                }
                 /*thi trường sỉ*/
                 Binddmthitruongsi();
 
                 _table_thitruongsi = CreateTable_vinabiz();
                 gw_si_chon.DataSource = _table_thitruongsi;
                 gw_si_chon.Sort(gw_si_chon.Columns["id_si_chon"], ListSortDirection.Ascending);
+
+                List<CauHinh> chthitruongsi = SQLDatabase.LoadCauHinh("select * from cauhinh where name='thitruongsi'");
+                if (chthitruongsi.Count != 0) {
+                    txtSiusername.Text = chthitruongsi.FirstOrDefault().username;
+                    txtSiPassword.Text = chthitruongsi.FirstOrDefault().password;
+                }
 
                 /**************************************************************/
                 _regexs = SQLDatabase.LoadRegexs("select * from Regexs");
@@ -4621,7 +4633,24 @@ namespace Load
                     txtSiPassword.Enabled = false;
                     txtSiusername.Enabled = false;
                     btnSiDangNhap.Enabled = false;
-                    
+
+                    List<CauHinh> cauHinhs = SQLDatabase.LoadCauHinh("select * from cauhinh where name='thitruongsi'");
+                    if (cauHinhs.Count == 0)
+                    {
+                        CauHinh cau = new CauHinh();
+                        cau.name = "thitruongsi";
+                        cau.username = txtvinabiz_email.Text;
+                        cau.password = txtvinabiz_pass.Text;
+                        SQLDatabase.AddCauHinh(cau);
+                    }
+                    else
+                    {
+                        CauHinh cau = cauHinhs.FirstOrDefault();
+                        cau.username = txtvinabiz_email.Text;
+                        cau.password = txtvinabiz_pass.Text;
+                        SQLDatabase.UpdateCauHinh(cau);
+                    }
+
                 }
             }
             else
@@ -5070,6 +5099,21 @@ namespace Load
             {
                     MessageBox.Show("Đăng nhập thành công", "Thông Báo");
                     groupBox12.Enabled = false;
+                    List<CauHinh> cauHinhs = SQLDatabase.LoadCauHinh("select * from cauhinh where name='vinabiz'");
+                if (cauHinhs.Count == 0)
+                {
+                    CauHinh cau = new CauHinh();
+                    cau.name = "vinabiz";
+                    cau.username = txtvinabiz_email.Text;
+                    cau.password = txtvinabiz_pass.Text;
+                    SQLDatabase.AddCauHinh(cau);
+                }
+                else {
+                    CauHinh cau= cauHinhs.FirstOrDefault();
+                    cau.username = txtvinabiz_email.Text;
+                    cau.password = txtvinabiz_pass.Text;
+                    SQLDatabase.UpdateCauHinh(cau);
+                }
             }
             else
             {

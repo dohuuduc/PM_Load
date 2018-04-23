@@ -4902,7 +4902,7 @@ namespace Load
                     model = null;
                     return;/*stop*/
                 }
-                //strPath = "https://vinabiz.org//company/detail/cong-ty-tnhh-mot-thanh-vien-thuong-mai-dich-vu-co-khi-xay-dung-phuc-hung/3000330031003400360038003500380031003200";
+                //strPath = "https://vinabiz.org//company/detail/cong-ty-tnhh-phat-trien-dat-xanh/3600300030003100360031003100320033003500";
                 strWebsite = WebRequestNavigateNew(strPath, ref solanlap, lbl_vinabiz_khoa);
                 HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
                 doc.LoadHtml(strWebsite);
@@ -4916,7 +4916,7 @@ namespace Load
                 List<string> listKhuVuc = arrkhuvuc.LastOrDefault().Split('>').ToList();
 
                 model.ttlh_tinh = listKhuVuc[0].Trim();
-                model.ttlh_tinhid = _listTinh.Where(p => p.ten.Trim().Contains(listKhuVuc[0].Trim())).FirstOrDefault().id;
+                model.ttlh_tinhid = _listTinh.Where(p => p.ten.Trim().Contains(listKhuVuc[0].Trim())).Count() >0 ? _listTinh.Where(p => p.ten.Trim().Contains(listKhuVuc[0].Trim())).FirstOrDefault().id : 0;
                 if (listKhuVuc.Count() == 2)
                     model.ttlh_xa = listKhuVuc[1];
                 else if (listKhuVuc.Count() == 3)
