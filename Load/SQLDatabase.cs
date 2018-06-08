@@ -787,6 +787,15 @@ namespace StorePhone
         public string username { get; set; }
         public string password { get; set; }
     }
+
+    public class Gridview
+    {
+        public int id { get; set; }
+        public string path { get; set; }
+        public string name { get; set; }
+        public int limit { get; set; }
+    }
+
     public class data
     {
         public string fieldName;

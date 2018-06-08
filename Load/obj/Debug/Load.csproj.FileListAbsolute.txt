@@ -187,3 +187,46 @@ D:\GitHub Desktop\PM_Load\Load\bin\Debug\Load.pdb
 D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.Waiting.resources
 D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.csproj.CoreCompileInputs.cache
 D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.csproj.CopyComplete
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frm_dmVinabiz.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmCauHinh.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmChangPassword.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmDialogColumn.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmDM_batdongsan.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmDM_hosocongty.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmDM_Muaban_timviec.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmDM_scanner2.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmDM_scanner.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmDM_Thitruongsi.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmDM_TongHopCol.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmDM_trangvang.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmExportbatdongsan.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmExportScanner.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmExporttimviec.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmExporttrangvang.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmExportvatgia.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmDM_Vatgia.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmExporthosocongty.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmExportVinabiz.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmLogin.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmSaveAs.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmthemLinkVinabix.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmTonghop.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frm_chuanhoanPhone.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.Main.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.PleaseWait.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.Properties.Resources.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.Waiting.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csproj.GenerateResource.cache
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csproj.CoreCompileInputs.cache
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.exe
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.pdb
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Load.exe.config
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Load.exe
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Load.pdb
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\HtmlAgilityPack.dll
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Newtonsoft.Json.dll
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\HtmlAgilityPack.xml
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Newtonsoft.Json.xml
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csproj.CopyComplete
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csprojAssemblyReference.cache
