@@ -4626,7 +4626,7 @@ namespace Load {
 
           lbl_vinabiz_message1.Visible = true;
           lbl_vinabiz_message2.Visible = true;
-          lbl_vinabiz_khoa.Visible = true;
+          lbl_vinabiz_khoa.Visible = false;
 
           gw_vinabiz_goc.Enabled = true;
           gw_vinabiz_chon.Enabled = true;
@@ -4737,7 +4737,7 @@ namespace Load {
               i = i + 1;
             } while (i <= pagemax.TotalPagingMax);
             if (!_cancelTokenVinabiz.IsCancellationRequested) {
-              Helpers.addText(string.Format("\nTask:{0}-Luồng:{1} ---->Hoàn Tất.\n", ConvertType.ToInt(Task.CurrentId).ToString("D2"), Thread.CurrentThread.ManagedThreadId.ToString("D2")));
+              Helpers.addText(string.Format("\nTask:{0}-Luồng:{1} ---->'{2}' <-> Hoàn Tất.\n", ConvertType.ToInt(Task.CurrentId).ToString("D2"), Thread.CurrentThread.ManagedThreadId.ToString("D2"),model.name));
               if (_table_vinabiz.Select(string.Format("id_chon={0}", model.id)).Count() != 0)
                 _table_vinabiz.Select(string.Format("id_chon={0}", model.id))[0].Delete();
             }
@@ -4763,7 +4763,7 @@ namespace Load {
 
         lbl_vinabiz_message1.Visible = true;
         lbl_vinabiz_message2.Visible = true;
-        lbl_vinabiz_khoa.Visible = true;
+        lbl_vinabiz_khoa.Visible = false;
 
         gw_vinabiz_goc.Enabled = true;
         gw_vinabiz_chon.Enabled = true;

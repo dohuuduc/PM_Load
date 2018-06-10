@@ -33,6 +33,11 @@
       this.button1 = new System.Windows.Forms.Button();
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tabPage7 = new System.Windows.Forms.TabPage();
+      this.lblmessagevina = new System.Windows.Forms.RichTextBox();
+      this.lbl_thatbai_vinabiz = new System.Windows.Forms.Label();
+      this.label52 = new System.Windows.Forms.Label();
+      this.lbl_thanhcong_vinabiz = new System.Windows.Forms.Label();
+      this.label46 = new System.Windows.Forms.Label();
       this.btnvinaStartNew = new System.Windows.Forms.Button();
       this.lblVinaLogin = new System.Windows.Forms.Label();
       this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -447,11 +452,6 @@
       this.label4 = new System.Windows.Forms.Label();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-      this.label46 = new System.Windows.Forms.Label();
-      this.lbl_thanhcong_vinabiz = new System.Windows.Forms.Label();
-      this.lbl_thatbai_vinabiz = new System.Windows.Forms.Label();
-      this.label52 = new System.Windows.Forms.Label();
-      this.lblmessagevina = new System.Windows.Forms.RichTextBox();
       this.tabControl1.SuspendLayout();
       this.tabPage7.SuspendLayout();
       this.groupBox12.SuspendLayout();
@@ -565,9 +565,60 @@
       this.tabPage7.Text = "vinabiz.org";
       this.tabPage7.UseVisualStyleBackColor = true;
       // 
+      // lblmessagevina
+      // 
+      this.lblmessagevina.BackColor = System.Drawing.Color.White;
+      this.lblmessagevina.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.lblmessagevina.ForeColor = System.Drawing.Color.Black;
+      this.lblmessagevina.HideSelection = false;
+      this.lblmessagevina.Location = new System.Drawing.Point(631, 446);
+      this.lblmessagevina.Name = "lblmessagevina";
+      this.lblmessagevina.ReadOnly = true;
+      this.lblmessagevina.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+      this.lblmessagevina.Size = new System.Drawing.Size(570, 105);
+      this.lblmessagevina.TabIndex = 169;
+      this.lblmessagevina.Text = "";
+      // 
+      // lbl_thatbai_vinabiz
+      // 
+      this.lbl_thatbai_vinabiz.AutoSize = true;
+      this.lbl_thatbai_vinabiz.ForeColor = System.Drawing.Color.Red;
+      this.lbl_thatbai_vinabiz.Location = new System.Drawing.Point(1188, 554);
+      this.lbl_thatbai_vinabiz.Name = "lbl_thatbai_vinabiz";
+      this.lbl_thatbai_vinabiz.Size = new System.Drawing.Size(13, 13);
+      this.lbl_thatbai_vinabiz.TabIndex = 168;
+      this.lbl_thatbai_vinabiz.Text = "0";
+      // 
+      // label52
+      // 
+      this.label52.AutoSize = true;
+      this.label52.Location = new System.Drawing.Point(1132, 554);
+      this.label52.Name = "label52";
+      this.label52.Size = new System.Drawing.Size(50, 13);
+      this.label52.TabIndex = 167;
+      this.label52.Text = "Thất Bại:";
+      // 
+      // lbl_thanhcong_vinabiz
+      // 
+      this.lbl_thanhcong_vinabiz.AutoSize = true;
+      this.lbl_thanhcong_vinabiz.Location = new System.Drawing.Point(695, 554);
+      this.lbl_thanhcong_vinabiz.Name = "lbl_thanhcong_vinabiz";
+      this.lbl_thanhcong_vinabiz.Size = new System.Drawing.Size(13, 13);
+      this.lbl_thanhcong_vinabiz.TabIndex = 166;
+      this.lbl_thanhcong_vinabiz.Text = "0";
+      // 
+      // label46
+      // 
+      this.label46.AutoSize = true;
+      this.label46.Location = new System.Drawing.Point(628, 554);
+      this.label46.Name = "label46";
+      this.label46.Size = new System.Drawing.Size(69, 13);
+      this.label46.TabIndex = 165;
+      this.label46.Text = "Thành Công:";
+      // 
       // btnvinaStartNew
       // 
-      this.btnvinaStartNew.Location = new System.Drawing.Point(947, 42);
+      this.btnvinaStartNew.Location = new System.Drawing.Point(981, 42);
       this.btnvinaStartNew.Name = "btnvinaStartNew";
       this.btnvinaStartNew.Size = new System.Drawing.Size(75, 23);
       this.btnvinaStartNew.TabIndex = 163;
@@ -773,7 +824,7 @@
       // 
       this.pic_vnbiz_out.Cursor = System.Windows.Forms.Cursors.Hand;
       this.pic_vnbiz_out.Image = global::Load.Properties.Resources._1474877403_Import;
-      this.pic_vnbiz_out.Location = new System.Drawing.Point(1058, 44);
+      this.pic_vnbiz_out.Location = new System.Drawing.Point(1133, 44);
       this.pic_vnbiz_out.Name = "pic_vnbiz_out";
       this.pic_vnbiz_out.Size = new System.Drawing.Size(24, 18);
       this.pic_vnbiz_out.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -785,7 +836,7 @@
       // 
       this.pic_vnbiz_import.Cursor = System.Windows.Forms.Cursors.Hand;
       this.pic_vnbiz_import.Image = global::Load.Properties.Resources._1474877428_Export;
-      this.pic_vnbiz_import.Location = new System.Drawing.Point(1028, 44);
+      this.pic_vnbiz_import.Location = new System.Drawing.Point(1103, 44);
       this.pic_vnbiz_import.Name = "pic_vnbiz_import";
       this.pic_vnbiz_import.Size = new System.Drawing.Size(24, 18);
       this.pic_vnbiz_import.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -807,12 +858,13 @@
       // 
       // btn_vinabiz_Start
       // 
-      this.btn_vinabiz_Start.Location = new System.Drawing.Point(1088, 42);
+      this.btn_vinabiz_Start.Location = new System.Drawing.Point(904, 3);
       this.btn_vinabiz_Start.Name = "btn_vinabiz_Start";
-      this.btn_vinabiz_Start.Size = new System.Drawing.Size(75, 23);
+      this.btn_vinabiz_Start.Size = new System.Drawing.Size(13, 14);
       this.btn_vinabiz_Start.TabIndex = 42;
       this.btn_vinabiz_Start.Text = "Start";
       this.btn_vinabiz_Start.UseVisualStyleBackColor = true;
+      this.btn_vinabiz_Start.Visible = false;
       this.btn_vinabiz_Start.Click += new System.EventHandler(this.button15_Click);
       // 
       // cmb_vnBizNhom
@@ -4979,57 +5031,6 @@
       // openFileDialog1
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
-      // 
-      // label46
-      // 
-      this.label46.AutoSize = true;
-      this.label46.Location = new System.Drawing.Point(628, 554);
-      this.label46.Name = "label46";
-      this.label46.Size = new System.Drawing.Size(69, 13);
-      this.label46.TabIndex = 165;
-      this.label46.Text = "Thành Công:";
-      // 
-      // lbl_thanhcong_vinabiz
-      // 
-      this.lbl_thanhcong_vinabiz.AutoSize = true;
-      this.lbl_thanhcong_vinabiz.Location = new System.Drawing.Point(695, 554);
-      this.lbl_thanhcong_vinabiz.Name = "lbl_thanhcong_vinabiz";
-      this.lbl_thanhcong_vinabiz.Size = new System.Drawing.Size(13, 13);
-      this.lbl_thanhcong_vinabiz.TabIndex = 166;
-      this.lbl_thanhcong_vinabiz.Text = "0";
-      // 
-      // lbl_thatbai_vinabiz
-      // 
-      this.lbl_thatbai_vinabiz.AutoSize = true;
-      this.lbl_thatbai_vinabiz.ForeColor = System.Drawing.Color.Red;
-      this.lbl_thatbai_vinabiz.Location = new System.Drawing.Point(1188, 554);
-      this.lbl_thatbai_vinabiz.Name = "lbl_thatbai_vinabiz";
-      this.lbl_thatbai_vinabiz.Size = new System.Drawing.Size(13, 13);
-      this.lbl_thatbai_vinabiz.TabIndex = 168;
-      this.lbl_thatbai_vinabiz.Text = "0";
-      // 
-      // label52
-      // 
-      this.label52.AutoSize = true;
-      this.label52.Location = new System.Drawing.Point(1132, 554);
-      this.label52.Name = "label52";
-      this.label52.Size = new System.Drawing.Size(50, 13);
-      this.label52.TabIndex = 167;
-      this.label52.Text = "Thất Bại:";
-      // 
-      // lblmessagevina
-      // 
-      this.lblmessagevina.BackColor = System.Drawing.Color.White;
-      this.lblmessagevina.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.lblmessagevina.ForeColor = System.Drawing.Color.Black;
-      this.lblmessagevina.HideSelection = false;
-      this.lblmessagevina.Location = new System.Drawing.Point(631, 446);
-      this.lblmessagevina.Name = "lblmessagevina";
-      this.lblmessagevina.ReadOnly = true;
-      this.lblmessagevina.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-      this.lblmessagevina.Size = new System.Drawing.Size(570, 105);
-      this.lblmessagevina.TabIndex = 169;
-      this.lblmessagevina.Text = "";
       // 
       // Main
       // 

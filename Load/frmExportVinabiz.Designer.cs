@@ -47,19 +47,6 @@
       this.name_chon = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.tongsl_chon = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.gw_vinabiz_goc = new System.Windows.Forms.DataGridView();
-      this.id_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.maid_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.name_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.tongsl_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.parentId_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.name2_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.path_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.capid_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.orderid_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.createdate_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.CapName_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.parentName_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.alevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.cmb_vnBizNhom = new System.Windows.Forms.ComboBox();
       this.radioButton4 = new System.Windows.Forms.RadioButton();
       this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -87,6 +74,19 @@
       this.button2 = new System.Windows.Forms.Button();
       this.radioButton10 = new System.Windows.Forms.RadioButton();
       this.radioButton9 = new System.Windows.Forms.RadioButton();
+      this.id_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.maid_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.name_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.tongsl_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.parentId_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.name2_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.path_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.capid_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.orderid_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.createdate_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.CapName_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.parentName_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.alevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.groupBox2.SuspendLayout();
       this.groupBox4.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.gw_vinabiz_chon)).BeginInit();
@@ -297,125 +297,29 @@
             this.CapName_goc,
             this.parentName_goc,
             this.alevel});
-      this.gw_vinabiz_goc.Location = new System.Drawing.Point(135, 44);
+      this.gw_vinabiz_goc.Location = new System.Drawing.Point(158, 44);
       this.gw_vinabiz_goc.Name = "gw_vinabiz_goc";
       this.gw_vinabiz_goc.RowHeadersVisible = false;
       this.gw_vinabiz_goc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-      this.gw_vinabiz_goc.Size = new System.Drawing.Size(348, 402);
+      this.gw_vinabiz_goc.Size = new System.Drawing.Size(325, 402);
       this.gw_vinabiz_goc.TabIndex = 45;
       this.gw_vinabiz_goc.DataSourceChanged += new System.EventHandler(this.gw_vinabiz_goc_DataSourceChanged);
       this.gw_vinabiz_goc.DoubleClick += new System.EventHandler(this.gw_vinabiz_goc_DoubleClick);
-      // 
-      // id_goc
-      // 
-      this.id_goc.DataPropertyName = "id";
-      this.id_goc.HeaderText = "id";
-      this.id_goc.Name = "id_goc";
-      this.id_goc.Width = 20;
-      // 
-      // maid_goc
-      // 
-      this.maid_goc.DataPropertyName = "maid";
-      this.maid_goc.HeaderText = "Mã";
-      this.maid_goc.Name = "maid_goc";
-      this.maid_goc.Width = 42;
-      // 
-      // name_goc
-      // 
-      this.name_goc.DataPropertyName = "name";
-      this.name_goc.HeaderText = "Tên Ngành Nghề";
-      this.name_goc.Name = "name_goc";
-      this.name_goc.ReadOnly = true;
-      this.name_goc.Width = 230;
-      // 
-      // tongsl_goc
-      // 
-      this.tongsl_goc.DataPropertyName = "tongsl";
-      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle2.Format = "N0";
-      dataGridViewCellStyle2.NullValue = null;
-      this.tongsl_goc.DefaultCellStyle = dataGridViewCellStyle2;
-      this.tongsl_goc.HeaderText = "SLượng";
-      this.tongsl_goc.Name = "tongsl_goc";
-      this.tongsl_goc.Width = 50;
-      // 
-      // parentId_goc
-      // 
-      this.parentId_goc.DataPropertyName = "parentid";
-      this.parentId_goc.HeaderText = "parentId";
-      this.parentId_goc.Name = "parentId_goc";
-      this.parentId_goc.Visible = false;
-      // 
-      // name2_goc
-      // 
-      this.name2_goc.DataPropertyName = "name2";
-      this.name2_goc.HeaderText = "name2";
-      this.name2_goc.Name = "name2_goc";
-      this.name2_goc.Visible = false;
-      // 
-      // path_goc
-      // 
-      this.path_goc.DataPropertyName = "path";
-      this.path_goc.HeaderText = "path";
-      this.path_goc.Name = "path_goc";
-      this.path_goc.Visible = false;
-      // 
-      // capid_goc
-      // 
-      this.capid_goc.DataPropertyName = "capid";
-      this.capid_goc.HeaderText = "capid";
-      this.capid_goc.Name = "capid_goc";
-      this.capid_goc.Visible = false;
-      // 
-      // orderid_goc
-      // 
-      this.orderid_goc.DataPropertyName = "orderid";
-      this.orderid_goc.HeaderText = "orderid";
-      this.orderid_goc.Name = "orderid_goc";
-      this.orderid_goc.Visible = false;
-      // 
-      // createdate_goc
-      // 
-      this.createdate_goc.DataPropertyName = "createdate";
-      this.createdate_goc.HeaderText = "createdate";
-      this.createdate_goc.Name = "createdate_goc";
-      this.createdate_goc.Visible = false;
-      // 
-      // CapName_goc
-      // 
-      this.CapName_goc.DataPropertyName = "CapName";
-      this.CapName_goc.HeaderText = "CapName";
-      this.CapName_goc.Name = "CapName_goc";
-      this.CapName_goc.Visible = false;
-      // 
-      // parentName_goc
-      // 
-      this.parentName_goc.DataPropertyName = "parentName";
-      this.parentName_goc.HeaderText = "parentName";
-      this.parentName_goc.Name = "parentName_goc";
-      this.parentName_goc.Visible = false;
-      // 
-      // alevel
-      // 
-      this.alevel.DataPropertyName = "alevel";
-      this.alevel.HeaderText = "alevel";
-      this.alevel.Name = "alevel";
-      this.alevel.Visible = false;
       // 
       // cmb_vnBizNhom
       // 
       this.cmb_vnBizNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cmb_vnBizNhom.FormattingEnabled = true;
-      this.cmb_vnBizNhom.Location = new System.Drawing.Point(135, 20);
+      this.cmb_vnBizNhom.Location = new System.Drawing.Point(158, 20);
       this.cmb_vnBizNhom.Name = "cmb_vnBizNhom";
-      this.cmb_vnBizNhom.Size = new System.Drawing.Size(348, 21);
+      this.cmb_vnBizNhom.Size = new System.Drawing.Size(325, 21);
       this.cmb_vnBizNhom.TabIndex = 44;
       this.cmb_vnBizNhom.SelectedIndexChanged += new System.EventHandler(this.cmbNhom_SelectedIndexChanged);
       // 
       // radioButton4
       // 
       this.radioButton4.AutoSize = true;
-      this.radioButton4.Location = new System.Drawing.Point(146, 0);
+      this.radioButton4.Location = new System.Drawing.Point(158, 0);
       this.radioButton4.Name = "radioButton4";
       this.radioButton4.Size = new System.Drawing.Size(86, 17);
       this.radioButton4.TabIndex = 28;
@@ -451,7 +355,7 @@
       this.checkedListBox1.FormattingEnabled = true;
       this.checkedListBox1.Location = new System.Drawing.Point(6, 44);
       this.checkedListBox1.Name = "checkedListBox1";
-      this.checkedListBox1.Size = new System.Drawing.Size(123, 394);
+      this.checkedListBox1.Size = new System.Drawing.Size(146, 394);
       this.checkedListBox1.TabIndex = 22;
       this.checkedListBox1.DoubleClick += new System.EventHandler(this.checkedListBox1_DoubleClick);
       // 
@@ -469,22 +373,22 @@
       // rad_hosocongty_filetxt
       // 
       this.rad_hosocongty_filetxt.AutoSize = true;
+      this.rad_hosocongty_filetxt.Checked = true;
       this.rad_hosocongty_filetxt.Location = new System.Drawing.Point(6, 19);
       this.rad_hosocongty_filetxt.Name = "rad_hosocongty_filetxt";
       this.rad_hosocongty_filetxt.Size = new System.Drawing.Size(46, 17);
       this.rad_hosocongty_filetxt.TabIndex = 20;
+      this.rad_hosocongty_filetxt.TabStop = true;
       this.rad_hosocongty_filetxt.Text = "TXT";
       this.rad_hosocongty_filetxt.UseVisualStyleBackColor = true;
       // 
       // rad_hosocongty_excel
       // 
       this.rad_hosocongty_excel.AutoSize = true;
-      this.rad_hosocongty_excel.Checked = true;
       this.rad_hosocongty_excel.Location = new System.Drawing.Point(7, 42);
       this.rad_hosocongty_excel.Name = "rad_hosocongty_excel";
       this.rad_hosocongty_excel.Size = new System.Drawing.Size(51, 17);
       this.rad_hosocongty_excel.TabIndex = 20;
-      this.rad_hosocongty_excel.TabStop = true;
       this.rad_hosocongty_excel.Text = "Excel";
       this.rad_hosocongty_excel.UseVisualStyleBackColor = true;
       // 
@@ -694,6 +598,102 @@
       this.radioButton9.Text = "Tỉnh Thành";
       this.radioButton9.UseVisualStyleBackColor = true;
       // 
+      // id_goc
+      // 
+      this.id_goc.DataPropertyName = "id";
+      this.id_goc.HeaderText = "id";
+      this.id_goc.Name = "id_goc";
+      this.id_goc.Width = 20;
+      // 
+      // maid_goc
+      // 
+      this.maid_goc.DataPropertyName = "maid";
+      this.maid_goc.HeaderText = "Mã";
+      this.maid_goc.Name = "maid_goc";
+      this.maid_goc.Width = 42;
+      // 
+      // name_goc
+      // 
+      this.name_goc.DataPropertyName = "name";
+      this.name_goc.HeaderText = "Tên Ngành Nghề";
+      this.name_goc.Name = "name_goc";
+      this.name_goc.ReadOnly = true;
+      this.name_goc.Width = 200;
+      // 
+      // tongsl_goc
+      // 
+      this.tongsl_goc.DataPropertyName = "tongsl";
+      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle2.Format = "N0";
+      dataGridViewCellStyle2.NullValue = null;
+      this.tongsl_goc.DefaultCellStyle = dataGridViewCellStyle2;
+      this.tongsl_goc.HeaderText = "SLượng";
+      this.tongsl_goc.Name = "tongsl_goc";
+      this.tongsl_goc.Width = 50;
+      // 
+      // parentId_goc
+      // 
+      this.parentId_goc.DataPropertyName = "parentid";
+      this.parentId_goc.HeaderText = "parentId";
+      this.parentId_goc.Name = "parentId_goc";
+      this.parentId_goc.Visible = false;
+      // 
+      // name2_goc
+      // 
+      this.name2_goc.DataPropertyName = "name2";
+      this.name2_goc.HeaderText = "name2";
+      this.name2_goc.Name = "name2_goc";
+      this.name2_goc.Visible = false;
+      // 
+      // path_goc
+      // 
+      this.path_goc.DataPropertyName = "path";
+      this.path_goc.HeaderText = "path";
+      this.path_goc.Name = "path_goc";
+      this.path_goc.Visible = false;
+      // 
+      // capid_goc
+      // 
+      this.capid_goc.DataPropertyName = "capid";
+      this.capid_goc.HeaderText = "capid";
+      this.capid_goc.Name = "capid_goc";
+      this.capid_goc.Visible = false;
+      // 
+      // orderid_goc
+      // 
+      this.orderid_goc.DataPropertyName = "orderid";
+      this.orderid_goc.HeaderText = "orderid";
+      this.orderid_goc.Name = "orderid_goc";
+      this.orderid_goc.Visible = false;
+      // 
+      // createdate_goc
+      // 
+      this.createdate_goc.DataPropertyName = "createdate";
+      this.createdate_goc.HeaderText = "createdate";
+      this.createdate_goc.Name = "createdate_goc";
+      this.createdate_goc.Visible = false;
+      // 
+      // CapName_goc
+      // 
+      this.CapName_goc.DataPropertyName = "CapName";
+      this.CapName_goc.HeaderText = "CapName";
+      this.CapName_goc.Name = "CapName_goc";
+      this.CapName_goc.Visible = false;
+      // 
+      // parentName_goc
+      // 
+      this.parentName_goc.DataPropertyName = "parentName";
+      this.parentName_goc.HeaderText = "parentName";
+      this.parentName_goc.Name = "parentName_goc";
+      this.parentName_goc.Visible = false;
+      // 
+      // alevel
+      // 
+      this.alevel.DataPropertyName = "alevel";
+      this.alevel.HeaderText = "alevel";
+      this.alevel.Name = "alevel";
+      this.alevel.Visible = false;
+      // 
       // frmExportVinabiz
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -777,18 +777,18 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn maid_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tongsl_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn parentId_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name2_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn path_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn capid_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderid_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn createdate_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CapName_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn parentName_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn alevel;
-    }
+    private System.Windows.Forms.DataGridViewTextBoxColumn id_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn maid_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn name_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn tongsl_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn parentId_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn name2_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn path_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn capid_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn orderid_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn createdate_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn CapName_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn parentName_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn alevel;
+  }
 }
