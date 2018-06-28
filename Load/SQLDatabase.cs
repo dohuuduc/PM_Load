@@ -715,6 +715,7 @@ namespace StorePhone
         public string ma { get; set; }
         public string name { get; set; }
         public int? paren_id { get; set; }
+        public int? dmtinhId { get; set; }
         public string path { get; set; }
         public int alevel { get; set; }
         public int orderid { get; set; }
@@ -2978,11 +2979,13 @@ namespace StorePhone
                         InfoCOMMANDTABLE.name = reader.GetString(1);
                     if (!reader.IsDBNull(2))
                         InfoCOMMANDTABLE.paren_id = reader.GetInt32(2);
-                    if (!reader.IsDBNull(3))
-                        InfoCOMMANDTABLE.path = reader.GetString(3);
+          if (!reader.IsDBNull(3))
+            InfoCOMMANDTABLE.dmtinhId = reader.GetInt32(3);
+          if (!reader.IsDBNull(4))
+                        InfoCOMMANDTABLE.path = reader.GetString(4);
                    
-                    if (!reader.IsDBNull(4))
-                        InfoCOMMANDTABLE.orderid = reader.GetInt32(4);
+                    if (!reader.IsDBNull(5))
+                        InfoCOMMANDTABLE.orderid = reader.GetInt32(5);
                     InfoCOMMANDTABLEs.Add(InfoCOMMANDTABLE);
                 }
                 return InfoCOMMANDTABLEs;

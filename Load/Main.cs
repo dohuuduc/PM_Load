@@ -3403,7 +3403,10 @@ namespace Load {
       }
     }
     private void btn_vnbizdanhmuc_Click(object sender, EventArgs e) {
-      danhMụcToolStripMenuItem1_Click(null, null);
+      //danhMụcToolStripMenuItem1_Click(null, null);
+      frmAddListVinabiz frm = new frmAddListVinabiz();
+      if (frm.ShowDialog() == DialogResult.OK) {
+      }
     }
 
 
@@ -3488,9 +3491,6 @@ namespace Load {
         string name = "";
         string path = "";
         string orderid = "";
-
-        //DataGridViewSelectedRowCollection chon = gw_vinabiz_goc.SelectedRows;
-
         foreach (DataGridViewRow row in gw_vinabiz_goc.SelectedRows) {
           DataRow[] result = _table_vinabiz.Select(string.Format("id_chon={0}", ConvertType.ToInt(row.Cells["id_vnbiz_goc"].Value)));
 
