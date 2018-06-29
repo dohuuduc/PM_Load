@@ -3406,6 +3406,13 @@ namespace Load {
       //danhMụcToolStripMenuItem1_Click(null, null);
       frmAddListVinabiz frm = new frmAddListVinabiz();
       if (frm.ShowDialog() == DialogResult.OK) {
+        foreach (var item in frm.ListId) {
+          DataRow[] result = _table_vinabiz.Select(string.Format("id_chon={0}", item));
+          if (result.Count() == 0) {
+            dm_vinabiz dm_vinabiz = SQLDatabase.Loaddm_vinabiz(string.Format("select * from dm_vinabiz where id='{0}'",item)).FirstOrDefault();
+            _table_vinabiz.Rows.Add(dm_vinabiz.id, dm_vinabiz.name, dm_vinabiz.path, dm_vinabiz.paren_id, 0, 0, -1,dm_vinabiz.orderid);
+          }
+        }
       }
     }
 
