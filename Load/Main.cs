@@ -192,7 +192,7 @@ namespace Load {
 
     }
     private void Main_FormClosing(object sender, FormClosingEventArgs e) {
-
+      if (_table_hsct == null || _table_trangvang == null || _table_vatgia == null || _table_batdongsan == null || _table_vinabiz == null) return;
       if (_table_hsct.Rows.Count == 0 && _table_trangvang.Rows.Count == 0 && _table_vatgia.Rows.Count == 0 && _table_batdongsan.Rows.Count == 0 && _table_vinabiz.Rows.Count == 0)
         if (MessageBox.Show("Bạn có chắc kết thúc chương trình không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == System.Windows.Forms.DialogResult.No) {
           //TODO: Stuff
