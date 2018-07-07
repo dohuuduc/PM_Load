@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
       this.groupBox2 = new System.Windows.Forms.GroupBox();
       this.label2 = new System.Windows.Forms.Label();
       this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -69,16 +69,15 @@
       this.rad_hosocongty_filetxt = new System.Windows.Forms.RadioButton();
       this.rad_hosocongty_excel = new System.Windows.Forms.RadioButton();
       this.btn_hosocongty_excel = new System.Windows.Forms.Button();
-      this.pr = new System.Windows.Forms.ProgressBar();
-      this.lbl_message = new System.Windows.Forms.Label();
-      this.lbl_phantram = new System.Windows.Forms.Label();
       this.groupBox5 = new System.Windows.Forms.GroupBox();
       this.groupBox6 = new System.Windows.Forms.GroupBox();
       this.radioButton7 = new System.Windows.Forms.RadioButton();
       this.radioButton8 = new System.Windows.Forms.RadioButton();
       this.tabControl1 = new System.Windows.Forms.TabControl();
+      this.tabPage2 = new System.Windows.Forms.TabPage();
       this.tabPage1 = new System.Windows.Forms.TabPage();
       this.groupBox8 = new System.Windows.Forms.GroupBox();
+      this.button3 = new System.Windows.Forms.Button();
       this.btnChuanHoa = new System.Windows.Forms.Button();
       this.picLocTrung = new System.Windows.Forms.PictureBox();
       this.chkLocTrung = new System.Windows.Forms.CheckBox();
@@ -111,8 +110,6 @@
       this.chkCHoaDiDong = new System.Windows.Forms.CheckBox();
       this.chkIDNganhNghePhu = new System.Windows.Forms.CheckBox();
       this.chkIDNghanhNgheChinh = new System.Windows.Forms.CheckBox();
-      this.tabPage2 = new System.Windows.Forms.TabPage();
-      this.button3 = new System.Windows.Forms.Button();
       this.groupBox2.SuspendLayout();
       this.groupBox4.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.gw_vinabiz_chon)).BeginInit();
@@ -121,6 +118,7 @@
       this.groupBox5.SuspendLayout();
       this.groupBox6.SuspendLayout();
       this.tabControl1.SuspendLayout();
+      this.tabPage2.SuspendLayout();
       this.tabPage1.SuspendLayout();
       this.groupBox8.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.picLocTrung)).BeginInit();
@@ -132,7 +130,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.picdienthoai_giamdoc)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picdienthoai_khachhang)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.picCHoaDiDong)).BeginInit();
-      this.tabPage2.SuspendLayout();
       this.SuspendLayout();
       // 
       // groupBox2
@@ -303,10 +300,10 @@
       // tongsl_chon
       // 
       this.tongsl_chon.DataPropertyName = "tongsl_chon";
-      dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle9.Format = "N0";
-      dataGridViewCellStyle9.NullValue = "0";
-      this.tongsl_chon.DefaultCellStyle = dataGridViewCellStyle9;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle1.Format = "N0";
+      dataGridViewCellStyle1.NullValue = "0";
+      this.tongsl_chon.DefaultCellStyle = dataGridViewCellStyle1;
       this.tongsl_chon.HeaderText = "SLượng";
       this.tongsl_chon.Name = "tongsl_chon";
       this.tongsl_chon.Width = 50;
@@ -368,10 +365,10 @@
       // tongsl_goc
       // 
       this.tongsl_goc.DataPropertyName = "tongsl";
-      dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle10.Format = "N0";
-      dataGridViewCellStyle10.NullValue = null;
-      this.tongsl_goc.DefaultCellStyle = dataGridViewCellStyle10;
+      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle2.Format = "N0";
+      dataGridViewCellStyle2.NullValue = null;
+      this.tongsl_goc.DefaultCellStyle = dataGridViewCellStyle2;
       this.tongsl_goc.HeaderText = "SLượng";
       this.tongsl_goc.Name = "tongsl_goc";
       this.tongsl_goc.Width = 50;
@@ -536,36 +533,6 @@
       this.btn_hosocongty_excel.UseVisualStyleBackColor = true;
       this.btn_hosocongty_excel.Click += new System.EventHandler(this.btn_hosocongty_excel_Click);
       // 
-      // pr
-      // 
-      this.pr.ForeColor = System.Drawing.Color.Blue;
-      this.pr.Location = new System.Drawing.Point(9, 529);
-      this.pr.Name = "pr";
-      this.pr.Size = new System.Drawing.Size(827, 18);
-      this.pr.Step = 1;
-      this.pr.TabIndex = 154;
-      // 
-      // lbl_message
-      // 
-      this.lbl_message.AutoSize = true;
-      this.lbl_message.Location = new System.Drawing.Point(6, 550);
-      this.lbl_message.MaximumSize = new System.Drawing.Size(9000, 0);
-      this.lbl_message.Name = "lbl_message";
-      this.lbl_message.Size = new System.Drawing.Size(373, 13);
-      this.lbl_message.TabIndex = 155;
-      this.lbl_message.Text = "................................................................................." +
-    ".........................................";
-      this.lbl_message.Visible = false;
-      // 
-      // lbl_phantram
-      // 
-      this.lbl_phantram.AutoSize = true;
-      this.lbl_phantram.Location = new System.Drawing.Point(842, 529);
-      this.lbl_phantram.Name = "lbl_phantram";
-      this.lbl_phantram.Size = new System.Drawing.Size(21, 13);
-      this.lbl_phantram.TabIndex = 156;
-      this.lbl_phantram.Text = "0%";
-      // 
       // groupBox5
       // 
       this.groupBox5.Controls.Add(this.groupBox6);
@@ -618,8 +585,20 @@
       this.tabControl1.Location = new System.Drawing.Point(0, 0);
       this.tabControl1.Name = "tabControl1";
       this.tabControl1.SelectedIndex = 0;
-      this.tabControl1.Size = new System.Drawing.Size(888, 604);
+      this.tabControl1.Size = new System.Drawing.Size(888, 556);
       this.tabControl1.TabIndex = 158;
+      // 
+      // tabPage2
+      // 
+      this.tabPage2.Controls.Add(this.groupBox2);
+      this.tabPage2.Controls.Add(this.groupBox5);
+      this.tabPage2.Location = new System.Drawing.Point(4, 22);
+      this.tabPage2.Name = "tabPage2";
+      this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage2.Size = new System.Drawing.Size(880, 530);
+      this.tabPage2.TabIndex = 1;
+      this.tabPage2.Text = "Xuất File";
+      this.tabPage2.UseVisualStyleBackColor = true;
       // 
       // tabPage1
       // 
@@ -673,6 +652,19 @@
       this.groupBox8.TabIndex = 158;
       this.groupBox8.TabStop = false;
       this.groupBox8.Text = "     Chọn Tất Cả";
+      // 
+      // button3
+      // 
+      this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.button3.BackColor = System.Drawing.Color.Red;
+      this.button3.ForeColor = System.Drawing.Color.Yellow;
+      this.button3.Location = new System.Drawing.Point(790, 16);
+      this.button3.Name = "button3";
+      this.button3.Size = new System.Drawing.Size(75, 23);
+      this.button3.TabIndex = 26;
+      this.button3.Text = "Xoá All";
+      this.button3.UseVisualStyleBackColor = false;
+      this.button3.Click += new System.EventHandler(this.button3_Click);
       // 
       // btnChuanHoa
       // 
@@ -1004,39 +996,11 @@
       this.chkIDNghanhNgheChinh.Text = "ID Ngành Nghề Chính";
       this.chkIDNghanhNgheChinh.UseVisualStyleBackColor = true;
       // 
-      // tabPage2
-      // 
-      this.tabPage2.Controls.Add(this.groupBox2);
-      this.tabPage2.Controls.Add(this.groupBox5);
-      this.tabPage2.Controls.Add(this.pr);
-      this.tabPage2.Controls.Add(this.lbl_phantram);
-      this.tabPage2.Controls.Add(this.lbl_message);
-      this.tabPage2.Location = new System.Drawing.Point(4, 22);
-      this.tabPage2.Name = "tabPage2";
-      this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage2.Size = new System.Drawing.Size(880, 578);
-      this.tabPage2.TabIndex = 1;
-      this.tabPage2.Text = "Xuất File";
-      this.tabPage2.UseVisualStyleBackColor = true;
-      // 
-      // button3
-      // 
-      this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.button3.BackColor = System.Drawing.Color.Red;
-      this.button3.ForeColor = System.Drawing.Color.Yellow;
-      this.button3.Location = new System.Drawing.Point(790, 16);
-      this.button3.Name = "button3";
-      this.button3.Size = new System.Drawing.Size(75, 23);
-      this.button3.TabIndex = 26;
-      this.button3.Text = "Xoá All";
-      this.button3.UseVisualStyleBackColor = false;
-      this.button3.Click += new System.EventHandler(this.button3_Click);
-      // 
       // frmExportVinabiz
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(888, 604);
+      this.ClientSize = new System.Drawing.Size(888, 556);
       this.Controls.Add(this.tabControl1);
       this.MinimizeBox = false;
       this.Name = "frmExportVinabiz";
@@ -1055,6 +1019,7 @@
       this.groupBox6.ResumeLayout(false);
       this.groupBox6.PerformLayout();
       this.tabControl1.ResumeLayout(false);
+      this.tabPage2.ResumeLayout(false);
       this.tabPage1.ResumeLayout(false);
       this.groupBox8.ResumeLayout(false);
       this.groupBox8.PerformLayout();
@@ -1067,8 +1032,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.picdienthoai_giamdoc)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picdienthoai_khachhang)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.picCHoaDiDong)).EndInit();
-      this.tabPage2.ResumeLayout(false);
-      this.tabPage2.PerformLayout();
       this.ResumeLayout(false);
 
         }
@@ -1084,15 +1047,12 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button btn_hosocongty_excel;
-        private System.Windows.Forms.ProgressBar pr;
-        private System.Windows.Forms.Label lbl_message;
         private System.Windows.Forms.ComboBox cmb_vnBizNhom;
         private System.Windows.Forms.DataGridView gw_vinabiz_goc;
         private System.Windows.Forms.DataGridView gw_vinabiz_chon;
         private System.Windows.Forms.Button btn_vinabiz_Bo;
         private System.Windows.Forms.Button btn_vinabiz_Xoa;
         private System.Windows.Forms.Button btn_vinabiz_Them;
-        private System.Windows.Forms.Label lbl_phantram;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.RadioButton radCon;
         private System.Windows.Forms.RadioButton radCha;
