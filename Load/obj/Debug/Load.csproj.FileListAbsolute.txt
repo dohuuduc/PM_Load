@@ -230,3 +230,4 @@ C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\HtmlAgilityPack.xml
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Newtonsoft.Json.xml
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csproj.CopyComplete
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmAddListVinabiz.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csprojAssemblyReference.cache

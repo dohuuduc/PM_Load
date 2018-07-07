@@ -728,7 +728,11 @@ namespace StorePhone
         public string dmhosocongty { get; set; }
         public int hosocongtyid { get; set; }
     }
-
+    public class dm_vinabiz_LoaiDinhNghia {
+      public int id { get; set; }
+      public string name { get; set; }
+      public int orderid { get; set; }
+    }
     public class dm_Tinh {
         public int id { get; set; }
         public string ma { get; set; }
@@ -2897,10 +2901,132 @@ namespace StorePhone
             }
         }
 
-        #endregion
+    #endregion
 
-        #region vinabiz
-        public static List<dm_Tinh> Loaddm_tinh(string sql)
+    #region vinabiz
+    public static List<dm_vinabiz_LoaiDinhNghia> Loaddm_LoaiDinhNghia(string sql) {
+      SqlConnection cnn = null;
+      SqlCommand cmd = null;
+      SqlDataReader reader = null;
+      dm_vinabiz_LoaiDinhNghia InfoCOMMANDTABLE;
+      List<dm_vinabiz_LoaiDinhNghia> InfoCOMMANDTABLEs = null;
+
+      try {
+        InfoCOMMANDTABLEs = new List<dm_vinabiz_LoaiDinhNghia>();
+
+        cnn = new SqlConnection();
+        cnn.ConnectionString = ConnectionString;
+        cnn.Open();
+        cnn.FireInfoMessageEventOnUserErrors = false;
+
+        cmd = new SqlCommand();
+        cmd.CommandText = sql;
+        cmd.Connection = cnn;
+        reader = cmd.ExecuteReader();
+        while (reader.Read()) {
+          InfoCOMMANDTABLE = new dm_vinabiz_LoaiDinhNghia();
+
+
+          if (!reader.IsDBNull(0))
+            InfoCOMMANDTABLE.id = reader.GetInt32(0);
+          if (!reader.IsDBNull(1))
+            InfoCOMMANDTABLE.name = reader.GetString(1);
+          if (!reader.IsDBNull(2))
+            InfoCOMMANDTABLE.orderid = reader.GetInt32(2);
+          InfoCOMMANDTABLEs.Add(InfoCOMMANDTABLE);
+        }
+        return InfoCOMMANDTABLEs;
+      }
+      catch (Exception ex) {
+        throw ex;
+      }
+      finally {
+        if (cnn.State == ConnectionState.Open)
+          cnn.Close();
+      }
+    }
+
+    public static bool Adddm_vinabiz_LoaiDinhNghia(dm_vinabiz_LoaiDinhNghia record) {
+      SqlConnection cnn = null;
+      SqlCommand cmd = null;
+
+      object objectID;
+      try {
+        if (record == null)
+          return false;
+
+        cnn = new SqlConnection();
+        cnn.ConnectionString = ConnectionString;
+        cnn.FireInfoMessageEventOnUserErrors = false;
+        cnn.Open();
+
+        cmd = new SqlCommand();
+        cmd.Connection = cnn;
+        //--- Insert Record
+        cmd.CommandText = "Insert into dm_vinabiz_LoaiDinhNghia( name, orderid)" +
+                            "values( @name,  @orderid);" +
+                            "Select SCOPE_IDENTITY();";
+
+        cmd.Parameters.AddWithValue("@name", record.name);
+        cmd.Parameters.AddWithValue("@orderid", record.orderid);
+
+        objectID = cmd.ExecuteScalar();
+
+        if (objectID == null || objectID == DBNull.Value) return false;
+
+        record.id = Convert.ToInt32(objectID);
+
+        return true;
+      }
+      catch (Exception ex) {
+        writer = LogWriter.Instance;
+        return false;
+      }
+      finally {
+        if (cnn.State == ConnectionState.Open)
+          cnn.Close();
+      }
+    }
+
+    public static bool Updatedm_vinabiz_LoaiDinhNghia(dm_vinabiz_LoaiDinhNghia record) {
+      SqlConnection connection = null;
+      SqlCommand cmd = null;
+
+      try {
+        if (record == null) return false;
+
+        // Make connection to database
+        connection = new SqlConnection();
+        connection.ConnectionString = ConnectionString;
+        connection.FireInfoMessageEventOnUserErrors = false;
+        connection.Open();
+        // Create command to update GeneralGuessGroup record
+        cmd = new SqlCommand();
+        cmd.Connection = connection;
+
+        cmd.CommandText = "Update [dm_vinabiz_LoaiDinhNghia] Set name=@name, "
+                            + " orderid=@orderid "
+                            + " where ID='" + record.id + "'";
+        cmd.CommandType = CommandType.Text;
+
+        cmd.Parameters.AddWithValue("@name", record.name);
+        cmd.Parameters.AddWithValue("@orderid", record.orderid);
+
+        cmd.ExecuteNonQuery();
+        return true;
+      }
+      catch (Exception ex) {
+        MessageBox.Show(ex.Message, "Updatedm_vinabiz_LoaiDinhNghia");
+        return false;
+      }
+      finally {
+        if (connection != null)
+          connection.Close();
+      }
+    }
+
+
+    public static List<dm_Tinh> Loaddm_tinh(string sql)
         {
             SqlConnection cnn = null;
             SqlCommand cmd = null;

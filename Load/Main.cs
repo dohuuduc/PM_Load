@@ -67,12 +67,8 @@ namespace Load {
     public Main() {
       try {
         InitializeComponent();
+        Utilities.Xp_cmdshell();
         writer = LogWriter.Instance;
-
-
-
-
-
       }
       catch (Exception ex) {
         MessageBox.Show(ex.Message, "Form1_Load");

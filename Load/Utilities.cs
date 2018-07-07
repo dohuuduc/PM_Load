@@ -79,7 +79,19 @@ namespace Load {
     }
   }
 
-  class Utilities { }
+  class Utilities {
+    public static void Xp_cmdshell() {
+      try {
+        DataTable table = SQLDatabase.ExcDataTable("EXEC sp_configure 'xp_cmdshell'");
+        if (ConvertType.ToInt(table.Rows[0]["config_value"]) == 0) {
+          SQLDatabase.ExcNonQuery("EXEC sp_configure 'xp_cmdshell', 1; ");
+        }
+      }
+      catch (Exception ex) {
+        MessageBox.Show(ex.Message, "Xp_cmdshell");
+      }
+    }
+  }
 
   #region Write LinkQueues
   public class LinkQueues {

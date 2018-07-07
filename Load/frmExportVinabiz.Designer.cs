@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
       this.groupBox2 = new System.Windows.Forms.GroupBox();
       this.label2 = new System.Windows.Forms.Label();
       this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -300,10 +300,10 @@
       // tongsl_chon
       // 
       this.tongsl_chon.DataPropertyName = "tongsl_chon";
-      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle1.Format = "N0";
-      dataGridViewCellStyle1.NullValue = "0";
-      this.tongsl_chon.DefaultCellStyle = dataGridViewCellStyle1;
+      dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle5.Format = "N0";
+      dataGridViewCellStyle5.NullValue = "0";
+      this.tongsl_chon.DefaultCellStyle = dataGridViewCellStyle5;
       this.tongsl_chon.HeaderText = "SLượng";
       this.tongsl_chon.Name = "tongsl_chon";
       this.tongsl_chon.Width = 50;
@@ -365,10 +365,10 @@
       // tongsl_goc
       // 
       this.tongsl_goc.DataPropertyName = "tongsl";
-      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle2.Format = "N0";
-      dataGridViewCellStyle2.NullValue = null;
-      this.tongsl_goc.DefaultCellStyle = dataGridViewCellStyle2;
+      dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle6.Format = "N0";
+      dataGridViewCellStyle6.NullValue = null;
+      this.tongsl_goc.DefaultCellStyle = dataGridViewCellStyle6;
       this.tongsl_goc.HeaderText = "SLượng";
       this.tongsl_goc.Name = "tongsl_goc";
       this.tongsl_goc.Width = 50;
@@ -606,7 +606,7 @@
       this.tabPage1.Location = new System.Drawing.Point(4, 22);
       this.tabPage1.Name = "tabPage1";
       this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage1.Size = new System.Drawing.Size(880, 578);
+      this.tabPage1.Size = new System.Drawing.Size(880, 530);
       this.tabPage1.TabIndex = 0;
       this.tabPage1.Text = "Chuẩn Hóa";
       this.tabPage1.UseVisualStyleBackColor = true;
@@ -648,17 +648,16 @@
       this.groupBox8.Controls.Add(this.chkIDNghanhNgheChinh);
       this.groupBox8.Location = new System.Drawing.Point(3, 6);
       this.groupBox8.Name = "groupBox8";
-      this.groupBox8.Size = new System.Drawing.Size(871, 227);
+      this.groupBox8.Size = new System.Drawing.Size(869, 184);
       this.groupBox8.TabIndex = 158;
       this.groupBox8.TabStop = false;
-      this.groupBox8.Text = "     Chọn Tất Cả";
+      this.groupBox8.Text = "     Chọn Tất Cả Chuẩn Hoá";
       // 
       // button3
       // 
-      this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
       this.button3.BackColor = System.Drawing.Color.Red;
       this.button3.ForeColor = System.Drawing.Color.Yellow;
-      this.button3.Location = new System.Drawing.Point(790, 16);
+      this.button3.Location = new System.Drawing.Point(788, 13);
       this.button3.Name = "button3";
       this.button3.Size = new System.Drawing.Size(75, 23);
       this.button3.TabIndex = 26;
@@ -668,8 +667,7 @@
       // 
       // btnChuanHoa
       // 
-      this.btnChuanHoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-      this.btnChuanHoa.Location = new System.Drawing.Point(790, 176);
+      this.btnChuanHoa.Location = new System.Drawing.Point(788, 144);
       this.btnChuanHoa.Name = "btnChuanHoa";
       this.btnChuanHoa.Size = new System.Drawing.Size(75, 23);
       this.btnChuanHoa.TabIndex = 20;
@@ -680,7 +678,7 @@
       // picLocTrung
       // 
       this.picLocTrung.Image = global::Load.Properties.Resources.ajax_loader;
-      this.picLocTrung.Location = new System.Drawing.Point(611, 9);
+      this.picLocTrung.Location = new System.Drawing.Point(684, 13);
       this.picLocTrung.Name = "picLocTrung";
       this.picLocTrung.Size = new System.Drawing.Size(24, 23);
       this.picLocTrung.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -691,7 +689,7 @@
       // chkLocTrung
       // 
       this.chkLocTrung.AutoSize = true;
-      this.chkLocTrung.Location = new System.Drawing.Point(524, 15);
+      this.chkLocTrung.Location = new System.Drawing.Point(597, 19);
       this.chkLocTrung.Name = "chkLocTrung";
       this.chkLocTrung.Size = new System.Drawing.Size(75, 17);
       this.chkLocTrung.TabIndex = 17;
@@ -711,7 +709,7 @@
       // label9
       // 
       this.label9.AutoSize = true;
-      this.label9.Location = new System.Drawing.Point(641, 72);
+      this.label9.Location = new System.Drawing.Point(714, 76);
       this.label9.Name = "label9";
       this.label9.Size = new System.Drawing.Size(0, 13);
       this.label9.TabIndex = 15;
@@ -720,7 +718,7 @@
       // picNganhNghe
       // 
       this.picNganhNghe.Image = global::Load.Properties.Resources.ajax_loader;
-      this.picNganhNghe.Location = new System.Drawing.Point(611, 64);
+      this.picNganhNghe.Location = new System.Drawing.Point(684, 68);
       this.picNganhNghe.Name = "picNganhNghe";
       this.picNganhNghe.Size = new System.Drawing.Size(24, 23);
       this.picNganhNghe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -731,7 +729,7 @@
       // chkNganhNghe
       // 
       this.chkNganhNghe.AutoSize = true;
-      this.chkNganhNghe.Location = new System.Drawing.Point(524, 68);
+      this.chkNganhNghe.Location = new System.Drawing.Point(597, 72);
       this.chkNganhNghe.Name = "chkNganhNghe";
       this.chkNganhNghe.Size = new System.Drawing.Size(87, 17);
       this.chkNganhNghe.TabIndex = 13;
@@ -741,7 +739,7 @@
       // label8
       // 
       this.label8.AutoSize = true;
-      this.label8.Location = new System.Drawing.Point(641, 46);
+      this.label8.Location = new System.Drawing.Point(714, 50);
       this.label8.Name = "label8";
       this.label8.Size = new System.Drawing.Size(0, 13);
       this.label8.TabIndex = 12;
@@ -750,7 +748,7 @@
       // picTinhThanh
       // 
       this.picTinhThanh.Image = global::Load.Properties.Resources.ajax_loader;
-      this.picTinhThanh.Location = new System.Drawing.Point(611, 38);
+      this.picTinhThanh.Location = new System.Drawing.Point(684, 42);
       this.picTinhThanh.Name = "picTinhThanh";
       this.picTinhThanh.Size = new System.Drawing.Size(24, 23);
       this.picTinhThanh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -761,7 +759,7 @@
       // ckhTinhThanh
       // 
       this.ckhTinhThanh.AutoSize = true;
-      this.ckhTinhThanh.Location = new System.Drawing.Point(524, 42);
+      this.ckhTinhThanh.Location = new System.Drawing.Point(597, 46);
       this.ckhTinhThanh.Name = "ckhTinhThanh";
       this.ckhTinhThanh.Size = new System.Drawing.Size(81, 17);
       this.ckhTinhThanh.TabIndex = 10;
