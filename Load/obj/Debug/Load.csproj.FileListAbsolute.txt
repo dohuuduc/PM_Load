@@ -187,7 +187,16 @@ D:\GitHub Desktop\PM_Load\Load\bin\Debug\Load.pdb
 D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.Waiting.resources
 D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.csproj.CoreCompileInputs.cache
 D:\GitHub Desktop\PM_Load\Load\obj\Debug\Load.csproj.CopyComplete
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Load.exe.config
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Load.exe
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Load.pdb
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\HtmlAgilityPack.dll
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Newtonsoft.Json.dll
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\HtmlAgilityPack.xml
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Newtonsoft.Json.xml
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frm_dmVinabiz.resources
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmAddListVinabiz.resources
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmCauHinh.resources
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmChangPassword.resources
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmDialogColumn.resources
@@ -218,16 +227,6 @@ C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.Properties.Resourc
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.Waiting.resources
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csproj.GenerateResource.cache
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csproj.CoreCompileInputs.cache
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csproj.CopyComplete
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.exe
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.pdb
-C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Load.exe.config
-C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Load.exe
-C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Load.pdb
-C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\HtmlAgilityPack.dll
-C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Newtonsoft.Json.dll
-C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\HtmlAgilityPack.pdb
-C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\HtmlAgilityPack.xml
-C:\Users\luulong\Documents\GitHub\PM_Load\Load\bin\Debug\Newtonsoft.Json.xml
-C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csproj.CopyComplete
-C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.frmAddListVinabiz.resources
-C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csprojAssemblyReference.cache

@@ -33,6 +33,8 @@
       this.button1 = new System.Windows.Forms.Button();
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tabPage7 = new System.Windows.Forms.TabPage();
+      this.label47 = new System.Windows.Forms.Label();
+      this.cmbLoaiVinabiz = new System.Windows.Forms.ComboBox();
       this.lblmessagevina = new System.Windows.Forms.RichTextBox();
       this.lbl_thatbai_vinabiz = new System.Windows.Forms.Label();
       this.label52 = new System.Windows.Forms.Label();
@@ -61,7 +63,6 @@
       this.pic_vnbiz_out = new System.Windows.Forms.PictureBox();
       this.pic_vnbiz_import = new System.Windows.Forms.PictureBox();
       this.label49 = new System.Windows.Forms.Label();
-      this.btn_vinabiz_Start = new System.Windows.Forms.Button();
       this.cmb_vnBizNhom = new System.Windows.Forms.ComboBox();
       this.lbl_vinabiz_khoa = new System.Windows.Forms.Label();
       this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -529,6 +530,8 @@
       // 
       // tabPage7
       // 
+      this.tabPage7.Controls.Add(this.label47);
+      this.tabPage7.Controls.Add(this.cmbLoaiVinabiz);
       this.tabPage7.Controls.Add(this.lblmessagevina);
       this.tabPage7.Controls.Add(this.lbl_thatbai_vinabiz);
       this.tabPage7.Controls.Add(this.label52);
@@ -549,7 +552,6 @@
       this.tabPage7.Controls.Add(this.pic_vnbiz_out);
       this.tabPage7.Controls.Add(this.pic_vnbiz_import);
       this.tabPage7.Controls.Add(this.label49);
-      this.tabPage7.Controls.Add(this.btn_vinabiz_Start);
       this.tabPage7.Controls.Add(this.cmb_vnBizNhom);
       this.tabPage7.Controls.Add(this.lbl_vinabiz_khoa);
       this.tabPage7.Controls.Add(this.groupBox8);
@@ -564,6 +566,25 @@
       this.tabPage7.TabIndex = 7;
       this.tabPage7.Text = "vinabiz.org";
       this.tabPage7.UseVisualStyleBackColor = true;
+      // 
+      // label47
+      // 
+      this.label47.AutoSize = true;
+      this.label47.Location = new System.Drawing.Point(11, 47);
+      this.label47.Name = "label47";
+      this.label47.Size = new System.Drawing.Size(37, 13);
+      this.label47.TabIndex = 171;
+      this.label47.Text = "P.Loại";
+      // 
+      // cmbLoaiVinabiz
+      // 
+      this.cmbLoaiVinabiz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.cmbLoaiVinabiz.FormattingEnabled = true;
+      this.cmbLoaiVinabiz.Location = new System.Drawing.Point(52, 44);
+      this.cmbLoaiVinabiz.Name = "cmbLoaiVinabiz";
+      this.cmbLoaiVinabiz.Size = new System.Drawing.Size(146, 21);
+      this.cmbLoaiVinabiz.TabIndex = 170;
+      this.cmbLoaiVinabiz.SelectedIndexChanged += new System.EventHandler(this.cmbLoaiVinabiz_SelectedIndexChanged);
       // 
       // lblmessagevina
       // 
@@ -856,24 +877,13 @@
       this.label49.TabIndex = 44;
       this.label49.Text = "Danh Sách Ngành Nghề Quét";
       // 
-      // btn_vinabiz_Start
-      // 
-      this.btn_vinabiz_Start.Location = new System.Drawing.Point(904, 3);
-      this.btn_vinabiz_Start.Name = "btn_vinabiz_Start";
-      this.btn_vinabiz_Start.Size = new System.Drawing.Size(13, 14);
-      this.btn_vinabiz_Start.TabIndex = 42;
-      this.btn_vinabiz_Start.Text = "Start";
-      this.btn_vinabiz_Start.UseVisualStyleBackColor = true;
-      this.btn_vinabiz_Start.Visible = false;
-      this.btn_vinabiz_Start.Click += new System.EventHandler(this.button15_Click);
-      // 
       // cmb_vnBizNhom
       // 
       this.cmb_vnBizNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       this.cmb_vnBizNhom.FormattingEnabled = true;
-      this.cmb_vnBizNhom.Location = new System.Drawing.Point(3, 44);
+      this.cmb_vnBizNhom.Location = new System.Drawing.Point(204, 44);
       this.cmb_vnBizNhom.Name = "cmb_vnBizNhom";
-      this.cmb_vnBizNhom.Size = new System.Drawing.Size(536, 21);
+      this.cmb_vnBizNhom.Size = new System.Drawing.Size(335, 21);
       this.cmb_vnBizNhom.TabIndex = 43;
       this.cmb_vnBizNhom.SelectedIndexChanged += new System.EventHandler(this.cmb_vnBizNhom_SelectedIndexChanged);
       // 
@@ -5420,7 +5430,6 @@
         private System.Windows.Forms.PictureBox pic_vnbiz_out;
         private System.Windows.Forms.PictureBox pic_vnbiz_import;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Button btn_vinabiz_Start;
         private System.Windows.Forms.ComboBox cmb_vnBizNhom;
         private System.Windows.Forms.Label lbl_vinabiz_khoa;
         private System.Windows.Forms.GroupBox groupBox8;
@@ -5542,6 +5551,8 @@
     private System.Windows.Forms.Label lbl_thanhcong_vinabiz;
     private System.Windows.Forms.Label label46;
     private System.Windows.Forms.RichTextBox lblmessagevina;
+    private System.Windows.Forms.Label label47;
+    private System.Windows.Forms.ComboBox cmbLoaiVinabiz;
   }
 }
 

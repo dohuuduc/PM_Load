@@ -140,10 +140,14 @@ namespace Load {
         gw_bds_chon.DataSource = _table_batdongsan;
         gw_bds_chon.Sort(gw_bds_chon.Columns["id_bds_chon"], ListSortDirection.Ascending);
         /*---------vinabiz-----*/
-        getdataVinabiz();
+       
         _listHsct = SQLDatabase.Loaddm_hsct("select * from dm_hsct where path<>''");
         _listdm_Tinh = SQLDatabase.Loaddm_tinh("select * from dm_tinh");
+        BindDM_loaidinhnghia();
+        cmbLoaiVinabiz.SelectedValue = SQLDatabase.Loaddm_LoaiDinhNghia("select * from dm_vinabiz_LoaiDinhNghia where isAct=1").FirstOrDefault().id;
+        getdataVinabiz(ConvertType.ToInt(cmbLoaiVinabiz.SelectedValue));
         BinddmVinabiz();
+       
         _table_vinabiz = CreateTable_vinabiz();
         gw_vinabiz_chon.DataSource = _table_vinabiz;
         gw_vinabiz_chon.Sort(gw_vinabiz_chon.Columns["id_vnbiz_chon"], ListSortDirection.Ascending);
@@ -3411,15 +3415,20 @@ namespace Load {
         }
       }
     }
-
+    private void BindDM_loaidinhnghia() {
+      DataTable table = SQLDatabase.ExcDataTable(string.Format("select id,name from dm_vinabiz_LoaiDinhNghia order by orderid"));
+      cmbLoaiVinabiz.DataSource = table;
+      cmbLoaiVinabiz.ValueMember = "id";
+      cmbLoaiVinabiz.DisplayMember = "name";
+    }
 
     public void BinddmVinabiz() {
-      getdataVinabiz();
+      getdataVinabiz(ConvertType.ToInt(cmbLoaiVinabiz.SelectedValue));
       DataTable table_nhom = new DataTable();
       table_nhom.Columns.Add("id", typeof(int));
       table_nhom.Columns.Add("name", typeof(string));
 
-      table_nhom.Rows.Add(-1, "---Chọn Tỉnh / Huyện---");
+      table_nhom.Rows.Add(-1, string.Format("---Chọn {0}---",cmbLoaiVinabiz.Text));
 
       foreach (DataRow item in _danhmucVinabiz.Select(string.Format("alevel=0"))) {
         table_nhom.Rows.Add(item["id"], string.Format("Tp/Tỉnh -->{0}", item["name"]));
@@ -3440,7 +3449,7 @@ namespace Load {
         return;
       if (nhom.ToString() == "System.Data.DataRowView")
         return;
-      getdataVinabiz();
+      getdataVinabiz(ConvertType.ToInt(cmbLoaiVinabiz.SelectedValue));
       try {
         DataTable tb_new = _table_vinabiz.Clone();
         tb_new.Clear();
@@ -3553,303 +3562,6 @@ namespace Load {
         MessageBox.Show(ex.Message, "button3_Click");
       }
     }
-    private void button15_Click(object sender, EventArgs e) {
-      //ParameterizedThreadStart par;
-      //ArrayList arr;
-      //try
-      //{
-      //    if (gw_vinabiz_chon.SelectedRows.Count == 0)
-      //    {
-      //        MessageBox.Show("Vui lòng chọn ngành nghề kinh doanh", "Thông báo");
-      //        return;
-      //    }
-
-      //    if (!_logintemp)
-      //    {
-      //        MessageBox.Show("Vui lòng đăng nhập vinabiz", "Thông báo");
-      //        return;
-      //    }
-
-      //    Utilities_vinabiz._Timeout = ConvertType.ToInt(txt_trangvang_timeout.Text);
-      //    Utilities_vinabiz._Sleep = ConvertType.ToInt(txt_trangvang_sleep.Text);
-      //    Utilities_vinabiz._listquetcan = SQLDatabase.Loaddm_vinabiz_map("select * from dm_vinabiz_map");
-      //    Utilities_vinabiz._regexs = _regexs;
-      //    Utilities_vinabiz._dau_so = _dauso;
-
-      //    if (btn_vinabiz_Start.Text == "Start")
-      //    {
-      //        btn_vinabiz_Start.Text = "Stop";
-      //        setTitleWindow(7, true);
-
-      //        Utilities_vinabiz.hasProcess = true;
-      //        Utilities_vinabiz._Timeout = ConvertType.ToInt(txt_vinabiz_timeout.Text);
-      //        Utilities_vinabiz._Sleep = ConvertType.ToInt(txt_vinabiz_sleep.Text);
-      //        Utilities_vinabiz._listHsct = _listHsct;
-      //        Utilities_vinabiz._listTinh = _listdm_Tinh;
-      //        btn_vinabiz_Them.Enabled = false;
-      //        btn_vinabiz_Xoa.Enabled = false;
-      //        btn_vinabiz_Bo.Enabled = false;
-
-
-      //        cmb_vnBizNhom.Enabled = false;
-      //        chk_vinabiz_lanlap.Enabled = false;
-
-
-      //        pic_vnbiz_import.Enabled = false;
-      //        pic_vnbiz_out.Enabled = false;
-
-
-      //        lbl_vinabiz_message1.Visible = true;
-      //        lbl_vinabiz_message2.Visible = true;
-      //        lbl_vinabiz_khoa.Visible = true;
-
-      //        gw_vinabiz_goc.Enabled = false;
-      //        gw_vinabiz_chon.Enabled = false;
-
-      //        txt_vinabiz_sleep.Enabled = false;
-      //        btn_vinabiz_sleep_giam.Enabled = false;
-      //        btn_vinabiz_sleep_tang.Enabled = false;
-
-      //        txt_vinabiz_lanlap.Enabled = false;
-      //        btn_vinabiz_lanlap_giam.Enabled = false;
-      //        btn_vinabiz_lanlap_tang.Enabled = false;
-
-
-      //        txt_vinabiz_timeout.Enabled = false;
-      //        btn_vinabiz_timeout_giam.Enabled = false;
-      //        btn_vinabiz_timeout_tang.Enabled = false;
-
-
-
-      //        if (!chk_vinabiz_lanlap.Checked)
-      //            Utilities_vinabiz._lanquetlai = ConvertType.ToInt(txt_vinabiz_lanlap.Text);
-      //        else
-      //            Utilities_vinabiz._lanquetlai = -1;
-
-      //    }
-      //    else
-      //    {
-      //        btn_vinabiz_Start.Text = "Start";
-      //        Utilities_vinabiz.hasProcess = false;
-      //        setTitleWindow(7, false);
-
-      //        btn_vinabiz_Them.Enabled = true;
-      //        btn_vinabiz_Xoa.Enabled = true;
-      //        btn_vinabiz_Bo.Enabled = true;
-
-
-      //        cmb_vnBizNhom.Enabled = true;
-
-      //        chk_vinabiz_lanlap.Enabled = true;
-
-
-      //        pic_vnbiz_import.Enabled = true;
-      //        pic_vnbiz_out.Enabled = true;
-
-
-      //        lbl_vinabiz_message1.Visible = true;
-      //        lbl_vinabiz_message2.Visible = true;
-      //        lbl_vinabiz_khoa.Visible = true;
-
-      //        gw_vinabiz_goc.Enabled = true;
-      //        gw_vinabiz_chon.Enabled = true;
-
-
-
-      //        txt_vinabiz_sleep.Enabled = true;
-      //        btn_vinabiz_sleep_giam.Enabled = true;
-      //        btn_vinabiz_sleep_tang.Enabled = true;
-
-      //        txt_vinabiz_lanlap.Enabled = true;
-      //        btn_vinabiz_lanlap_giam.Enabled = true;
-      //        btn_vinabiz_lanlap_tang.Enabled = true;
-
-
-      //        txt_vinabiz_timeout.Enabled = true;
-      //        btn_vinabiz_timeout_giam.Enabled = true;
-      //        btn_vinabiz_timeout_tang.Enabled = true;
-
-
-      //        if (chk_vinabiz_lanlap.Checked)
-      //        {
-      //            txt_vinabiz_lanlap.Enabled = false;
-      //        }
-      //    }
-
-      //    /*Cấu hình controll*/
-      //    Control.CheckForIllegalCrossThreadCalls = false;
-
-      //    par = new ParameterizedThreadStart(ProcessVinabiz);
-      //    theardProcess = new Thread(par);
-
-      //    arr = new ArrayList();
-      //    arr.Add(lbl_vinabiz_message1);
-      //    arr.Add(lbl_vinabiz_message2);
-      //    arr.Add(lbl_vinabiz_khoa);
-      //    arr.Add(lbl_vinabiz_phantram);
-      //    arr.Add(pr_vinabiz);
-
-      //    //http://stackoverflow.com/questions/3542061/how-do-i-stop-a-thread-when-my-winform-application-closes
-      //    theardProcess.IsBackground = true;
-      //    theardProcess.Start(arr);
-      //}
-      //catch (Exception ex)
-      //{
-      //    writer.WriteToLog(string.Format("{0}   - {1} - {2}", ex.Message, "button2_Click", "error1"));
-      //    MessageBox.Show(ex.Message, "button2_Click");
-      //}
-    }
-
-
-    //private void ProcessVinabiz(object arrControl)
-    //{
-    //    try
-    //    {
-    //        //----- Add control process from
-
-    //        ArrayList arr1 = (ArrayList)arrControl;
-    //        Label lbl_vinabiz_message1 = (Label)arr1[0];
-    //        Label lbl_vinabiz_message2 = (Label)arr1[1];
-    //        Label lbl_vinabiz_khoa = (Label)arr1[2];
-    //        Label lbl_vinabiz_phantram = (Label)arr1[3];
-    //        ProgressBar pr_vinabiz = (ProgressBar)arr1[4];
-
-    //        /*===============================================================*/
-    //        int x = 0;
-    //        string strUrl = "";
-    //        while (gw_vinabiz_chon.Rows.Count > 0)
-    //        {
-    //            if (!Utilities_vinabiz.hasProcess) break;
-
-    //            int id = Convert.ToInt32(gw_vinabiz_chon.Rows[x].Cells["id_vnbiz_chon"].Value);
-    //            string strPath = gw_vinabiz_chon.Rows[x].Cells["path_vnbiz_chon"].Value.ToString();
-    //            string strName = gw_vinabiz_chon.Rows[x].Cells["name_vnbiz_chon"].Value.ToString();
-    //            int pathlimit = Convert.ToInt32(gw_vinabiz_chon.Rows[x].Cells["end_chon"].Value);
-    //            Utilities_vinabiz._PathLimit = pathlimit;
-
-
-
-    //            strUrl = strPath.Replace(" ", "").Replace("\t", "");
-
-
-
-
-    //            infoPathmuaban pagemax = Utilities_vinabiz.getPageMax(strUrl, arrControl);
-
-    //            DataTable tblFiltered = _table_vinabiz.AsEnumerable()
-    //                                        .Where(row => row.Field<int>("id_chon") == id)
-    //                                        .CopyToDataTable();
-    //            if (tblFiltered != null && tblFiltered.Rows.Count != 0)
-    //                pagemax.PageNow = ConvertType.ToInt(tblFiltered.Rows[0]["trang_chon"]);
-    //            //pagemax.TotalPagingMax = pathlimit == -1 ? pagemax.TotalPagingMax : pathlimit > pagemax.TotalPagingMax ? pagemax.TotalPagingMax : pathlimit;/*by:luulong load khong gio han:01/2018*/
-    //            pagemax.TotalPagingMax = pathlimit == -1 ? pagemax.TotalPagingMax : pathlimit;
-
-    //            pr_vinabiz.Maximum = pagemax.TotalPagingMax;
-    //            pr_vinabiz.Value = pagemax.PageNow;
-    //            lbl_vinabiz_phantram.Text = "0% Hoàn thành...";
-    //            lbl_vinabiz_phantram.Update();
-
-    //            int i = pagemax.PageNow;
-    //            do
-    //            {
-    //                if (!Utilities_vinabiz.hasProcess) break;
-    //                {
-    //                    /*kiễm tra trang*/
-    //                    if (Utilities_vinabiz._PathLimit != -1 && Utilities_vinabiz._PathLimit == i) break;
-    //                    lbl_vinabiz_message1.Text = string.Format("Đang Xử Lý: {0} \n Trang: {1}\\ Tổng Trang: {2}", strName, i, pagemax.TotalPagingMax);
-    //                    lbl_vinabiz_message1.Update();
-
-    //                    lbl_vinabiz_phantram.Text = Math.Round((i / (double)pagemax.TotalPagingMax) * 100, 0) + "% Hoàn thành...";
-    //                    lbl_vinabiz_phantram.Update();
-    //                    //lbl_message_sotrang.Text = string.Format(" Kết quả {0} /{1} trang - trong {2}", i, pagemax.TotalPagingMax, String.Format("{0:#,##0.##}", _modelTrang.TotalResult));
-    //                    ///lbl_message_sotrang.Update();
-
-
-
-    //                    DataRow[] customerRow = _table_vinabiz.Select(string.Format("id_chon = '{0}'", id));
-    //                    customerRow[0]["trang_chon"] = i;
-
-    //                    if (i == 0) i = 1;
-    //                    string strUrl1 = "";
-    //                    strUrl1 = string.Format(strUrl + "/{0}", i);
-
-    //                    int solanlap = 0;
-    //                    //Utilities_vinabiz.IdDanhmuc = id;
-    //                    Utilities_vinabiz.getwebBrowser(strUrl1, ref solanlap, arrControl);
-
-    //                    i = i + 1;
-
-    //                    pr_vinabiz.PerformStep();
-    //                    pr_vinabiz.Update();
-    //                }
-    //            } while (i <= pagemax.TotalPagingMax);
-    //            /*neu dang stop thi khong dc phep xoa*/
-    //            if (Utilities_vinabiz.hasProcess)
-    //                if (_table_vinabiz.Select(string.Format("id_chon={0}", id)).Count() != 0)
-    //                    _table_vinabiz.Select(string.Format("id_chon={0}", id))[0].Delete();
-    //        }
-    //        /*===================================================================*/
-    //        lbl_vinabiz_message1.Text = Utilities_vinabiz.hasProcess ? "Hoàn thành load số liệu." : "Tạm dừng do người dùng!!!";
-    //        if (Utilities_vinabiz.hasProcess)
-    //        {
-    //            Utilities_vinabiz._thanhcong = 0;
-    //            Utilities_vinabiz._thatbai = 0;
-    //        }
-
-    //        btn_vinabiz_Start.Text = "Start";
-    //        Utilities_vinabiz.hasProcess = false;
-    //        setTitleWindow(7, false);
-
-    //        btn_vinabiz_Them.Enabled = true;
-    //        btn_vinabiz_Xoa.Enabled = true;
-    //        btn_vinabiz_Bo.Enabled = true;
-
-
-    //        cmb_vnBizNhom.Enabled = true;
-
-    //        chk_vinabiz_lanlap.Enabled = true;
-
-
-    //        pic_vnbiz_import.Enabled = true;
-    //        pic_vnbiz_out.Enabled = true;
-
-
-    //        //lbl_vinabiz_message1.Visible = false;
-    //        //lbl_vinabiz_message2.Visible = false;
-    //        lbl_vinabiz_khoa.Visible = false;
-
-    //        gw_vinabiz_goc.Enabled = true;
-    //        gw_vinabiz_chon.Enabled = true;
-
-
-
-    //        txt_vinabiz_sleep.Enabled = true;
-    //        btn_vinabiz_sleep_giam.Enabled = true;
-    //        btn_vinabiz_sleep_tang.Enabled = true;
-
-    //        txt_vinabiz_lanlap.Enabled = true;
-    //        btn_vinabiz_lanlap_giam.Enabled = true;
-    //        btn_vinabiz_lanlap_tang.Enabled = true;
-
-
-    //        txt_vinabiz_timeout.Enabled = true;
-    //        btn_vinabiz_timeout_giam.Enabled = true;
-    //        btn_vinabiz_timeout_tang.Enabled = true;
-
-
-
-    //        if (chk_vinabiz_lanlap.Checked)
-    //        {
-    //            txt_vinabiz_lanlap.Enabled = false;
-    //        }
-
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        writer.WriteToLog(string.Format("{0}   - {1} - {2}", ex.Message, "ProcessTrangVang", "error1"));
-    //        MessageBox.Show(ex.Message, "ProcessTrangVang");
-    //    }
-    //}
 
     private bool SavaAs_vinabiz() {
       PleaseWait objPleaseWait = null;
@@ -3884,8 +3596,16 @@ namespace Load {
       }
     }
 
-    private void getdataVinabiz() {
-      _danhmucVinabiz = SQLDatabase.ExcDataTable(" WITH temp(id, name,path,parentId,orderid, alevel)  as (  Select id, name, path,parentId, orderid,0 as aLevel  From dm_vinabiz  Where parentId is null  Union All  Select b.id, b.name, b.path,b.parentId,b.orderid, a.alevel + 1  From temp as a, dm_vinabiz as b  Where a.id = b.parentId  )  Select *  From temp");
+    private void getdataVinabiz(int phanloai) {
+      if (cmbLoaiVinabiz != null) {
+        //_danhmucVinabiz = SQLDatabase.ExcDataTable(" WITH temp(id, name,path,parentId,orderid, alevel)  as (  Select id, name, path,parentId, orderid,0 as aLevel  From dm_vinabiz  Where parentId is null  Union All  Select b.id, b.name, b.path,b.parentId,b.orderid, a.alevel + 1  From temp as a, dm_vinabiz as b  Where a.id = b.parentId  )  Select *  From temp");
+        _danhmucVinabiz = SQLDatabase.ExcDataTable(string.Format(" WITH temp(id, name,path,parentId,orderid, alevel)  as (  " +
+                          " Select id, name, path,parentId, orderid,0 as aLevel  " +
+                          " From dm_vinabiz  Where parentId is null  and isloai={0} " +
+                          "Union All  " +
+                          " Select b.id, b.name, b.path,b.parentId,b.orderid, a.alevel + 1 " +
+                          " From temp as a, dm_vinabiz as b  Where a.id = b.parentId  and isloai={0} )  Select *  From temp ", phanloai));
+      }
     }
     private void gw_vinabiz_goc_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
       foreach (DataGridViewRow row in this.gw_vinabiz_goc.Rows) {
@@ -4797,6 +4517,10 @@ namespace Load {
       catch (Exception ex) {
         throw;
       }
+    }
+
+    private void cmbLoaiVinabiz_SelectedIndexChanged(object sender, EventArgs e) {
+      BinddmVinabiz();
     }
   }
 }
