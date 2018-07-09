@@ -50,20 +50,19 @@
       this.orderid = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.tabControl1 = new System.Windows.Forms.TabControl();
       this.tabPage1 = new System.Windows.Forms.TabPage();
-      this.label6 = new System.Windows.Forms.Label();
       this.cmbLoai = new System.Windows.Forms.ComboBox();
       this.tabPage2 = new System.Windows.Forms.TabPage();
       this.groupBox1 = new System.Windows.Forms.GroupBox();
       this.GridviewLoaiDinhNghia = new System.Windows.Forms.DataGridView();
-      this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.lamTươiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.thêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.id_loaidinhnghia = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.stt = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.name_loaidinhnghia = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.orderid_loaidinhnghia = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.del = new System.Windows.Forms.DataGridViewImageColumn();
       this.isAct = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+      this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.lamTươiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.thêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
       this.tabControl1.SuspendLayout();
       this.tabPage1.SuspendLayout();
@@ -81,6 +80,7 @@
       this.button3.TabIndex = 31;
       this.button3.Text = "Xóa";
       this.button3.UseVisualStyleBackColor = true;
+      this.button3.Click += new System.EventHandler(this.button3_Click);
       // 
       // label1
       // 
@@ -97,7 +97,7 @@
       this.comboBox1.FormattingEnabled = true;
       this.comboBox1.Location = new System.Drawing.Point(107, 36);
       this.comboBox1.Name = "comboBox1";
-      this.comboBox1.Size = new System.Drawing.Size(484, 21);
+      this.comboBox1.Size = new System.Drawing.Size(500, 21);
       this.comboBox1.TabIndex = 26;
       this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
       // 
@@ -106,7 +106,7 @@
       this.txt_id.Location = new System.Drawing.Point(107, 8);
       this.txt_id.Name = "txt_id";
       this.txt_id.ReadOnly = true;
-      this.txt_id.Size = new System.Drawing.Size(27, 20);
+      this.txt_id.Size = new System.Drawing.Size(57, 20);
       this.txt_id.TabIndex = 28;
       // 
       // label5
@@ -173,7 +173,7 @@
       // 
       // txt_name
       // 
-      this.txt_name.Location = new System.Drawing.Point(224, 10);
+      this.txt_name.Location = new System.Drawing.Point(240, 10);
       this.txt_name.Name = "txt_name";
       this.txt_name.Size = new System.Drawing.Size(367, 20);
       this.txt_name.TabIndex = 25;
@@ -181,7 +181,7 @@
       // label2
       // 
       this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(145, 13);
+      this.label2.Location = new System.Drawing.Point(165, 13);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(73, 13);
       this.label2.TabIndex = 36;
@@ -218,7 +218,7 @@
       this.id.DataPropertyName = "id";
       this.id.HeaderText = "ID";
       this.id.Name = "id";
-      this.id.Width = 30;
+      this.id.Width = 50;
       // 
       // name
       // 
@@ -234,7 +234,7 @@
       this.Path.HeaderText = "Link";
       this.Path.Name = "Path";
       this.Path.ReadOnly = true;
-      this.Path.Width = 400;
+      this.Path.Width = 380;
       // 
       // parentId
       // 
@@ -263,7 +263,6 @@
       // 
       // tabPage1
       // 
-      this.tabPage1.Controls.Add(this.label6);
       this.tabPage1.Controls.Add(this.cmbLoai);
       this.tabPage1.Controls.Add(this.label5);
       this.tabPage1.Controls.Add(this.button3);
@@ -286,16 +285,6 @@
       this.tabPage1.TabIndex = 0;
       this.tabPage1.Text = "Danh Mục";
       this.tabPage1.UseVisualStyleBackColor = true;
-      // 
-      // label6
-      // 
-      this.label6.AutoSize = true;
-      this.label6.Location = new System.Drawing.Point(8, 94);
-      this.label6.Name = "label6";
-      this.label6.Size = new System.Drawing.Size(58, 13);
-      this.label6.TabIndex = 40;
-      this.label6.Text = "Nhóm Loại";
-      this.label6.Click += new System.EventHandler(this.label6_Click);
       // 
       // cmbLoai
       // 
@@ -350,30 +339,9 @@
       this.GridviewLoaiDinhNghia.Size = new System.Drawing.Size(690, 563);
       this.GridviewLoaiDinhNghia.TabIndex = 0;
       this.GridviewLoaiDinhNghia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridviewLoaiDinhNghia_CellClick);
+      this.GridviewLoaiDinhNghia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridviewLoaiDinhNghia_CellContentClick);
       this.GridviewLoaiDinhNghia.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.GridviewLoaiDinhNghia_CellPainting);
       this.GridviewLoaiDinhNghia.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridviewLoaiDinhNghia_CellValueChanged);
-      // 
-      // contextMenuStrip1
-      // 
-      this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lamTươiToolStripMenuItem,
-            this.thêmToolStripMenuItem});
-      this.contextMenuStrip1.Name = "contextMenuStrip1";
-      this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
-      // 
-      // lamTươiToolStripMenuItem
-      // 
-      this.lamTươiToolStripMenuItem.Name = "lamTươiToolStripMenuItem";
-      this.lamTươiToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-      this.lamTươiToolStripMenuItem.Text = "Làm Tươi";
-      this.lamTươiToolStripMenuItem.Click += new System.EventHandler(this.lamTươiToolStripMenuItem_Click);
-      // 
-      // thêmToolStripMenuItem
-      // 
-      this.thêmToolStripMenuItem.Name = "thêmToolStripMenuItem";
-      this.thêmToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-      this.thêmToolStripMenuItem.Text = "Thêm";
-      this.thêmToolStripMenuItem.Click += new System.EventHandler(this.thêmToolStripMenuItem_Click);
       // 
       // id_loaidinhnghia
       // 
@@ -381,6 +349,7 @@
       this.id_loaidinhnghia.HeaderText = "id";
       this.id_loaidinhnghia.Name = "id_loaidinhnghia";
       this.id_loaidinhnghia.Visible = false;
+      this.id_loaidinhnghia.Width = 30;
       // 
       // stt
       // 
@@ -417,6 +386,28 @@
       this.isAct.Resizable = System.Windows.Forms.DataGridViewTriState.True;
       this.isAct.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
       this.isAct.Width = 50;
+      // 
+      // contextMenuStrip1
+      // 
+      this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lamTươiToolStripMenuItem,
+            this.thêmToolStripMenuItem});
+      this.contextMenuStrip1.Name = "contextMenuStrip1";
+      this.contextMenuStrip1.Size = new System.Drawing.Size(125, 48);
+      // 
+      // lamTươiToolStripMenuItem
+      // 
+      this.lamTươiToolStripMenuItem.Name = "lamTươiToolStripMenuItem";
+      this.lamTươiToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+      this.lamTươiToolStripMenuItem.Text = "Làm Tươi";
+      this.lamTươiToolStripMenuItem.Click += new System.EventHandler(this.lamTươiToolStripMenuItem_Click);
+      // 
+      // thêmToolStripMenuItem
+      // 
+      this.thêmToolStripMenuItem.Name = "thêmToolStripMenuItem";
+      this.thêmToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+      this.thêmToolStripMenuItem.Text = "Thêm";
+      this.thêmToolStripMenuItem.Click += new System.EventHandler(this.thêmToolStripMenuItem_Click);
       // 
       // frm_dmVinabiz
       // 
@@ -458,11 +449,6 @@
         private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Path;
-        private System.Windows.Forms.DataGridViewTextBoxColumn parentId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderid;
     private System.Windows.Forms.TabControl tabControl1;
     private System.Windows.Forms.TabPage tabPage1;
     private System.Windows.Forms.TabPage tabPage2;
@@ -471,7 +457,6 @@
     private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     private System.Windows.Forms.ToolStripMenuItem lamTươiToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem thêmToolStripMenuItem;
-    private System.Windows.Forms.Label label6;
     private System.Windows.Forms.ComboBox cmbLoai;
     private System.Windows.Forms.DataGridViewTextBoxColumn id_loaidinhnghia;
     private System.Windows.Forms.DataGridViewTextBoxColumn stt;
@@ -479,5 +464,10 @@
     private System.Windows.Forms.DataGridViewTextBoxColumn orderid_loaidinhnghia;
     private System.Windows.Forms.DataGridViewImageColumn del;
     private System.Windows.Forms.DataGridViewCheckBoxColumn isAct;
+    private System.Windows.Forms.DataGridViewTextBoxColumn id;
+    private System.Windows.Forms.DataGridViewTextBoxColumn name;
+    private System.Windows.Forms.DataGridViewTextBoxColumn Path;
+    private System.Windows.Forms.DataGridViewTextBoxColumn parentId;
+    private System.Windows.Forms.DataGridViewTextBoxColumn orderid;
   }
 }

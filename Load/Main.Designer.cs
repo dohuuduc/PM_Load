@@ -82,13 +82,6 @@
       this.lbl_vinabiz_message1 = new System.Windows.Forms.Label();
       this.lbl_vinabiz_message2 = new System.Windows.Forms.Label();
       this.gw_vinabiz_goc = new System.Windows.Forms.DataGridView();
-      this.id_vnbiz_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.name_vnbiz_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.parentId_vnbiz_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.path_vnbiz_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.trang_chon1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.orderid_vnbiz_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.gw_vinabiz_chon = new System.Windows.Forms.DataGridView();
       this.id_vnbiz_chon = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.name_vnbiz_chon = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -453,6 +446,15 @@
       this.label4 = new System.Windows.Forms.Label();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
       this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+      this.id_vnbiz_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.name_vnbiz_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.parentId_vnbiz_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.path_vnbiz_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.trang_chon1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.orderid_vnbiz_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.alevel_vinabiz_goc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.end_chon_vinbiz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.tabControl1.SuspendLayout();
       this.tabPage7.SuspendLayout();
       this.groupBox12.SuspendLayout();
@@ -639,7 +641,7 @@
       // 
       // btnvinaStartNew
       // 
-      this.btnvinaStartNew.Location = new System.Drawing.Point(981, 42);
+      this.btnvinaStartNew.Location = new System.Drawing.Point(1017, 42);
       this.btnvinaStartNew.Name = "btnvinaStartNew";
       this.btnvinaStartNew.Size = new System.Drawing.Size(75, 23);
       this.btnvinaStartNew.TabIndex = 163;
@@ -698,16 +700,16 @@
       this.txtvinabiz_email.ForeColor = System.Drawing.Color.Blue;
       this.txtvinabiz_email.Location = new System.Drawing.Point(44, 12);
       this.txtvinabiz_email.Name = "txtvinabiz_email";
-      this.txtvinabiz_email.Size = new System.Drawing.Size(174, 20);
+      this.txtvinabiz_email.Size = new System.Drawing.Size(142, 20);
       this.txtvinabiz_email.TabIndex = 156;
       this.txtvinabiz_email.Text = "doremonquan9@gmail.com";
       // 
       // txtvinabiz_pass
       // 
-      this.txtvinabiz_pass.Location = new System.Drawing.Point(285, 12);
+      this.txtvinabiz_pass.Location = new System.Drawing.Point(252, 12);
       this.txtvinabiz_pass.Name = "txtvinabiz_pass";
       this.txtvinabiz_pass.PasswordChar = '*';
-      this.txtvinabiz_pass.Size = new System.Drawing.Size(99, 20);
+      this.txtvinabiz_pass.Size = new System.Drawing.Size(132, 20);
       this.txtvinabiz_pass.TabIndex = 158;
       this.txtvinabiz_pass.Text = "!@#$%^&*(";
       // 
@@ -723,7 +725,7 @@
       // label45
       // 
       this.label45.AutoSize = true;
-      this.label45.Location = new System.Drawing.Point(230, 15);
+      this.label45.Location = new System.Drawing.Point(193, 15);
       this.label45.Name = "label45";
       this.label45.Size = new System.Drawing.Size(53, 13);
       this.label45.TabIndex = 159;
@@ -1089,6 +1091,8 @@
             this.path_vnbiz_goc,
             this.trang_chon1,
             this.orderid_vnbiz_goc,
+            this.alevel_vinabiz_goc,
+            this.end_chon_vinbiz,
             this.dataGridViewTextBoxColumn11});
       this.gw_vinabiz_goc.Location = new System.Drawing.Point(3, 71);
       this.gw_vinabiz_goc.Name = "gw_vinabiz_goc";
@@ -1097,56 +1101,6 @@
       this.gw_vinabiz_goc.Size = new System.Drawing.Size(570, 369);
       this.gw_vinabiz_goc.TabIndex = 37;
       this.gw_vinabiz_goc.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gw_vinabiz_goc_DataBindingComplete);
-      // 
-      // id_vnbiz_goc
-      // 
-      this.id_vnbiz_goc.DataPropertyName = "id_chon";
-      this.id_vnbiz_goc.HeaderText = "id";
-      this.id_vnbiz_goc.Name = "id_vnbiz_goc";
-      this.id_vnbiz_goc.Width = 50;
-      // 
-      // name_vnbiz_goc
-      // 
-      this.name_vnbiz_goc.DataPropertyName = "name_chon";
-      this.name_vnbiz_goc.HeaderText = "Tên Ngành Nghề";
-      this.name_vnbiz_goc.Name = "name_vnbiz_goc";
-      this.name_vnbiz_goc.ReadOnly = true;
-      this.name_vnbiz_goc.Width = 250;
-      // 
-      // parentId_vnbiz_goc
-      // 
-      this.parentId_vnbiz_goc.DataPropertyName = "parentId_chon";
-      this.parentId_vnbiz_goc.HeaderText = "parentId";
-      this.parentId_vnbiz_goc.Name = "parentId_vnbiz_goc";
-      this.parentId_vnbiz_goc.Visible = false;
-      // 
-      // path_vnbiz_goc
-      // 
-      this.path_vnbiz_goc.DataPropertyName = "path_chon";
-      this.path_vnbiz_goc.HeaderText = "path";
-      this.path_vnbiz_goc.Name = "path_vnbiz_goc";
-      this.path_vnbiz_goc.Width = 250;
-      // 
-      // trang_chon1
-      // 
-      this.trang_chon1.DataPropertyName = "trang_chon";
-      this.trang_chon1.HeaderText = "trang_chon";
-      this.trang_chon1.Name = "trang_chon1";
-      this.trang_chon1.Visible = false;
-      // 
-      // orderid_vnbiz_goc
-      // 
-      this.orderid_vnbiz_goc.DataPropertyName = "orderid_chon";
-      this.orderid_vnbiz_goc.HeaderText = "orderid";
-      this.orderid_vnbiz_goc.Name = "orderid_vnbiz_goc";
-      this.orderid_vnbiz_goc.Visible = false;
-      // 
-      // dataGridViewTextBoxColumn11
-      // 
-      this.dataGridViewTextBoxColumn11.DataPropertyName = "createdate";
-      this.dataGridViewTextBoxColumn11.HeaderText = "createdate";
-      this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-      this.dataGridViewTextBoxColumn11.Visible = false;
       // 
       // gw_vinabiz_chon
       // 
@@ -5042,6 +4996,70 @@
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
       // 
+      // id_vnbiz_goc
+      // 
+      this.id_vnbiz_goc.DataPropertyName = "id_chon";
+      this.id_vnbiz_goc.HeaderText = "id";
+      this.id_vnbiz_goc.Name = "id_vnbiz_goc";
+      this.id_vnbiz_goc.Width = 50;
+      // 
+      // name_vnbiz_goc
+      // 
+      this.name_vnbiz_goc.DataPropertyName = "name_chon";
+      this.name_vnbiz_goc.HeaderText = "Tên Ngành Nghề";
+      this.name_vnbiz_goc.Name = "name_vnbiz_goc";
+      this.name_vnbiz_goc.ReadOnly = true;
+      this.name_vnbiz_goc.Width = 250;
+      // 
+      // parentId_vnbiz_goc
+      // 
+      this.parentId_vnbiz_goc.DataPropertyName = "parentid_chon";
+      this.parentId_vnbiz_goc.HeaderText = "parentId";
+      this.parentId_vnbiz_goc.Name = "parentId_vnbiz_goc";
+      this.parentId_vnbiz_goc.Visible = false;
+      // 
+      // path_vnbiz_goc
+      // 
+      this.path_vnbiz_goc.DataPropertyName = "path_chon";
+      this.path_vnbiz_goc.HeaderText = "path";
+      this.path_vnbiz_goc.Name = "path_vnbiz_goc";
+      this.path_vnbiz_goc.Width = 250;
+      // 
+      // trang_chon1
+      // 
+      this.trang_chon1.DataPropertyName = "trang_chon";
+      this.trang_chon1.HeaderText = "trang_chon";
+      this.trang_chon1.Name = "trang_chon1";
+      this.trang_chon1.Visible = false;
+      // 
+      // orderid_vnbiz_goc
+      // 
+      this.orderid_vnbiz_goc.DataPropertyName = "orderid_chon";
+      this.orderid_vnbiz_goc.HeaderText = "orderid";
+      this.orderid_vnbiz_goc.Name = "orderid_vnbiz_goc";
+      this.orderid_vnbiz_goc.Visible = false;
+      // 
+      // alevel_vinabiz_goc
+      // 
+      this.alevel_vinabiz_goc.DataPropertyName = "alevel";
+      this.alevel_vinabiz_goc.HeaderText = "alevel";
+      this.alevel_vinabiz_goc.Name = "alevel_vinabiz_goc";
+      this.alevel_vinabiz_goc.Visible = false;
+      // 
+      // end_chon_vinbiz
+      // 
+      this.end_chon_vinbiz.DataPropertyName = "end_chon";
+      this.end_chon_vinbiz.HeaderText = "end_chon";
+      this.end_chon_vinbiz.Name = "end_chon_vinbiz";
+      this.end_chon_vinbiz.Visible = false;
+      // 
+      // dataGridViewTextBoxColumn11
+      // 
+      this.dataGridViewTextBoxColumn11.DataPropertyName = "createdate";
+      this.dataGridViewTextBoxColumn11.HeaderText = "createdate";
+      this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+      this.dataGridViewTextBoxColumn11.Visible = false;
+      // 
       // Main
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5511,13 +5529,6 @@
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_vnbiz_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name_vnbiz_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn parentId_vnbiz_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn path_vnbiz_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trang_chon1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderid_vnbiz_goc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_si_goc;
         private System.Windows.Forms.DataGridViewTextBoxColumn name_si_goc;
         private System.Windows.Forms.DataGridViewTextBoxColumn parentId_si_goc;
@@ -5553,6 +5564,15 @@
     private System.Windows.Forms.RichTextBox lblmessagevina;
     private System.Windows.Forms.Label label47;
     private System.Windows.Forms.ComboBox cmbLoaiVinabiz;
+    private System.Windows.Forms.DataGridViewTextBoxColumn id_vnbiz_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn name_vnbiz_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn parentId_vnbiz_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn path_vnbiz_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn trang_chon1;
+    private System.Windows.Forms.DataGridViewTextBoxColumn orderid_vnbiz_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn alevel_vinabiz_goc;
+    private System.Windows.Forms.DataGridViewTextBoxColumn end_chon_vinbiz;
+    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
   }
 }
 

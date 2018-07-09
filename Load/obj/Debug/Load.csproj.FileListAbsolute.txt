@@ -230,3 +230,4 @@ C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csproj.CoreCompile
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csproj.CopyComplete
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.exe
 C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.pdb
+C:\Users\luulong\Documents\GitHub\PM_Load\Load\obj\Debug\Load.csprojAssemblyReference.cache

@@ -146,7 +146,7 @@ namespace Load {
 
     private void button1_Click(object sender, EventArgs e) {
       string strsql = "";
-      strsql = "select max(orderid) as vitri from dm_vinabiz";
+      strsql = string.Format("select max(orderid) as vitri from dm_vinabiz where isloai={0}",cmbLoai.SelectedValue);
       DataTable table = SQLDatabase.ExcDataTable(strsql);
 
       txt_name.Text = "";
@@ -157,46 +157,50 @@ namespace Load {
     }
 
     private void button2_Click(object sender, EventArgs e) {
-      bool isnew = true;
-      int vistrisua = 0;
+      try {
+        bool isnew = true;
+        int vistrisua = 0;
 
 
-      dm_vinabiz dm = new dm_vinabiz();
-      dm.id = ConvertType.ToInt(txt_id.Text);
-      dm.name = txt_name.Text.Trim();
-      dm.path = txt_path.Text;
-      dm.paren_id = comboBox1.SelectedValue.Equals(-1) ? (int?)null : ConvertType.ToInt(comboBox1.SelectedValue);
-      dm.isLoai = ConvertType.ToInt(cmbLoai.SelectedValue);
+        dm_vinabiz dm = new dm_vinabiz();
+        dm.id = ConvertType.ToInt(txt_id.Text);
+        dm.name = txt_name.Text.Trim();
+        dm.path = txt_path.Text;
+        dm.paren_id = comboBox1.SelectedValue.Equals(-1) ? (int?)null : ConvertType.ToInt(comboBox1.SelectedValue);
+        dm.isLoai = ConvertType.ToInt(cmbLoai.SelectedValue);
 
-      dm.orderid = ConvertType.ToInt(txt_orderid.Text);
-      if (dm.id == 0) {
-        isnew = true;
-        SQLDatabase.AdddmVinabiz(dm);
-      }
-      else {
-        isnew = false;
-        vistrisua = dataGridView1.SelectedRows[0].Index;
-        SQLDatabase.Updatedm_vinabiz(dm);
-      }
+        dm.orderid = ConvertType.ToInt(txt_orderid.Text);
+        if (dm.id == 0) {
+          isnew = true;
+          SQLDatabase.AdddmVinabiz(dm);
+        }
+        else {
+          isnew = false;
+          vistrisua = dataGridView1.SelectedRows[0].Index;
+          SQLDatabase.Updatedm_vinabiz(dm);
+        }
 
-      int vttruoc = comboBox1.SelectedIndex;
-      BindDM_NhomVatGia();
-      BindDMSanPham(ConvertType.ToInt(comboBox1.SelectedValue));
-      comboBox1.SelectedIndex = vttruoc;
+        int vttruoc = comboBox1.SelectedIndex;
+        BindDM_NhomVatGia();
+        BindDMSanPham(ConvertType.ToInt(comboBox1.SelectedValue));
+        comboBox1.SelectedIndex = vttruoc;
 
 
-      if (isnew) {
-        int nRowIndex = dataGridView1.Rows.Count - 1;
-        if (dataGridView1.Rows.Count - 1 >= nRowIndex) {
-          dataGridView1.FirstDisplayedScrollingRowIndex = nRowIndex;
-          dataGridView1.Rows[nRowIndex].Selected = true;
-          dataGridView1.Rows[nRowIndex].Cells[0].Selected = true;
+        if (isnew) {
+          int nRowIndex = dataGridView1.Rows.Count - 1;
+          if (dataGridView1.Rows.Count - 1 >= nRowIndex) {
+            dataGridView1.FirstDisplayedScrollingRowIndex = nRowIndex;
+            dataGridView1.Rows[nRowIndex].Selected = true;
+            dataGridView1.Rows[nRowIndex].Cells[0].Selected = true;
+          }
+        }
+        else {
+          dataGridView1.Rows[vistrisua].Selected = true;
         }
       }
-      else {
-        dataGridView1.Rows[vistrisua].Selected = true;
+      catch (Exception ex) {
+        MessageBox.Show(ex.Message, "button2_Click");
       }
-
     }
 
     private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
@@ -309,13 +313,13 @@ namespace Load {
     }
 
     private void cmbLoai_SelectedIndexChanged(object sender, EventArgs e) {
+      txt_name.Text = "";
+      txt_id.Text = "";
+      txt_orderid.Text = "";
+      txt_path.Text = "";
+      txt_name.Focus();
       BindDM_NhomVatGia();
     }
-
-    private void label6_Click(object sender, EventArgs e) {
-
-    }
-
     private void GridviewLoaiDinhNghia_CellPainting(object sender, DataGridViewCellPaintingEventArgs e) {
       if ((e.ColumnIndex == 5) && e.RowIndex >= 0) {
         var value = (bool?)e.FormattedValue;
@@ -330,6 +334,42 @@ namespace Load {
         RadioButtonRenderer.DrawRadioButton(e.Graphics, location, state);
         e.Handled = true;
       }
+    }
+
+    private void button3_Click(object sender, EventArgs e) {
+      try {
+        if (txt_id.Text == "") return;
+        SQLDatabase.ExcNonQuery(string.Format("delete from dm_vinabiz where parentId={0}",txt_id.Text));
+        SQLDatabase.ExcNonQuery(string.Format("delete from dm_vinabiz where id={0}", txt_id.Text));
+
+        BindDM_NhomVatGia();
+      }
+      catch (Exception ex) {
+        MessageBox.Show(ex.Message, "button3_Click");
+      }
+    }
+
+    private void GridviewLoaiDinhNghia_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+      bool Value = System.Convert.ToBoolean(GridviewLoaiDinhNghia.Rows[e.RowIndex].Cells["id_loaidinhnghia"].Value);
+      string id = GridviewLoaiDinhNghia.Rows[e.RowIndex].Cells["id_loaidinhnghia"].Value.ToString();
+      if (Value) {
+        int Index = e.RowIndex;
+        for (int row = 0; row <= GridviewLoaiDinhNghia.Rows.Count - 1; row++) {
+          if (row != Index)
+            GridviewLoaiDinhNghia.Rows[row].Cells["isAct"].Value = 0;
+        }
+      }
+      else {
+        GridviewLoaiDinhNghia.Rows[e.RowIndex].Cells["isAct"].Value = true;
+        int Index = e.RowIndex;
+        for (int row = 0; row <= GridviewLoaiDinhNghia.Rows.Count - 1; row++) {
+          if (row != Index)
+            GridviewLoaiDinhNghia.Rows[row].Cells["isAct"].Value = false;
+        }
+      }
+
+      SQLDatabase.ExcNonQuery("update dm_vinabiz_LoaiDinhNghia set [isAct]=0");
+      SQLDatabase.ExcNonQuery(string.Format("update dm_vinabiz_LoaiDinhNghia set [isAct]=1 where id='{0}'", id));
     }
   }
 }

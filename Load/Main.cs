@@ -3445,18 +3445,12 @@ namespace Load {
     }
     public void BindVietBiz(object nhom) {
 
-      if (nhom == null || nhom.ToString() == "-1")
-        return;
-      if (nhom.ToString() == "System.Data.DataRowView")
-        return;
+      if (nhom == null || nhom.ToString() == "-1") { gw_vinabiz_goc.DataSource = _table_vinabiz.Clone(); return; }
+      if (nhom.ToString() == "System.Data.DataRowView") { gw_vinabiz_goc.DataSource = _table_vinabiz.Clone(); return; }
       getdataVinabiz(ConvertType.ToInt(cmbLoaiVinabiz.SelectedValue));
       try {
         DataTable tb_new = _table_vinabiz.Clone();
         tb_new.Clear();
-
-
-
-
         DataRow mang = _danhmucVinabiz.Select(string.Format("id={0}", ConvertType.ToInt(nhom))).FirstOrDefault();
         if (mang == null) return;
 
@@ -3492,7 +3486,6 @@ namespace Load {
         BindVietBiz(cmb_vnBizNhom.SelectedValue);
       }
       catch (Exception) {
-
         throw;
       }
     }
@@ -3609,11 +3602,11 @@ namespace Load {
     }
     private void gw_vinabiz_goc_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e) {
       foreach (DataGridViewRow row in this.gw_vinabiz_goc.Rows) {
-        if (row.Cells["alevel"].Value.ToString() == "0") {
+        if (row.Cells["alevel_vinabiz_goc"].Value.ToString() == "0") {
           row.DefaultCellStyle.BackColor = Color.LightGray;
           row.DefaultCellStyle.Font = new Font("Tahoma", 8, FontStyle.Bold);
         }
-        else if (row.Cells["alevel"].Value.ToString() == "1") {
+        else if (row.Cells["alevel_vinabiz_goc"].Value.ToString() == "1") {
           row.DefaultCellStyle.BackColor = Color.Gray;
           row.DefaultCellStyle.Font = new Font("Tahoma", 8);
         }
@@ -4521,6 +4514,7 @@ namespace Load {
 
     private void cmbLoaiVinabiz_SelectedIndexChanged(object sender, EventArgs e) {
       BinddmVinabiz();
+      
     }
   }
 }
